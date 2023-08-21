@@ -1,0 +1,105 @@
+page {
+  background-color:#3C3C3C;
+  height: 100vh;
+}
+.discountCouponsContainer {
+  color: #fff;
+}
+
+.commonWrapNew {
+  top: 254rpx;
+  background-color: #3C3C3C;
+}
+.head {
+  width: 100%;
+  padding-top: 150rpx;
+  padding-bottom: 14rpx;
+  background-color: #18181d;
+}
+.backLogo {
+  width: 80rpx;
+  height: 60rpx;
+}
+.title {
+  display: inline-block;
+  margin-left: 40rpx;
+  font-size: 32rpx;
+  line-height: 60rpx;
+  vertical-align: bottom;
+}
+.couponsTabs {
+  display: flex;
+  /* justify-content: center; */
+  margin-top: 66rpx;
+  padding-left: 46rpx;
+  padding-bottom: 4rpx;
+  color: #808080;
+  font-size: 24rpx;
+}
+.couponsTabs .couponsTab {
+  margin-right: 36rpx;
+  /* width: 188rpx;
+  height: 60rpx;
+  border: 1px solid rgba(233, 31, 134, 0.3);
+  box-sizing: border-box; */
+  /* text-align: center;
+  line-height: 60rpx; */
+  /* background-color: rgba(233, 31, 134, 0.3); */
+}
+.couponsTabs .couponsTabLeft {
+  /* border-radius: 12rpx 0 0 12rpx; */
+}
+.couponsTabs .couponsTabRight {
+  /* border-radius: 0 12rpx 12rpx 0; */
+}
+.couponsTabs .couponsActive {
+  color: #FFC000;
+  /* border: 1px solid #e91f86;
+  box-shadow: inset 0px 0px 52rpx 0px #e91f82; */
+}
+.list {
+  padding: 44rpx 60rpx 0;
+  /* height: 1200rpx;
+  overflow: scroll; */
+  min-height: 400rpx;
+  /* max-height: 80vh;
+  overflow: scroll; */
+  background-color: #3C3C3C;
+  border-radius: 28rpx 28rpx 0 0;
+}
+
+.commonScrollBox {
+  top: 30rpx;
+}
+.discountCouponsContainer .list .commonHeadNew {
+  top: -16rpx;
+}
+.couponsScrollBox {
+  padding: 44rpx 60rpx 40rpx;
+  box-sizing: border-box;
+}
+.noCoupons {
+  padding-top: 60rpx;
+  text-align: center;
+  color: #000;
+  font-size: 28rpx;
+  color: #FFC000;
+}
+.couponItem {
+  margin-top: 36rpx;
+  display: flex;
+  justify-content: center;
+}
+.list .tip {
+  margin-top: 12rpx;
+  font-size: 24rpx;
+}
+.list .use {
+  color: #FFC000;
+}
+.list .used {
+  color: #808080;
+}
+.list .expired {
+  color: #8c8c8c;
+}

@@ -1,0 +1,8 @@
+{
+  "defaultTitle": "会员卡",
+  "navigationBarForceEnable": "true",
+  "component": true,
+  "usingComponents": {
+    "prize-coupon": "/components/prizeCoupon/index"
+  }
+}

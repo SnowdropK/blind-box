@@ -1,0 +1,15 @@
+<view class="notice-noticeWrap" hidden="{{!show}}" touchMove="stopScroll">
+  <view class="notice-box">
+    <view class="notice-cont">
+      <view class="notice-title">{{title}}</view>
+      <scroll-view class="notice-wordBox" scroll-y="{{true}}">
+        <view class="notice-word">
+          <!-- 富文本 -->
+          <rich-text a:if="{{isRichText}}" nodes="{{info}}"></rich-text>
+          <text a:else>{{info}}</text>
+        </view>
+      </scroll-view>
+      <image src="/images/icon/common/close.png" catchTap="close" alt="" class="notice-closeBtn"></image>
+    </view>
+  </view>
+</view>

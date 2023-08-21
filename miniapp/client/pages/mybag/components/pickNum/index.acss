@@ -1,0 +1,158 @@
+/* 数量选择弹窗 */
+.pickNumMask {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9999999;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+.moveBox {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 398rpx;
+  padding: 28rpx 24rpx 10rpx;
+  border-radius: 24rpx;
+  color: #666666;
+  background-color: #f2f2f2;
+}
+.tipsWord {
+  width: 300rpx;
+  height: 40rpx;
+  text-align: center;
+  line-height: 50rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.tipsWord {
+  padding-left: 15rpx;
+  font-size: 20rpx;
+}
+.pickNumTips {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  font-size: 28rpx;
+}
+.pickNumInfo {
+  margin-top: 46rpx;
+  width: 100%;
+  font-size: 28rpx;
+  text-align: center;
+  letter-spacing: 5rpx;
+}
+.pickNumInfo .pickNumInfoText {
+  color: #E69701;
+}
+.pickNumInputBox {
+  margin-top: 20rpx;
+  width: 680rpx;
+  display: flex;
+  justify-content: center;
+}
+.inputNumberBox {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid #b3b3b3;
+  border-radius: 40rpx;
+  color: #666666;
+  padding: 0 40rpx;
+  background-color: #e6e6e6;
+}
+.inputNumberBox .min {
+  width: 70rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: center;
+}
+.inputNumberBox .max {
+  width: 70rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: center;
+}
+.inputNumberBody {
+  margin: 0 20rpx;
+  border: 1px solid #b3b3b3;
+  border-radius: 14rpx;
+  background-color: #cccccc;
+  padding: 0 36rpx;
+}
+/* .reduceBtn {
+  position: relative;
+  width: 100rpx;
+}
+.reduceBtn:before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 47rpx;
+  left: 25rpx;
+  width: 50rpx;
+  height: 5rpx;
+  background-color: #90939d;
+}
+.sliderBox {
+  position: relative;
+  top: 10rpx;
+  width: 450rpx;
+  height: 100rpx;
+}
+.addBtn {
+  position: relative;
+  width: 100rpx;
+}
+.addBtn:before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 47rpx;
+  left: 29rpx;
+  width: 41rpx;
+  height: 5rpx;
+  background-color: #90939d;
+}
+.addBtn:after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 29rpx;
+  left: 47rpx;
+  width: 5rpx;
+  height: 41rpx;
+  background-color: #90939d;
+} */
+.uping {
+  -webkit-animation: uping 0.2s linear forwards;
+}
+
+@-webkit-keyframes uping {
+  0% {
+    transform: translate(0, 680rpx);
+  }
+
+  100% {
+    opacity: translate(0, 0);
+  }
+}
+
+.downing {
+  -webkit-animation: downing 0.2s linear forwards;
+}
+
+@-webkit-keyframes downing {
+  0% {
+    transform: translate(0, 0);
+  }
+
+  100% {
+    transform: translate(0, 680rpx);
+  }
+}

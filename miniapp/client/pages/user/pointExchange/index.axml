@@ -1,0 +1,29 @@
+<view class="pointExchangeContainer">
+  <!-- 头部 -->
+  <view class="pointHead">
+    <!-- <image class="backLogo" src="/images/icon/user/return.png" catchTap="goBack" /> -->
+    <!-- <view class="title">积分兑换</view> -->
+    <view class="sumPoint">{{point}}积分</view>
+  </view>
+  <!-- 券列表 -->
+  <view class="list">
+    <scroll-view scroll-y="{{true}}">
+      <view class="couponItem" a:for="{{couponList}}" a:key="id">
+        <scroll-view class="prizeScroll" scroll-x="{{true}}">
+          <view class="prizeCouponBox">
+            <view class="mr-20" a:for="{{item.list}}" a:key="id">
+              <prize-coupon info="{{item}}" pointColor="#3C3C46" />
+            </view>
+          </view>
+        </scroll-view>
+        <view class="receiveBtnBox">
+          <view class="receiveBtn {{ item.num === 0 ? 'receiveBtnDisable' : '' }}" catchTap="exchange" data-info="{{item}}">
+            {{item.num === 0 ? '已兑换' : item.appoint+'积分兑换'}}
+          </view>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+</view>
+<!-- 弹窗 -->
+<exchange-dialog a:if="{{showDialog}}" onClose="handleClose" onEnsure="handleEnsure" info="{{info}}" />

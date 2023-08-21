@@ -1,0 +1,101 @@
+.defaultMask {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9999999;
+  display: flex;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+.defaultMask .defaultDialogBox {
+  position: relative;
+  /* top: 50%; */
+  margin-top: 300rpx;
+  /* left: 50%;
+  transform: translate(-50%, 0); */
+  /* margin-top: 244rpx; */
+  width: 600rpx;
+  height: 700rpx;
+  color: #fff;
+  background: transparent;
+  /* display: flex;
+  justify-content: center; */
+}
+.defaultMask .defaultDialogBg {
+  position: absolute;
+  z-index: 9;
+  width: 600rpx;
+  height: 700rpx;
+}
+.defaultMask .dialogContentBox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  z-index: 99;
+  width: 600rpx;
+  height: 700rpx;
+  /* padding: 324rpx 54rpx 178rpx; */
+  box-sizing: border-box;
+  /* mix-blend-mode: multiply; */
+}
+.defaultMask .dialogContentBox .commonDialogTitle {
+  position: absolute;
+  top: 10rpx;
+  left: 200rpx;
+  width: 200rpx;
+  /* height: 29rpx; */
+  font-size: 30rpx;
+  text-align: center;
+  font-family: Source Han Sans CN;
+  font-weight: bold;
+  color: #FFFFFF;
+  text-shadow: 3rpx 4rpx 4rpx rgba(148,110,47,0.53);
+  overflow: hidden;
+  background: linear-gradient(180deg, #FFFDEA 0%, #EDB01E 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+/* .defaultMask .dialogContentBox .ruleTitle {
+  margin-top: 8rpx;
+  font-size: 30rpx;
+} */
+.defaultMask .dialogContentBox .scrollBox {
+  margin-top: 80rpx;
+  height: 340rpx;
+  padding: 0 40rpx 16rpx;
+  box-sizing: border-box;
+  font-size: 20rpx;
+  line-height: 40rpx;
+}
+.defaultMask .dialogContentBox .scrollBox.scrollBoxH {
+  height: 540rpx;
+}
+.defaultMask .defaultCloseBox {
+  width: 50rpx;
+  height: 50rpx;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 100;
+}
+.defaultMask .defaultBtnClose {
+  width: 30rpx;
+  height: 30rpx;
+  position: absolute;
+  right: -10rpx;
+  top: 10rpx;
+}
+.defaultMask .defaultBtn {
+  position: absolute;
+  bottom: 40rpx;
+  width: 411rpx;
+  height: 97rpx;
+  line-height: 97rpx;
+  font-size: 26rpx;
+  text-align: center;
+  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAaQAAABpCAMAAABCk6fZAAAAh1BMVEUAAACzZxKgXg7Hbw6kYRGsYw7Baw3Dbg++agy1aROuZA+lXw4uGwU5IQZDKAdiOwpbNwlQLwhVMwhoPwqnYBDYlk3YmlR1RgxKLQjPcQvIbw1JKwfRdhTdmU/UfR5xRAvWhzHenVZsQQqgXA5/Swzms3zfoFrnuIXpvY6HTw3rw5izZg7jrG+yoZ85AAAADHRSTlMA0jgpD3rw+ungnFm2LIGQAAAEhElEQVR42u3d7XKaQBiG4SRi0aSEUEDYrYgYFKk9/+PrfiYwxE36w92lfS5mMtOZ5o/3vO+qmYE7AID/XLDQgjuwK1i8M/6/x5BI4fIB7HpakTeGSsHyGyFbgazvwa51uNXIwthof2oqIQfbKqFp9oZIwXJF8vOxaoQNWNcw1elYsUiGOcp//d4RgV4ysCwk3PbEIxl2nWhEuUtbcwVY02YhpZQQEenqrtufWSOa9S1TpGDR4cAmou37/pXKSTLOEX1leWLuRV1ggezExqmncpKuNjryRrUIBDapTofaEEnvOtFIFPrBJeKCm+OddCUdyTRHh1gUSpgyEcoEbk2EkpXaLGzycLX4uFHHG6U8ES9Tlj/flHBbCaMrFW22ye+fPt51co5EItbnGSxic8CniVXiC49Heri+69IXngiF7GOV1CzpSOZGz1wEFolMSSJHSUaa7rpO7zo5RvIX8cPOD52pFAtPRzLMkW6ESbJNbLxRpOn7OiIbYdG58SwqyX0nI13ZdeNG38EaPUpJMomk5ug8Oo8GhYadIlw3vHQlue/GkYLHUaNEN+K/h0myKDJEWoRkJ3ddEctlh03nhikSIU0nv1MdHEiYIgdMkbZNQ0hWxCwSX3aYIzcic6SqIbRPxSBhjtyJPo3UpmqQMEfOfB5JbjsMkgNfnySx7XAiuYRI/vvqJOFIcsn4YbZq6KVQ7xtwJDli/lpouc43F7y588CVSNzDfb7JakRyLkKkGUAk/306SQUiuYdI/sMkzcHnkfBh1rUIkWYAkfyHSZoDRPLfVycJX7D+DUzS/+cLk4Q/+jmHSfIfzqQ5wCT5D2fSHGCS/IczaQ4wSf7DmTQHmCT/4UyaA0zSDOBMmgFM0gzgTJoBGeknJslnKhLOJJ9hkmZgGKnGmeSnUSRMkp9GkXAm+WkYqb1s8vUywCR5JhpEKi70VJFwgTPJN4MPs626wz4myTPRB5FwJnmF7S9Mkv8iTh5JOhLOJL9Eozd3mCQfjbdd2lPS4EzySzR+Ax4XGcEkeSeSjdQg1a+U7LuKTCLhVsbuROP7TRes0e543JEQ684XkR4k9dCXA2/UdXvy7TEYR8J9cq3TiQaNSt3o2O3ItyVvNI4Uv7zfXt/5MwH+7UuT/xT0gaQb7clKNBpHkjfKxfNeHNGNUt7ofN6rORpHOsh9h0puiGfF6UbHQaNpJDw7yQndaLrrppFi8dAXPMvPNvGSl8lk100j1TwSHovpghwjw657j8RHCc+XdaEUiQy7jnnikVq279QsMSXc1Pg52IlINNl1Q4tVWDVh1ta6EpsmsEc/8vxwZdeNHs1TiEo8EwsFt5W8XbwQSxTXhl03iKQq8U5gUxyrRp2aI0MkXollSmOwLE0Lw64bRHrt+76ta94Jbi9WV1q0TJ8Zdp2OVBFCKQ2ztgBraq69UI4Ydp2K1Jy2hAszsOxCibA7/jI0EpG6U3Nimg3YJl/4k2HXqUj7SsnBtkqRc2SIpIXre7BrTbaSaGSI9Gb19AB2LUMihY/BncHiXXAHdgV47QEAlD/haE/+Sf7tugAAAABJRU5ErkJggg==');
+  z-index: 99;
+}

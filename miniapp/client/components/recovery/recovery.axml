@@ -1,0 +1,46 @@
+<!--components/pay/pay.wxml-->
+<import-sjs from="/common/utils/filter.sjs" name="filter" />
+
+<view class="wrap" touchMove="stopScroll">
+		<view class="shadow {{showAni}}" catchTap="close"></view>
+		<view class="contBox {{moveAni}}">
+				<view class="title" catchTap="close">
+						<image class="titleIcon" src="/images/icon/common/close.png" catchTap="close"></image>
+				</view>
+				<view class="inputBox">
+						<view class="inputLabel">
+								委托交易
+								<view class="num">共 {{totalNum}} 件物品</view>
+						</view>
+						<view class="moneyBox">
+								{{totalMoney}}
+								<text>魔晶</text>
+						</view>
+						<view class="tips">委托交易前请核对，点击确认委托后立即生效</view>
+				</view>
+				<view class="orderBox">
+						<view class="orderItem">
+								<scroll-view class="goodsBox" scroll-y="true">
+										<block a:for="{{goods}}" a:key="this">
+												<view class="goodBox">
+														<image src="{{item.url}}" mode="aspectFill" lazy-load="true" class="goodImg"></image>
+														<view class="goodInfo">
+																<view class="goodName">
+																		{{filter.formatAwardType(item.type) + ' ' + item.name}}
+																</view>
+																<view class="goodPrice">建议：{{item.retrievePrice}}魔晶</view>
+																<view class="goodNum">
+																		x
+																		<text class="goodNumText">{{item.choseNumber}}</text>
+																</view>
+														</view>
+												</view>
+										</block>
+								</scroll-view>
+						</view>
+				</view>
+				<view class="btnBox">
+						<view class="btn" catchTap="confirmDeliver">确认转化</view>
+				</view>
+		</view>
+</view>

@@ -1,0 +1,32 @@
+<!-- <wxs src="/common/utils/filter.wxs" module="filter" /> -->
+<view class="pickNumMask" hidden="{{!show}}">
+  <view class="moveBox {{ani}}">
+    <view class="pickNumTips">
+      <view class="cencelBtn" catchTap="cancel">取消</view>
+      <view class="tipsWord">{{info.name || ''}}</view>
+      <view class="confirmBtn" catchTap="ensure">确认</view>
+    </view>
+    <view class="pickNumInfo">
+      已选
+      <text class="pickNumInfoText">{{pickNum || 0}}</text>
+      /{{pickNumMax}}
+    </view>
+    <view class="pickNumInputBox">
+      <!-- <input class="weui-input" value="{{pickNum}}" type="number" placeholder="请输入选择的数量" bindinput="pickNumChange"/> -->
+      <!-- <view class="reduceBtn" catchTap="reducePickNum"></view>
+      <view class="sliderBox">
+        <slider bindchanging="pickNumChange" max="{{pickNumMax}}" value="{{pickNum}}" activeColor="#E91F86" />
+      </view>
+      <view class="addBtn" catchTap="addPickNum"></view> -->
+      <view class="inputNumberBox">
+        <view class="min" catchTap="getMin">Min</view>
+        <view class="inputNumberBody">
+          <input-number value="{{pickNum}}" type="number" min="{{0}}" max="{{pickNumMax}}" margin="32" height="90" width="120" size="56" signWidth="36" color="#E69701" backgroundColor="#FFFFFF" onChange="pickNumChange" />
+          <!-- <input-item value="{{pickNum}}" type="number" min="{{0}}" max="{{pickNumMax}}" color="#E91F86" backgroundColor="#FFFFFF" bindchange="pickNumChange" /> -->
+          <!-- <slider bindchanging="pickNumChange" max="{{pickNumMax}}" value="{{pickNum}}" activeColor="#E91F86"/> -->
+        </view>
+        <view class="max" catchTap="getMax">Max</view>
+      </view>
+    </view>
+  </view>
+</view>

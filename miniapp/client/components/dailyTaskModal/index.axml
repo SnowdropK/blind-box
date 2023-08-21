@@ -1,0 +1,73 @@
+<view class="mask">
+  <view class="taskDialogBox">
+    <image class="taskDialogBg" src="/images/common/taskModalBg.png" />
+    <view class="taskRule" catchTap="showDialog">规则</view>
+    <view class="taskDialogContent">
+      <view 
+        a:if="{{!TB_TASK_FOLLOW_OPEN && !TB_TASK_INVITE_OPEN && !TB_TASK_SIGN_OPEN}}" 
+        style="margin-top:160rpx;color: #E99411;font-size: 30rpx;text-align: center;"
+      >
+        暂无任务
+      </view>
+      <!-- 签到列表 -->
+      <view a:if="{{TB_TASK_SIGN_OPEN}}" class="signInlist">
+        <view class="signInItem" a:for="{{taskList}}" a:key="id">
+          <image class="signInItemBg" src="{{item.img}}" />
+          <view 
+            class="taskDay" 
+            style="color: {{item.sign ? '#B0B0B0' : '#E99411'}};"
+          >
+            {{item.taskDay}}
+          </view>
+          <view class="signInPointBox" style="color: {{item.sign ? '#2F2F2F' : '#fff'}};">
+            +
+            <view class="signInPoint">{{item.dayPoint || ''}}</view>
+          </view>
+        </view>
+      </view>
+      <!-- 签到按钮 -->
+      <view a:if="{{TB_TASK_SIGN_OPEN}}" class="signInBtnBox" catchTap="signToday">
+        <view class="signInBtn {{ todaySign ? 'setGray' : ''}}">{{todaySign ? '已签到' : '签 到'}}</view>
+      </view>
+      <!-- 每日任务 -->
+      <view class="dailyTaskBox">
+        <!-- 邀请 -->
+        <view a:if="{{TB_TASK_INVITE_OPEN}}" class="dailyTaskItem">
+          <image class="dailyTaskBg" src="/images/reward/task/taskBg.png" />
+          <view class="dailyTaskInfoBox">
+            <view>
+              <view a:if="{{inviteLimit}}" class="dailyTaskTitle">
+                每日邀请{{inviteLimit}}名新用户<view style="display:inline-block;color: #fff;">({{inviteNum || 0}}/{{inviteLimit}})</view>
+              </view>
+              <view a:else class="dailyTaskTitle">今日已邀请{{inviteNum || 0}}名新用户</view>
+              <view class="dailyTaskRewards">每邀请1名新用户赠送{{invitePoint || 0}}积分</view>
+            </view>
+            <image a:if="{{!!inviteLimit && inviteLimit === inviteNum}}" class="taskFinish" src="/images/common/taskFinish.png " />
+            <view a:else class="dailyTaskBtn" catchTap="goToInvite">
+              去邀请
+            </view>
+          </view>
+        </view>
+        <!-- 关注淘宝店铺 -->
+        <view a:if="{{TB_TASK_FOLLOW_OPEN}}" class="dailyTaskItem">
+          <image class="dailyTaskBg" src="/images/reward/task/taskBg.png" />
+          <view class="dailyTaskInfoBox">
+            <view>
+              <view class="dailyTaskTitle">关注店铺</view>
+              <view class="dailyTaskRewards">关注店铺赠送{{followPoint || 0}}积分</view>
+            </view>
+            <image a:if="{{hasFollowStore}}" class="taskFinish" src="/images/common/taskFinish.png " />
+            <view a:else class="dailyTaskBtn" catchTap="goToFollow">
+              去关注
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="taskDialogCloseBox">
+      <image class="taskDialogClose" src="/images/icon/common/close.png" catchTap="close"/>
+    </view>
+  </view>
+</view>
+<!-- 规则弹窗 -->
+<default-modal ref="defaultDialogRef" isRichText="{{isRichText}}" title="规则" content="{{noticeWord}}" />

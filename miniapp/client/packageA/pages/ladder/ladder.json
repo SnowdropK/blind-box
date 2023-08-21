@@ -1,0 +1,10 @@
+{
+  "defaultTitle": "战令",
+  "navigationBarForceEnable": true,
+  "component": true,
+  "usingComponents": {
+    "default-modal": "/components/defaultModal/index",
+    "loading": "/components/loading/index",
+    "empty": "/components/empty/index"
+  }
+}

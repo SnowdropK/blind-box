@@ -1,0 +1,41 @@
+<view class='sign-new'>
+ <view class='in'>
+ <view class='new-head'>
+  <view class='sig-tl'>
+  <view class='tln'>已连续签到<label class='n'>{{newSignNum}}</label>天</view>
+  <view class='tlf'>积分：<label class='f'>{{newSignIntegral}}</label></view>
+  </view>
+ 
+  <!-- 未签到 -->
+  <view a:if='{{!newSignBtnState}}' class='sig-qiu sig-qiu-no' onTap='bindSignFn' >
+    <label class='ti'>签到</label>
+  </view>
+  <!-- 已签到 -->
+  <view a:else class='sig-qiu sig-qiu-yes'>
+    <label class='ti'>已签到</label>
+  </view>
+ </view>
+ 
+ <view class='new-week' >
+  <view class='we-mod'>
+  <view class='mo-fen'>
+   <!-- <label class='f f3' a:if='{{continuityDays3}}'>+3积分</label>
+   <label class='f f7' a:if='{{continuityDays7}}'>+7积分</label> -->
+   <!-- <block a:for="{{isNewSignedArr}}" a:for-item="v" a:key="k">
+    <label class='f'>{{ v.point }}</label>
+   </block> -->
+  </view>
+  <view class='mo-line'>
+   <block a:for="{{isNewSignedArr}}" a:for-item="v" a:key="k">
+    <label class="q {{v.isSigned?'hover':''}}">{{v.isSigned?'':v.point}}</label>
+   </block>
+  </view>
+  <view class='mo-ri'>
+   <block a:for="{{isNewSignedArr}}" a:for-item="v" a:key="k">
+    <label class="t">{{v.day}}</label>
+   </block>
+  </view>
+  </view>
+ </view>
+ </view>
+</view>

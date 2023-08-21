@@ -1,0 +1,27 @@
+<view class="noticeBarBox" catchTap="goToTarget">
+  <view a:if="{{ info.readField === READ_FIELD.UN_READED }}" class="noticePoint"></view>
+  <view class="noticeHead">
+    <view class="noticeBarTitle">{{NOTICE_TITLE_MAP[info.type]}}</view>
+    <view class="noticeTime">{{info.createTime}}</view>
+  </view>
+  <view class="noticeContentBox">
+    <view a:if="{{ info.activityWelfare && info.activityWelfare.activityThumbnailUrl }}" class="noticeImgBox">
+      <image class="noticeImg" src="{{ info.activityWelfare.activityThumbnailUrl }}" />
+      <view class="tipBar">
+        活动时间 {{info.activityWelfare && info.activityWelfare.benginTime}}-{{info.activityWelfare && info.activityWelfare.endTime}}
+      </view>
+    </view>
+    <view class="noticeContentTipBox">
+      <view class="noticeContent">
+        <!-- 抽赏字体标题显示粉色 -->
+        <text a:if="{{info.type === NOTICE_TYPE_MAP.REWARD}}" style="color: #F1AB04;">
+          【{{ info.title}}】
+        </text>
+        <text a:else>{{ info.title}}</text>
+        <!-- 抽赏 富文本 -->
+        <rich-text a:if="{{ info.type === NOTICE_TYPE_MAP.REWARD}}" nodes="{{info.content}}"></rich-text>
+      </view>
+      <image class="noticeArrow" src="/images/icon/common/ar.png" />
+    </view>
+  </view>
+</view>

@@ -1,0 +1,27 @@
+<!-- 可用优惠券/置灰优惠券 -->
+<view 
+  class="payCouponContainer {{!disable && 'activeCoupon'}} {{disable && 'disableCoupon'}}" 
+  style="zoom: {{zoom}};"
+  onTap="hadleSelect" 
+  data-info="{{info}}"
+>
+  <!-- <image a:if="{{checkedCouponId === info.id}}" class="checkBox checked" src="/images/icon/common/i1.png" /> -->
+  <!-- -->
+  <!-- <image a:else class="checkBox {{(!check || disable) && 'hidden'}}" src="/images/icon/common/iino.png" /> -->
+  <!-- <view class="checkBox {{checkedCouponId === info.id && 'checked'}} {{(!check || disable) && 'hidden'}}"></view> -->
+  <!-- 即将过期标识/3天内 -->
+  <view a:if="{{info.beExpire && status === 20}}" class="beExpire">
+    <view class="beExpireText"></view>
+  </view>
+  <!-- 已使用/已过期 -->
+  <view a:if="{{status === 30 || status === 40}}" class="{{status === 40 ? 'gotExpire':'beUsed'}}">
+    <view class="beExpireText"></view>
+  </view>
+  <view class="price">
+    <text class="priceNum text-hide">{{info.name}}</text>
+  </view>
+  <view class="detail">{{'满' + info.minThresholdNum + '减' + info.reduceAmountNum}}</view>
+  <!-- <view class="discountTip">满{{info.minThreshold}}元可用</view> -->
+  <view class="discountTip">{{info.singleAmount}}元明信片可用</view>
+  <view a:if="{{info.expireTime}}" class="validityTime">{{info.expireTime}} 到期</view>
+</view>

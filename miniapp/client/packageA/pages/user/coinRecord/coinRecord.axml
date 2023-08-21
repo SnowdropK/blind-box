@@ -1,0 +1,38 @@
+<!--pages/user/.axml-->
+<view class="commonTop">
+  <image class="headImg" src="https://chujiangupload.xingyunyfs.com/user_1/1656958719688204288.png" />
+	<!-- <view class="commonInfo">
+		<image src="/images/icon/user/i2.png" class="commonIcon"></image>
+		<view class="commonWord">
+			<view class="commonLabel">金币</view>
+      <view class="commonNum">{{coinAccount}}</view>
+    </view>
+  </view> -->
+  <image class="coinHeadBg" src="/images/user/imageHead2.png" />
+  <view class="coinNum">{{coinAccount}}</view>
+	<view class="commonfilterBox">
+		<block a:for="{{filters}}" a:key="*this">
+			<view class="coinfilterItem {{item.act}}" catchTap="switchView" data-val="{{index}}"><text>{{item.label}}</text>
+			</view>
+		</block>
+	</view>
+</view>
+<view class="commonWrap">
+  <image class="pointInfoImg" src="https://chujiangupload.xingyunyfs.com/user_1/1656949247632756736.png" />
+	<scroll-view scroll-y='true' class="commonScrollBox" onScrollToLower='requestMoreData'>
+    <!-- <view class="noMoreTips" a:if="{{records.length == 0}}">客官，没有了</view> -->
+    <empty a:if="{{records.length == 0}}"></empty>
+		<block a:else a:for="{{records}}" a:key="*this">
+      <view class="commonRecordItem">
+        <view class="{{item.num < 0 ? 'costItemLine' : 'itemLine'}}"></view>
+				<view class="commonRecordinfo">
+					<view class="commonRecordtype text-hide">{{item.type}}</view>
+					<view class="commonRecordtime">{{item.creatTime}}</view>
+				</view>
+				<view class="commonRecordnum text-hide-e">
+					{{item.num>0?'+':''}}{{item.num}}
+				</view>
+			</view>
+		</block>
+	</scroll-view>
+</view>

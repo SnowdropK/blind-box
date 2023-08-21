@@ -1,0 +1,3 @@
+<view class="emptyBox">
+  <image class="emptyImg" src="/images/icon/common/empty.png" />
+</view>

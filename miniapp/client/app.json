@@ -1,0 +1,66 @@
+{
+  "pages": [
+    "pages/reward/index/index",
+    "pages/reward/infInfo/infInfo",
+    "pages/mybag/index",
+    "pages/user/index/index",
+    "pages/user/pointExchange/index",
+    "pages/user/deliverRecord/deliverRecord",
+    "pages/user/memberCentre/index",
+    "pages/user/memberCard/index",
+    "pages/user/buyMemberCard/index",
+    "pages/user/exchange/index",
+    "pages/user/message/index",
+    "pages/user/message/systemNotice/index",
+    "pages/user/message/notice/index",
+    "pages/reward/demon/demon",
+    "pages/webview/webview"
+  ],
+  "subPackages": [
+    {
+      "root": "packageA",
+      "pages": [
+        "pages/ladder/ladder",
+        "pages/user/collect/collect",
+        "pages/user/store/store",
+        "pages/user/postcard/postcard",
+        "pages/user/coinRecord/coinRecord",
+        "pages/user/discountCoupons/discountCoupons",
+        "pages/user/pointRecord/pointRecord"
+      ]
+    }
+  ],
+  "window": {
+    "defaultTitle": "核玩",
+    "allowsBounceVertical": "NO",
+    "transparentTitle": "auto",
+    "navigationBarTextStyle": "white",
+    "titleBarColor": "#18181d",
+    "showNavigationBarLogo": true
+  },
+  "tabBar": {
+    "textColor": "#ffffff",
+    "selectedColor": "#ffffff",
+    "backgroundColor": "#ffffff",
+    "items": [
+      {
+        "pagePath": "pages/reward/index/index",
+        "name": "抽赏",
+        "icon": "",
+        "activeIcon": ""
+      },
+      {
+        "pagePath": "pages/mybag/index",
+        "name": "赏袋",
+        "icon": "",
+        "activeIcon": ""
+      },
+      {
+        "pagePath": "pages/user/index/index",
+        "name": "我的",
+        "icon": "",
+        "activeIcon": ""
+      }
+    ]
+  }
+}

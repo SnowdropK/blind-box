@@ -1,0 +1,23 @@
+<!-- components/payCoupon/payCoupon.wxml -->
+<view class="wrap" hidden="{{!show}}" touchMove="stopScroll">
+  <view class="shadow {{showAni}}" catchTap="close"></view>
+  <view class="contBoxPay {{moveAni}}">
+    <view class="commonHeadNew"></view>
+    <view class="payTitle" catchTap="close">可用减免券</view>
+    <image class="titleIconClose" src="/images/icon/common/closeNew.png" catchTap="close" />
+    <view class="couponList">
+      <scroll-view class="couponScrollBox" scroll-y='true' onScrollToLower='queryMore'>
+        <block a:if="{{currentCoupons && currentCoupons.length>0}}">
+          <view class="list" a:for="{{currentCoupons}}" a:key="id">
+            <pay-coupon status="{{item.couponUserStatus}}"
+              beExpire="{{item.beExpire}}" info="{{item}}" checkedCouponId="{{checkedCouponId}}" changeChecked="changeChecked" />
+          </view>
+        </block>
+        <view class="noMoreTips" a:else>暂无可用减免券</view>
+      </scroll-view>
+    </view>
+    <!-- <view class="operateButtonBox">
+      <view class="ensureButton" catchTap="ensure">确定</view>
+    </view> -->
+  </view>
+</view>

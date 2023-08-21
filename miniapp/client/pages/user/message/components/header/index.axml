@@ -1,0 +1,5 @@
+<view class="messageHeadBox">
+  <!-- style="padding-bottom: {{ !!paddingBottom ? paddingBottom + 66 : 66 }}rpx" -->
+  <!-- <view class="headBar">{{title}}</view> -->
+  <slot></slot>
+</view>

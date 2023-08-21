@@ -1,0 +1,26 @@
+<view class="prizeBox" style="zoom: {{zoom}};">
+  <view a:if="{{type === 'coupon'}}">
+    <!-- <view class="prizeCouponText din">￥</view>
+    <view class="prizeCouponText discount">{{info.reduceAmount}}</view> -->
+    <image class="prizeCouponIcon" src="/images/member/postcard.png" />
+  </view>
+  <!-- 满{{info.minThreshold}}可减  -->
+  <view a:if="{{type === 'coupon'}}" class="sub">{{info.name}}</view>
+  <view a:if="{{type === 'coin'}}">
+    <image class="coinImg" src="/images/member/coin.png" />
+    <!-- <view class="coinBox">
+      <image class="coinImg" src="./images/coin.png" />
+      <view class="prizeCouponText coinNum">X{{info.nextLevelCoin}}</view>
+    </view> -->
+    <!-- {{info.nextLevelCoin}}枚金币 -->
+    <view class="coinText">{{info.nextLevelCoin}}金币</view>
+  </view>
+  <view a:if="{{type === 'memberTag'}}">
+    <image class="memberTagImg" src="/images/member/memberTag.png" />
+    <view class="coinText">专属VIP称号</view>
+  </view>
+  <view a:if="{{info.validDay}}" class="validDayText">有效期:{{info.validDay}}天</view>
+  <!-- <view class="ponit left" style="background-color:{{ pointColor || '#fff'}};"></view>
+  <view class="ponit right" style="background-color:{{ pointColor || '#fff'}};"></view> -->
+  <view a:if="{{info.couponNum}}" class="couponNum">x{{info.couponNum}}</view>
+</view>

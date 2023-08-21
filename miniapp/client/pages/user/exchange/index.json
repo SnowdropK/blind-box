@@ -1,0 +1,11 @@
+{
+  "navigationStyle": "custom",
+  "component": true,
+  "usingComponents": {
+    "default-modal": "/components/defaultModal/index",
+    "ip": "/components/ip/index",
+    "exchange-dialog": "./components/exchangeDialog/index"
+  },
+  "defaultTitle": "兑换码",
+  "navigationBarForceEnable": true
+}

@@ -1,0 +1,7 @@
+{
+  "component": true,
+  "usingComponents": {
+    "input-item": "mini-antui/es/input-item/index",
+    "input-number": "/components/inputNumber/index"
+  }
+}

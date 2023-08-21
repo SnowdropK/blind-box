@@ -1,0 +1,90 @@
+<view class="demonContainer">
+  <view class="close" catchTap="close">X</view>
+  <!-- 魔王榜榜首 -->
+  <view class="demonTop">
+    <!-- <image class="demonTitle" src="/images/reward/inf/demonTitle.png" /> -->
+    <view class="demonTopContent">
+        <image class="demonKingHead" src="https://chujiangupload.xingyunyfs.com/user_1/1658377323277357056.png" />
+        <view class="demonInfo">
+            <text class="occupiedTime">{{ devilInfo.time }}</text>
+            <view class="avator">
+              <image class="avatorImg" src="{{ devilInfo.avatarUrl || '' }}" />
+              <image class="avatorKimg" src="/images/reward/inf/mw_box.png" />
+            </view>
+            <view class="avatorDetail">
+              <view>
+                <text class="nickName">{{ devilInfo.nickname }}</text>
+              </view>
+              <view a:if="{{devilInfo.downOrderId === null && devilInfo.currentOrderGoodsId}}" class="upgrade">
+                第{{ devilInfo.currentOrderGoodsId }}抽晋升大魔王
+              </view>
+              <view a:if="{{devilInfo.downOrderId === null}}" class="numbers">
+                <view class="button">
+                  累计占领{{ devilInfo.currentRewardNum || 0 }}抽
+                </view>
+                <view class="button button-right">
+                  累计收益{{ devilInfo.preAmount || 0 }}赏币
+                </view>
+              </view>
+            </view>
+        </view>
+    </view>
+  </view>
+  <!-- 魔王榜前六名 -->
+  <view class="demonList">
+    <image class="demonKingBg" src="/images/reward/inf/domenBG.png" />
+    <view class="demonItemBox">
+      <view class="demonItem {{index?'bgBorder':''}}" a:for="{{ demonList }}" a:key="id">
+        <image a:if="{{index < 3}}" class="demonItemBg" src='/images/reward/rank/bg{{index+1}}.png' />
+        <image a:else class="demonItemBg" src='/images/reward/rank/bg4.png' />
+        
+        <image a:if="{{index < 3}}" class="serialNumber" src='/images/reward/rank/r{{index + 1}}.png' />
+        <view a:else class="rankTag">{{index + 1}}</view>
+        <text class="occupiedNumber">已占领 {{ item.num }}次</text>
+        <!-- <view class="avatorImgs" style="background: url({{item.avatarUrl}});background-size: 100% 100%;">
+          <image a:if="{{item.avatarBorderUrl}}" class="avatorBorder" src="{{item.avatarBorderUrl}}" />
+          <view class="userBox">
+            <image a:if="{{item.memberCardTag}}" class="memberCardTag" src="{{item.memberCardTag}}" />
+            <text class="level">LV{{item.level || ''}}</text>
+          </view>
+        </view> -->
+        <image class="avatorImgs" src="{{ item.avatarUrl }}" />
+        <view class="detail">
+          <view class="nameBox mt-20 d-flex a-center text-hide">
+            <!-- <text class="nickName">{{ item.nickname }}</text> -->
+            {{ item.nickname }}
+            <!-- 用户等级 -->
+            <image a:if="{{item.memberCardTag}}" class="memberCardTag" src="{{item.memberCardTag}}" />
+            <view class="userLevel">LV {{item.level || 0}}</view>
+          </view>
+          <view class="numbers">
+            <view class="button">累计占领{{ item.currentRewardNum }}抽</view>
+            <view class="button button-right">累计收益{{ item.preAmount }}赏币</view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <!-- 个人当前榜单数据 -->
+  <view class="demonBottom">
+    <text class="occupiedNumber">已占领 {{ bottom.num || 0 }}次</text>
+    <text class="serialNumber">{{ bottom.no ? bottom.no : '暂无' }}</text>
+    <image class="avatorImgs" src="{{bottom.avatarUrl || ''}}" />
+    <!-- <view class="avatorImgs" style="background: url({{bottom.avatarUrl}});">
+      <image a:if="{{bottom.avatarBorderUrl}}" class="avatorBorder" mode="aspectFill" src="{{bottom.avatarBorderUrl}}" />
+    </view> -->
+    <view class="detail">
+      <view class="nameBox mt-20 d-flex a-center text-hide">
+        <!-- <text class="nickName">{{ bottom.nickname || '' }}</text> -->
+        {{ bottom.nickname || '' }}
+        <!-- 用户等级 -->
+        <image a:if="{{bottom.memberCardTag}}" class="memberCardTag" src="{{bottom.memberCardTag}}" />
+        <view class="userLevel">LV {{bottom.level || 0}}</view>
+      </view>
+      <view class="numbers">
+        <view class="button">累计占领{{ bottom.currentRewardNum || 0 }}抽</view>
+        <view class="button button-right">累计收益{{ bottom.preAmount || 0 }}赏币</view>
+      </view>
+    </view>
+  </view>
+</view>

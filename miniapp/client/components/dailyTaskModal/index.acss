@@ -1,0 +1,162 @@
+.mask {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 999999;
+  display: flex;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+.taskDialogBox {
+  position: relative;
+  margin-top: 300rpx;
+  width: 630rpx;
+  height: 750rpx;
+}
+.taskDialogBox .taskDialogCloseBox {
+  position: absolute;
+  bottom: -92rpx;
+  width: 100%;
+  text-align: center;
+}
+.taskDialogBox .taskDialogCloseBox .taskDialogClose {
+  display: inline-block;
+  width: 52rpx;
+  height: 52rpx;
+}
+.taskDialogBox .taskDialogBg {
+  position: absolute;
+  z-index: 9;
+  width: 630rpx;
+  height: 750rpx;
+}
+.taskDialogBox .taskRule {
+  position: absolute;
+  z-index: 99;
+  top: 30rpx;
+  right: 60rpx;
+  color: #FFA800;
+  font-size: 24rpx;
+}
+.taskDialogBox .taskDialogContent {
+  position: absolute;
+  z-index: 99;
+  top: 70rpx;
+  box-sizing: border-box;
+  width: 630rpx;
+  height: 670rpx;
+  padding: 20rpx 46rpx;
+}
+/* 签到列表 */
+.taskDialogBox .signInlist {
+  display: flex;
+  flex-wrap: wrap;
+  height: 258rpx;
+}
+.taskDialogBox .signInlist .signInItem {
+  position: relative;
+  display: inline-block;
+  margin-right: 12rpx;
+  margin-bottom: 10rpx;
+  width: 122rpx;
+  height: 122rpx;
+}
+.taskDialogBox .signInlist .signInItemBg {
+  width: 122rpx;
+  height: 122rpx;
+}
+.taskDialogBox .signInlist .taskDay {
+  position: absolute;
+  z-index: 99;
+  font-size: 20rpx;
+  top: 4rpx;
+  left: 12rpx;
+  transform: skew(-12deg, 0);
+}
+.taskDialogBox .signInlist .signInPointBox {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 122rpx;
+  height: 122rpx;
+  font-size: 28rpx;
+  transform: skew(-12deg, 0);
+}
+.taskDialogBox .signInlist .signInPoint {
+  font-size: 42rpx; 
+  font-weight: bold;                        
+}
+/* 签到按钮 */
+.taskDialogBox .signInBtnBox {
+  margin-top: 10rpx;
+  display: flex;
+  justify-content: center;
+}
+.taskDialogBox .signInBtnBox .signInBtn {
+  width: 528rpx;
+  height: 82rpx;
+  border-radius: 6rpx;
+  color: #fff;
+  font-size: 30rpx;
+  text-align: center;
+  line-height: 82rpx;
+  /* background-color: #E99411; */
+  background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAM0AAAAgBAMAAABDSOEGAAAAElBMVEXplBEAAADplBHqlBHqlRDplBFRecFuAAAABXRSTlP8APtwWcu2t3oAAABbSURBVEjH7c8xCoBAEEPRINjPwB5gGnv3Bh5BWOb+V5H0tgaE/DLNI8gBQYW8WhAwWhGguEPnaEXA/jbbscPs2GF27DA7dthvnRI5p8ZZIXHuqXFWBgqft82MBzQY7/s1m0PZAAAAAElFTkSuQmCC")
+  no-repeat center;
+  background-size: 100% auto;
+}
+/* 每日任务 */
+.taskDialogBox .dailyTaskBox .dailyTaskItem {
+  position: relative;
+  margin-top: 16rpx;
+  height: 120rpx;
+}
+.taskDialogBox .dailyTaskBox .dailyTaskBg {
+  width: 528rpx;
+  height: 120rpx;
+}
+.taskDialogBox .dailyTaskBox .dailyTaskInfoBox {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 99;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 528rpx;
+  height: 120rpx;
+  padding: 26rpx 20rpx 22rpx 30rpx;
+  color: #fff;
+  box-sizing: border-box;
+}
+.taskDialogBox .dailyTaskBox .dailyTaskTitle {
+  font-size: 28rpx;
+  color: #E99411;
+}
+.taskDialogBox .dailyTaskBox .dailyTaskRewards {
+  margin-top: 16rpx;
+  font-size: 22rpx;
+  color: #BEBEBE;
+}
+.taskDialogBox .dailyTaskBox .taskFinish {
+  width: 84rpx;
+  height: 76rpx;
+}
+.taskDialogBox .dailyTaskBox .dailyTaskBtn {
+  width: 100rpx;
+  height: 76rpx;
+  font-size: 24rpx;
+  text-align: center;
+  line-height: 76rpx;
+  background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADYAAAApBAMAAACM68egAAAAElBMVEXplBEAAADqlBHplA/qkxLplBENwvXjAAAABXRSTlP3APFfVapbd/sAAAA4SURBVDjLY1BgwAWYGFhDcYGAUblRuVG5QSkXhEdOGbdckCFuuRBBnHJBjrjllAUFcZUvTIaCggC6b0+9x7GENAAAAABJRU5ErkJggg==")
+  no-repeat center;
+  background-size: 100% auto;
+}
+.setGray {
+  filter: grayscale(100%);
+}

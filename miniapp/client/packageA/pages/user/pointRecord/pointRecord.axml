@@ -1,0 +1,43 @@
+<view class="commonTop">
+  <image class="headImg" src="https://chujiangupload.xingyunyfs.com/user_1/1656947792146354176.png" />
+  <!-- <view class="commonInfo">
+    <image src="/images/icon/user/i1.png" class="commonIcon"></image>
+    <view class="commonWord">
+      <view class="commonLabel">积分</view>
+      <view class="commonNum">{{pointAccount}}</view>
+    </view>
+  </view> -->
+  <view class="pointHead">
+    <image class="imageHead" src="/images/user/imageHead2.png" />
+    <view class="pointNum">{{pointAccount}}</view>
+  </view>
+  
+  <view class="commonfilterBox">
+    <block a:for="{{filters}}" a:key="*this">
+      <view class="pointfilterItem {{tradeType === item.val?'act':''}}" catchTap="changeCategory" data-val="{{item.val}}">
+        <text>{{item.label}}</text>
+      </view>
+    </block>
+  </view>
+</view>
+
+<view class="commonWrap">
+  <image class="pointInfoImg" src="https://chujiangupload.xingyunyfs.com/user_1/1656949247632756736.png" />
+  <scroll-view scroll-y='true' class="commonScrollBox" onScrollToLower="requestMoreData">
+    <view class="noMoreTips" a:if="{{records.length == 0}}">客官，没有了</view>
+    <block a:if="{{records.length > 0}}">
+      <block a:for="{{records}}" a:key="*this">
+        <view class="commonRecordItem">
+          <view class="{{item.num < 0 ? 'costItemLine' : 'itemLine'}}"></view>
+          <view class="commonRecordinfo text-hide">
+            <view class="commonRecordtype">{{item.tradeDesc || item.type}}</view>
+            <view class="commonRecordtime">{{item.creatTime}}</view>
+          </view>
+          <view class="commonRecordnum text-hide">
+            {{item.num>0?'+':''}}{{item.num}}
+          </view>
+        </view>
+      </block>
+    </block>
+  </scroll-view>
+</view>

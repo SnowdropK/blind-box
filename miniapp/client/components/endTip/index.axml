@@ -1,0 +1,4 @@
+<view class="endTipBox" hidden="{{!visible}}">
+  <!-- 加载文案 -->
+  <view class="desc">客官，到底了~</view>
+</view>

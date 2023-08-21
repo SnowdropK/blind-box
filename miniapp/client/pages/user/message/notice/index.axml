@@ -1,0 +1,22 @@
+<view class="commonNoticeContainer">
+  <message-bc />
+  <view class="commonNoticeContentBox">
+    <!-- 头部 -->
+    <view class="commonNoticeHeader">
+      <!-- 消息logo -->
+      <header title="{{title}}" paddingBottom="{{86}}"></header>
+      <view class="commonNoticeLogoBox">
+        <image class="commonNoticeLogo" src="{{logo}}" />
+      </view>
+    </view>
+    <scroll-view class="commonNoticeScrollBox" scroll-y='true' style="height: {{scrollHeight}}px;" onScrollToLower='requestMoreData'>
+      <!-- 消息列表 -->
+      <view class="currentNoticeListBox">
+        <view a:if="{{noticeList.length}}" class="commonNoticeList">
+          <notice-bar a:for="{{noticeList}}" a:key="id" info="{{item}}" />
+        </view>
+        <image a:if="{{!loading && !noticeList.length }}" class="messageEmpty" src="../images/messageEmpty.png" />
+      </view>
+    </scroll-view>
+  </view>
+</view>

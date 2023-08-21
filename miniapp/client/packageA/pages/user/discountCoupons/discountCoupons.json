@@ -1,0 +1,9 @@
+{
+  "defaultTitle": "减免券",
+  "navigationBarForceEnable": true,
+  "navigationStyle": "custom",
+  "component": true,
+  "usingComponents": {
+    "pay-coupon": "/components/payCoupon/payCoupon"
+  }
+}

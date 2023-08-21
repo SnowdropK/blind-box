@@ -1,0 +1,10 @@
+.emptyBox {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+.emptyImg {
+  margin-top: 90rpx;
+  width: 226rpx;
+  height: 344rpx;
+}

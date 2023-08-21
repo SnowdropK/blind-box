@@ -1,0 +1,10 @@
+{
+  "defaultTitle": "系统通知详情",
+  "navigationBarForceEnable": "true",
+  "component": true,
+  "usingComponents": {
+    "header": "../components/header/index",
+    "message-bc": "../components/messageBc/index",
+    "empty": "/components/empty/index"
+  }
+}

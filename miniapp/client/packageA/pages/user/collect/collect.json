@@ -1,0 +1,7 @@
+{
+  "defaultTitle": "我的收藏",
+  "navigationBarForceEnable": true,
+  "usingComponents": {
+    "empty": "/components/empty/index"
+  }
+}

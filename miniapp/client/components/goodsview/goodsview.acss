@@ -1,0 +1,56 @@
+.goodsViewBox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 99999;
+}
+
+.goodsViewBox .goodsViewScrollBox{
+  position: absolute;
+  top: 200rpx;
+  width: 700rpx;
+  bottom: 400rpx;
+}
+
+.goodsViewBox .goodsViewCloseBtn {
+  position: absolute;
+  bottom: 200rpx;
+  left: 50%;
+  width: 100rpx;
+  height: 100rpx;
+  margin-left: -50rpx;
+  z-index: 999999;
+}
+
+.goodsViewBox .goodItem {
+	float: left;
+	width: 140rpx;
+	height: 190rpx;
+  margin-right: 30rpx;
+  margin-bottom: 20rpx;
+}
+
+.goodsViewBox .goodItem:last-child {
+	margin-right: 0;
+}
+
+.goodsViewBox .goodImg{
+	width: 140rpx;
+	height: 160rpx;
+	border-radius: 20rpx;
+	border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.goodsViewBox .word{
+	font-size: 20rpx;
+	color: #ffffff;
+	padding-top: 8rpx;
+	overflow:hidden;
+	white-space:nowrap;
+	text-overflow:ellipsis;
+}

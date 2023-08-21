@@ -1,0 +1,306 @@
+page {
+  background-color: #000F2A;
+}
+/* .head {
+  position: relative;
+  box-sizing: border-box;
+  padding-top: 112rpx;
+  height: 164rpx;
+} */
+/* .headTitle {
+  font-size: 28rpx;
+  text-align: center;
+} */
+/* .backLogo {
+  position: absolute;
+  top: 100rpx;
+  left: 28rpx;
+  z-index: 10;
+  width: 52rpx;
+  height: 46rpx;
+} */
+.personalCentreContainer {
+  width: 750rpx;
+  height: 100vh;
+  /* position: relative; */
+  padding-top: 258rpx;
+  box-sizing: border-box;
+  overflow: scroll;
+}
+.personalCentreContainer .memberBg {
+  width: 750rpx;
+  height: 528rpx;
+}
+.personalCentreContainer .memberContent {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 750rpx;
+}
+.personalCentreContainer .levelBox {
+  position: relative;
+  width: 750rx;
+  height: 567rpx;
+  box-sizing: border-box;
+  color: #fff;
+}
+.personalCentreContainer .levelBox .memberBg {
+  width: 750rx;
+  height: 567rpx;
+}
+.personalCentreContainer .levelBox .levelContent {
+  position: absolute;
+  left: 0;
+  top: 200rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+.personalCentreContainer .levelBox .avatorBox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.personalCentreContainer .levelBox .avatorImgBox {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 146rpx;
+  height: 138rpx;
+  box-sizing: border-box;
+}
+.personalCentreContainer .levelBox .avatorImg {
+  width: 110rpx;
+  height: 110rpx;
+}
+.personalCentreContainer .levelBox .avatorLevelFrame {
+  position: absolute;
+  z-index: 99;
+  width: 146rpx;
+  height: 138rpx;
+}
+.personalCentreContainer .levelBox .avatorInfoBox {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* height: 98rpx; */
+  margin-top: 30rpx;
+  text-align: center;
+}
+.personalCentreContainer .levelBox .avatorName {
+  font-size: 32rpx;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.personalCentreContainer .levelBox .levelInfoBox {
+  display: flex;
+  align-items: center;
+  margin-top: 12rpx;
+  font-size: 22rpx;
+  font-weight: bold;
+  text-align: center;
+  font-style: italic;
+}
+.personalCentreContainer .levelBox .levelLogo {
+  margin-right: 12rpx;
+  width: 98rpx;
+  height: 30rpx;
+  font-size: 20rpx;
+  line-height: 30rpx;
+  background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAE4AAAAYCAMAAABjozvFAAAAYFBMVEXwkQTxkATxkgP0kgQAAADykAPxkgPxkgTykQT0jwDxkQTykQTxkQPzkAP/ngDxkATxkQTykQTxkQPxkATykATxkQPxkgTykQPzkQTxjwXyjgDxkQTwkAPzkgPvjQXxkQS5Yg+HAAAAH3RSTlP08KZGAHPcftYK9r2sSwX62LaiRzzhhU8+NBuQVVIvf3u8pAAAAIpJREFUOMvtzkkWgjAQRdEilGClIyEBAZvsf5cejTvIHzjgLeCeR2PoAMXe8ydalwKI7Pb1aLwWRNpmD+SKVi8kVzq1eyBXaN6lcigvI7kyXE7uf7g1YO8GKOcsITlJcQJyLMloIMfiIgE5lpuZYBzQWyrH8jSdpubCj2N5zFY1d3fEtWNzqW8tH28bEbW4gPkFzQAAAABJRU5ErkJggg==") no-repeat center;
+  background-size: 100% auto;
+}
+.personalCentreContainer .levelBox .levelText {
+  display: inline-block;
+  width: 98rpx;
+  height: 30rpx;
+  line-height: 30rpx;
+  background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEwAAAAYCAMAAABnVuv4AAAAWlBMVEW8BPG9BPS8BPC9A/EAAAC8BPK8A/G8BPC8A/G8A/K+APK8BPK8A/G8AvG6APK4AP+8BPK9BfG8BPK8BPG8BPG9BPK8BPK7BPO9BPS8BfG8BfG7BPC4Bu28BPGdRAO4AAAAHXRSTlPwRvSmAPqYu++fEu1bNQkE1Wblzse+rkA52I11KyhUuTAAAACASURBVDjL5dPJEYQwEEPRnsE2GJt93/JPEwEhtA5U8QN4pYskDaJu2XJzJb099NXNrUkKjKLRMGix5GG2izkLQ9B4mO0jC0PimJgnYpn7Cja8FltbIla4wMOqwgsNM9ACDbs0YWHQ5tFyvmlQOY3hr67FskdziTrfiHm0+advPwFMi6ZYSuRoMQAAAABJRU5ErkJggg==") no-repeat center;
+  background-size: 100% auto;
+}
+.personalCentreContainer .levelBox .progressBox {
+  margin-top: 34rpx;
+  width: 476rpx;
+}
+.personalCentreContainer .levelBox .progressBarBox {
+  position: relative;
+  height: 12rpx;
+  border-radius: 6rpx;
+  background-color: #181818;
+}
+.personalCentreContainer .levelBox .progressBar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 12rpx;
+  border-radius: 6rpx;
+  background-image: linear-gradient(90deg, #FF7E00, #FFA800);
+}
+.personalCentreContainer .levelBox .progressInfo {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 12rpx;
+  height: 28rpx;
+  font-style: italic;
+  font-weight: bold;
+  font-size: 20rpx;
+  line-height: 28rpx;
+}
+.personalCentreContainer .levelBox .nextLevelText {
+  padding-top: 8rpx;
+  color: #000;
+  font-size: 22rpx;
+  text-align: center;
+}
+
+/* 升级奖励 */
+.personalCentreContainer .allPrizeBox {
+  display: flex;
+  justify-content: center;
+  margin-top: 56rpx;
+}
+.personalCentreContainer .allPrizeBox .allPrizeBg {
+  width: 660rpx;
+  height: 630rpx;
+}
+.personalCentreContainer .allPrizeBox .allPrizeContent {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 660rpx;
+  height: 630rpx;
+}
+.personalCentreContainer .upgradeRewardBox {
+  /* margin-top: 40rpx;
+  box-sizing: border-box;
+  padding: 0 50rpx; */
+  padding-bottom: 30rpx;
+}
+.personalCentreContainer .upgradeRewardContent {
+  /* padding: 14rpx 22rpx; */
+  /* background-color: rgba(64, 49, 81, 0.8); */
+}
+.personalCentreContainer .upgradeRewardContent .title {
+  color: #FFFFFF;
+  width: 660rpx;
+  height: 72rpx;
+  box-sizing: border-box;
+  padding-left: 32rpx;
+  line-height: 72rpx;
+  text-align: left;
+  font-size: 28rpx;
+  background: url("data:image/png;base64,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") no-repeat center;
+  background-size: 100% auto;
+}
+.personalCentreContainer .upgradeRewardContent .upgradationTitle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 660rpx;
+  height: 72rpx;
+  box-sizing: border-box;
+  padding-left: 32rpx;
+  line-height: 72rpx;
+  text-align: left;
+  font-size: 28rpx;
+  color: #F3AC00;
+  background-image: linear-gradient(to right, #222a4e, rgba(0,0,0,0));
+}
+/* .personalCentreContainer .upgradeRewardContent .receiveBtnBox {
+  display: flex;
+  justify-content: center;
+  margin-top: 16rpx;
+} */
+.personalCentreContainer .upgradeRewardContent .receiveBtn {
+  width: 150rpx;
+  height: 56rpx;
+  line-height: 56rpx;
+  text-align: center;
+  font-size: 24rpx;
+  font-weight: bold;
+  color: #000000;
+  background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGwAAAApCAMAAADnLTwgAAAAWlBMVEX4ogD9uTsAAAD9tzL9uTf9tS79uDX9tCj9sSH9rxv/vUD4ogD/wEX4ogD/vkP5ogD/v0T/uzv/vDz/lgD/lAD+rxn4oAD4owH5owD5owD4ogD4owX8rRn4pAbij+rhAAAAGnRSTlP09AD09PT09PT189yaVPvSpx4YCATrTPbNW4QdXVYAAAC0SURBVFjD7dHbDoMgEEXREREvQNGqvYD+/28WSFr6YhPTMNFkdsLzyhmAhYa+47zYEX8nhAhPlF9Vn+pYE2vbGaKlumV12bsH7NpfFosQgLf8LmcRAvC7usy7Ejao7DdMmCqy3zBhCLsSJlabvYQ5ixUAR8U2z3h2bPvPCNuBlYQRdhisIux0WE0YYb+whrD/k4jYQ+NhUo/QImHmNjEszOiJYWHS78LCjB5ZwGbIn3xGi70Axk2lQu8OoWMAAAAASUVORK5CYII=") no-repeat center;
+  background-size: 100% auto;
+}
+.personalCentreContainer .upgradeRewardContent .receiveBtnDisable {
+  color: #3c3c46;
+  background-color: #939393;
+}
+.personalCentreContainer .prizeScroll {
+  margin-top: 26rpx;
+}
+.personalCentreContainer .levelPrizeBox {
+  display: flex;
+  align-items: center;
+  height: 174rpx;
+}
+.personalCentreContainer .avatorBorderBox {
+  margin-top: 34rpx;
+  padding: 0 60rpx;
+}
+.personalCentreContainer .avatorBorderList {
+  display: grid;
+  grid-gap: 32rpx 0;
+  justify-content: space-between;
+  grid-template-columns: repeat(5, 20%);
+  justify-items: center;
+  margin-top: 34rpx;
+}
+.personalCentreContainer .avatorBorderImgBox {
+  width: 98rpx;
+}
+.personalCentreContainer .avatorBorderImg {
+  width: 98rpx;
+  height: 104rpx;
+}
+.personalCentreContainer .avatorBorderText {
+  margin-top: 4rpx;
+  text-align: center;
+  color: #f5d5a3;
+  font-size: 20rpx;
+}
+.personalCentreContainer .ruleDescriptionBox {
+  margin-top: 30rpx;
+  padding: 0 70rpx 50rpx;
+  color: #F3AC00;
+  font-size: 24rpx;
+}
+.personalCentreContainer .ruleDescriptionBox .content {
+  margin-top: 20rpx;
+  display: inline-block;
+  line-height: 32rpx;
+  color: #BBB;
+  font-size: 22rpx;
+}
+/* .moving {
+  -webkit-animation: moving 2.5s linear infinite;
+}
+
+@-webkit-keyframes moving {
+  0% {
+    transform: translate(0, 0);
+  }
+
+  10% {
+    transform: translate(0, 10rpx);
+  }
+
+  20% {
+    transform: translate(0, 0);
+  }
+
+  30% {
+    transform: translate(0, 10rpx);
+  }
+
+  40% {
+    transform: translate(0, 0);
+  }
+
+  100% {
+    transform: translate(0, 0);
+  }
+} */

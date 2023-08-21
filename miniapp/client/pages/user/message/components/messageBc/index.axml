@@ -1,0 +1,4 @@
+<view class="messageBcContainer">
+  <image class="messageBgTop" src="/pages/user/message/images/messageBgTop.png" />
+  <image class="messageBgBottom" src="/pages/user/message/images/messageBgBottom.png" />
+</view>

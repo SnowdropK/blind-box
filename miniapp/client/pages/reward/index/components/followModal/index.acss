@@ -1,0 +1,87 @@
+.mask {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9999999;
+  display: flex;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+.dialogBox {
+  position: relative;
+  margin-top: 298rpx;
+  width: 600rpx;
+  height: 700rpx;
+}
+.dialogBox .dialogCloseIconBox {
+  position: absolute;
+  z-index: 999;
+  right: 0;
+  top: -16rpx;
+  width: 60rpx;
+  height: 60rpx;
+}
+.dialogBox .dialogCloseIcon {
+  width: 30rpx;
+  height: 30rpx;
+}
+.dialogBox .dialogBg {
+  position: absolute;
+  z-index: 9;
+  width: 600rpx;
+  height: 700rpx;
+}
+.dialogBox .followDialogContent {
+  position: absolute;
+  z-index: 99;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+  width: 600rpx;
+  height: 700rpx;
+}
+.dialogBox .followDialogContent .followDialogTitle {
+  margin-top: 12rpx;
+  color: #FFFFFF;
+  font-weight: bold;
+  font-size: 30rpx;
+  text-align: center;
+  text-shadow: 3rpx 4rpx 4rpx rgba(148,110,47,0.53);
+  background: linear-gradient(180deg, #FFFDEA 0%, #EDB01E 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.dialogBox .followDialogContent .content {
+  margin-top: 190rpx;
+  color: #F39228;
+  text-align: center;
+  font-size: 30rpx;
+}
+.dialogBox .followDialogContent .modalBtnBox {
+  position: absolute;
+  bottom: 68rpx;
+}
+.dialogBox .followDialogContent .modalBtn {
+  width: 410rpx;
+  height: 98rpx;
+  color: #fff;
+  line-height: 64rpx;
+  font-weight: bold;
+  text-align: center;
+  background-color: #000;
+}
+.dialogBox .followDialogContent .modalBtnText {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 9;
+  width: 410rpx;
+  height: 98rpx;
+  text-align: center;
+  line-height: 98rpx;
+  color: #fff;
+  font-size: 30rpx;
+}

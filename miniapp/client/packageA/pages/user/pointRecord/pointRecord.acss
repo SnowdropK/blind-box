@@ -1,0 +1,104 @@
+page {
+  background-color: #18181d;
+}
+
+.commonTop {
+  padding-top: 160rpx;
+}
+
+.commonTop .headImg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 750rpx;
+  height: 366rpx;
+}
+
+.commonWrap {
+  top: 376rpx;
+}
+
+.commonfilterBox {
+  top: 303rpx;
+  right: 0;
+  width: 520rpx;
+  height: 104rpx;
+  background-image: url('data:image/png;base64,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');
+}
+
+.pointfilterItem {
+  width: auto;
+  height: 0.72rem;
+  font-size: 0.26rem;
+  color:#A5A5A5;
+  line-height: 0.72rem;
+  margin-right: 0.32rem;
+  position: relative;
+}
+.pointfilterItem.act {
+  color: #E79800;
+}
+
+.pointHead {
+  position: absolute;
+  top: 188rpx;
+  left: 0;
+  width: 750rpx;
+  height: 94rpx;
+}
+.pointHead .imageHead {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+.pointHead .pointNum {
+  width: 400rpx;
+  height: 100rpx;
+  line-height: 100rpx;
+  margin-left: 175rpx;
+  color: #FDB300;
+  font-size: 30rpx;
+  text-align: center;
+  overflow: hidden;
+}
+
+.pointInfoImg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 750rpx;
+  height: 1325rpx;
+}
+
+.commonRecordItem {
+  margin-left: 0;
+  padding-left: 50rpx;
+  padding-right: 0;
+  background-color: transparent;
+}
+.costItemLine, .itemLine {
+  position: absolute;
+  left: 0;
+  width: 10rpx;
+  height: 82rpx;
+}
+.costItemLine {
+  background-color: #7F7F7F;
+}
+.itemLine {
+  background-color: #FDB300;
+}
+.commonRecordtype {
+  color: #FDB300;
+}
+.commonRecordtime {
+  color: #A1A1A1;
+}
+.commonRecordinfo {
+  width: 60%;
+}
+.commonRecordnum {
+  width: 40%;
+  color: #ffffff;
+}

@@ -1,0 +1,14 @@
+.endTipBox {
+  /* margin-top: 50rpx; */
+  height: 100rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #c8c9cc;
+  line-height: 70rpx;
+}
+.endTipBox .desc {
+  font-size: 30rpx;
+  color: #999;
+}

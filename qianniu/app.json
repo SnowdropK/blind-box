@@ -1,0 +1,26 @@
+{
+  "tabBar": [
+    {
+      "title": "首页",
+      "route": "/myCustomHome",
+      "name": "myCustomHome",
+      "components": [
+        {
+          "name": "SectionBlank",
+          "path": "pages/extend/home/SectionBlank"
+        }
+      ]
+    },
+    {
+      "title": "明信片管理",
+      "route": "/myPostcard",
+      "name": "myPostcard",
+      "components": [
+        {
+          "name": "SectionBlank",
+          "path": "pages/extend/postcard/SectionBlank"
+        }
+      ]
+    }
+  ]
+}

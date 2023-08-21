@@ -1,0 +1,26 @@
+<view class="membershipCard" style="background: url({{info.bgUrl}});background-size: 100% 100%;">
+  <view class="infoBox" style="color:{{COLOR_MAP[info.level].themeColor || ''}};">
+    <view>
+      <view class="name">{{info.name}}</view>
+      <view class="price">RMB:{{info.amount}}元</view>
+      <view class="expireTime" a:if="{{info.status === 1 || info.status === 2}}">
+        {{info.shopCard.expireTimeStr}}到期
+      </view>
+    </view>
+    <view class="tag">
+      <view class="title">会员标识</view>
+      <image class="tagLogo" src="{{info.tag}}" />
+    </view>
+  </view>
+  <!-- 已购买 -->
+  <view a:if="{{info.status === 1 || info.status === 2}}" class="buyBox" style="color: {{COLOR_MAP[info.level].themeColor}};">
+    <view class="buyTip">您已购买此卡</view>
+    <view a:if="{{info.status === 1}}" class="receiveBtn" catchTap="receiveRewards">领取奖励</view>
+    <view a:else class="receiveBtn">已领取</view>
+  </view>
+  <!-- 未购买 -->
+  <view a:else class="notBuyBox" style="color:{{COLOR_MAP[info.level].subthemeColor || ''}};">
+    <view a:if="{{info.needLevel === 0}}" class="levelTip">所有级别可以购买</view>
+    <view a:else class="levelTip">大于等于{{info.needLevel}}级可购买</view>
+  </view>
+</view>

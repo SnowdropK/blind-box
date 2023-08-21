@@ -1,0 +1,14 @@
+<!-- 规则弹窗 -->
+<view class="dialogMak">
+  <view class="dialog dialogRuleBc">
+    <view class="dialogTitle">{{ title }}</view>
+    <scroll-view scroll-y="true" style="margin-top: 24rpx;">
+      <view class="ruleText">
+        <text>{{ rule }}</text>
+        <!-- 富文本 -->
+        <!-- <rich-text nodes="{{rule}}"></rich-text> -->
+      </view>
+    </scroll-view>
+    <view class="button" catchTap="closeRuleDialog">知道了</view>
+  </view>
+</view>

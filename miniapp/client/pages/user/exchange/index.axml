@@ -1,0 +1,39 @@
+<view class="exchangeContainer">
+  <!-- 头部 -->
+  <view class="head">
+    <!-- <view class="back">
+      <image class="backLogo" src="/images/icon/user/return.png" catchTap="goBack" />
+      <view class="title">兑换福利</view>
+    </view> -->
+    <view class="inputContainer">
+      <view class="inputBox">
+        <image class="exchangeInputBg" src="/images/user/exchangeInputBg.png" />
+        <view class="ruleText" catchTap="showDialog">详细规则</view>
+        <view class="exchangeInputContent">
+          <input class="exchangeInput" value="{{exchangeCode}}" placeholder-style="color:#828282;" placeholder="请输入兑换码" onInput="changeInput" />
+          <view class="exchangeButton" catchTap="exchange">确定</view>
+        </view>
+      </view>
+      <text class="wrongTimes">{{wrongTimesTip}}</text>
+    </view>
+  </view>
+  <view class="commonWrapNew">
+    <view class="commonHeadNew"></view>
+    <view class="recommendedTitle">
+      <image class="recommendedTitleImg" src="/images/reward/recommended.png" />
+    </view>
+    <!-- 推荐商品 -->
+    <scroll-view scroll-y='true' class="recommendedScrollBox" style="height: {{scrollHeight}}px;" scroll-y='true' onScrollToLower='requestMoreData' refresher-enabled="true" refresher-triggered="{{loading}}">
+      <view class="goodsList">
+        <!-- <goods class="goodsItem" a:for="{{goodsList}}" a:key="id" info="{{item}}" /> -->
+        <ip a:for="{{goodsList}}" a:key="id" info="{{item}}" isInf="{{true}}" />
+      </view>
+    </scroll-view>
+  </view>
+</view>
+<!-- 详细规则 -->
+<!-- <notice title="兑换规则" id="ruleDialog" ref="saveRuleDialogRef" info="{{ruleWord}}"></notice> -->
+<!-- 规则弹窗 -->
+<default-modal ref="defaultDialogRef" title="兑换规则" content="{{noticeWord}}" />
+<!-- 兑换成功弹窗 -->
+<exchange-dialog id="exchangeDialog" ref="saveExchangeDialogRef" />

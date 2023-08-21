@@ -1,0 +1,105 @@
+<view class="personalCentreContainer">
+  <image class="memberBg" src="/images/member/memberBg.png" />
+  <view class="memberContent">
+    <!-- 用户等级 -->
+    <view class="levelBox">
+      <image class="memberBg" src="/images/member/memberCenterTop.png" />
+      <view class="levelContent">
+        <!-- 会员卡入口 -->
+        <!-- <view a:if="{{meetConsumThreshold}}" class="memberCardEntrance moving" catchTap="goToMemberCard">购买会员</view> -->
+        <!-- 头像 -->
+        <view class="avatorBox">
+          <!-- <view class="avatorImgBox" style="background: url({{avatorInfo.avatarUrl || '/images/icon/common/head.png'}});background-size: 100% 100%;">
+            <image a:if="{{avatorInfo.avatarBorderUrl}}" class="avatorLevelFrame" src="{{avatorInfo.avatarBorderUrl}}" />
+          </view> -->
+          <view class="avatorImgBox">
+            <image class="avatorImg" src="{{avatorInfo.avatarUrl || '/images/icon/common/head.png'}}" />
+            <image a:if="{{avatorInfo.avatarBorderUrl}}" class="avatorLevelFrame" src="{{avatorInfo.avatarBorderUrl}}" />
+          </view>
+          <view class="avatorInfoBox">
+            <view class="avatorName">{{avatorInfo.nickname}}</view>
+            <view class="levelInfoBox">
+              <!-- <image a:if="{{memberInfo.memberCardTag}}" class="levelLogo" src="{{memberInfo.memberCardTag}}" /> -->
+              <view a:if="{{memberInfo.memberCardTag}}" class="levelLogo">{{memberInfo.memberCardTag}}</view>
+              <view class="levelText">LV {{avatorInfo.level || 0}}</view>
+            </view>
+          </view>
+        </view>
+        <!-- 等级进度条 -->
+        <view class="progressBox">
+          <view class="progressBarBox">
+            <view class="progressBar" style="width: {{avatorInfo.progressPercent}}%;"></view>
+          </view>
+          <view class="progressInfo">
+            <text class="currentLevel">LV{{avatorInfo.level}}</text>
+            <text class="nextLevel">LV{{avatorInfo.level + 1}}</text>
+          </view>
+          <view class="nextLevelText">
+            再消费{{avatorInfo.nextLevelNeed}}元升级
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="allPrizeBox">
+      <view style="position: relative;" style="height: {{ avatorInfo.waitReceiveCouponList && avatorInfo.waitReceiveCouponList.length > 0 ? 630 : 320}}rpx;">
+        <image class="allPrizeBg" style="height: {{ avatorInfo.waitReceiveCouponList && avatorInfo.waitReceiveCouponList.length > 0 ? 630 : 320}}rpx;" src="/images/member/upgradeRewardBg.png" />
+        <view class="allPrizeContent" style="height: {{ avatorInfo.waitReceiveCouponList && avatorInfo.waitReceiveCouponList.length > 0 ? 630 : 320}}rpx;">
+          <!-- 下一级奖励 -->
+          <view a:if="{{avatorInfo.nextLevelCouponList && avatorInfo.nextLevelCouponList.length > 0}}" class="upgradeRewardBox">
+            <view class="upgradeRewardContent">
+              <view class="title">升至{{avatorInfo.nextLevel}}级将可获得以下奖励</view>
+              <scroll-view class="prizeScroll" scroll-x="{{true}}">
+                <view class="levelPrizeBox">
+                  <view a:for="{{avatorInfo.nextLevelCouponList}}" a:key="id" style="margin-left: 28rpx; ">
+                    <prize-coupon type="{{ !!item.nextLevelCoin ? 'coin' : 'coupon' }}" info="{{item}}" pointColor="#403151" showCoin="{{!!item.nextLevelCoin}}" />
+                  </view>
+                </view>
+              </scroll-view>
+            </view>
+          </view>
+          <!-- 升级奖励 -->
+          <view a:if="{{avatorInfo.waitReceiveCouponList && avatorInfo.waitReceiveCouponList.length > 0}}" class="upgradeRewardBox">
+            <view class="upgradeRewardContent">
+              <view class="upgradationTitle">
+                <view style="color: #F3AC00;">升级奖励</view>
+                <view class="receiveBtn {{ avatorInfo.receiveIds ? '' : 'receiveBtnDisable' }}" catchTap="handleLevelReceive">
+                  {{ avatorInfo.receiveIds ? '点击领取' : '已领取' }}
+                </view>
+              </view>
+              <scroll-view class="prizeScroll" scroll-x="{{true}}">
+                <view class="levelPrizeBox">
+                  <view a:for="{{avatorInfo.waitReceiveCouponList}}" a:key="id"style="margin-left: 28rpx;">
+                    <prize-coupon type="{{ !!item.nextLevelCoin ? 'coin' : 'coupon' }}" info="{{item}}" pointColor="#403151" showCoin="{{!!item.nextLevelCoin}}" />
+                  </view>
+                </view>
+              </scroll-view>
+              <!-- <view class="receiveBtnBox">
+              </view> -->
+            </view>
+          </view>
+          <!-- VIP等级说明 -->
+          <view class="avatorBorderBox" a:if="{{avatorInfo.descList && avatorInfo.descList.length > 0}}">
+            <view class="title">VIP等级说明</view>
+            <view class="avatorBorderList">
+              <view a:for="{{avatorInfo.descList}}" a:key="id" class="avatorBorderImgBox">
+                <image src="{{item.avatarHeadUrl}}" class="avatorBorderImg" />
+                <view class="avatorBorderText">{{item.rangeStr}}</view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <!-- VIP规则说明 -->
+    <view class="ruleDescriptionBox">
+      <view class="title">VIP规则说明</view>
+      <!-- <view class="content">{{avatorInfo.memberRuleDesc}}</view> -->
+      <text class="content">{{avatorInfo.memberRuleDesc}}</text>
+    </view>
+  </view>
+  <!-- 头部 -->
+  <!-- <view class="head">
+    <image class="backLogo" src="/static/images/icon/back.png" catchTap="goBack" />
+    <view class="headTitle">个人中心</view>
+  </view> -->
+</view>

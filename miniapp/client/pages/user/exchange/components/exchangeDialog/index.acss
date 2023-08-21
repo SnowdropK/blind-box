@@ -1,0 +1,58 @@
+/* components/exchangeDialog/index.wxss */
+.exchangeDialog {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 9999999;
+}
+
+.dialogBox {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.dialog {
+  position: relative;
+}
+.exchangeDialogBg {
+  width: 800rpx;
+  height: 996rpx;
+}
+.couponScrollBox {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 800rpx;
+  height: 874rpx;
+  padding: 188rpx 118rpx 0;
+  box-sizing: border-box;
+}
+/* .couponScroll {
+  height: 650rpx;
+} */
+.couponItem {
+  margin-bottom: 28rpx;
+}
+
+.buttonBox {
+  display: flex;
+  justify-content: center;
+}
+.button {
+  width: 482rpx;
+  height: 86rpx;
+  color: #fff;
+  text-align: center;
+  line-height: 86rpx;
+  font-size: 32rpx;
+  background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALYAAAAhAgMAAAAJ/blsAAAACVBMVEUAAADtHnntHnm8/JLdAAAAAnRSTlMA8iUgXggAAABHSURBVDjL7c4xFQAhDMDQsCCiak7PqakEBhZQCQ8H2Zv5D2GbRvHixYtf/huehOEfXegFTfAJZj6BMOvQzTo0s27m8/EQ6wegmttoQs4WpwAAAABJRU5ErkJggg==")
+    no-repeat center;
+  background-size: 100% auto;
+}

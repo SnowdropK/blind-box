@@ -1,0 +1,61 @@
+.mask {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9999999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.dialogBox {
+  width: 574rpx;
+  height: 634rpx;
+  background-color: #fff;
+}
+.head {
+  height: 60rpx;
+  background-image: linear-gradient(#e91f39, #e91f86);
+}
+
+.content {
+  margin-top: 164rpx;
+  color: #18181d;
+  font-size: 26rpx;
+  text-align: center;
+}
+.coupon {
+  margin-top: 8rpx;
+  color: #e91f83;
+}
+.tip {
+  margin-top: 136rpx;
+  color: #858585;
+  font-size: 24rpx;
+  text-align: center;
+}
+.btnBox {
+  display: flex;
+  justify-content: center;
+  margin-top: 28rpx;
+}
+.btn {
+  width: 184rpx;
+  height: 74rpx;
+  border-radius: 8rpx;
+  font-size: 28rpx;
+  text-align: center;
+  line-height: 74rpx;
+}
+.cancel {
+  border: 1px solid #4c4c54;
+  color: #43434a;
+}
+.ensure {
+  margin-left: 14rpx;
+  color: #fff;
+  background-color: #43434a;
+}

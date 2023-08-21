@@ -1,0 +1,18 @@
+<view class="defaultMask" hidden="{{!showModal}}" touchMove="stopScroll">
+  <view class="defaultDialogBox">
+    <image class="defaultDialogBg" src="/images/home/box_bg.png" />
+    <view class="defaultCloseBox" catchTap="close">
+      <image class="defaultBtnClose" src="/images/home/close.png" />
+    </view>
+    <view class="dialogContentBox">
+      <view class="commonDialogTitle">{{title}}</view>
+      <!-- <view class="title ruleTitle">【{{title}}】</view> -->
+      <scroll-view class="scrollBox {{btnTitle?'':'scrollBoxH'}}" scroll-y="{{true}}">
+        <!-- 富文本 -->
+        <rich-text a:if="{{isRichText}}" nodes="{{content}}"></rich-text>
+        <text a:else>{{content}}</text>
+      </scroll-view>
+    </view>
+    <view a:if="{{btnTitle}}" class="defaultBtn" catchTap="goTapSome">{{btnTitle}}</view>
+  </view>
+</view>

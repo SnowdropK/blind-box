@@ -1,0 +1,92 @@
+.goodsBox {
+  width: 330rpx;
+}
+.goodsSmallImage {
+  width: 100%;
+  height: 330rpx;
+  border-radius: 8rpx;
+}
+.tagBox {
+  position: absolute;
+  top: -20rpx;
+  right: 10rpx;
+  display: flex;
+  justify-content: flex-end;
+  width: 400rpx;
+  z-index: 9;
+}
+.pointIcon {
+  width: 128rpx;
+  height: 38rpx;
+  margin-left: 15rpx;
+}
+.newIcon {
+  width: 80rpx;
+  height: 38rpx;
+  margin-left: 15rpx;
+}
+.moving {
+  -webkit-animation: moving 2.5s linear infinite;
+}
+
+@-webkit-keyframes moving {
+  0% {
+    transform: translate(0, 0);
+  }
+
+  10% {
+    transform: translate(0, 10rpx);
+  }
+
+  20% {
+    transform: translate(0, 0);
+  }
+
+  30% {
+    transform: translate(0, 10rpx);
+  }
+
+  40% {
+    transform: translate(0, 0);
+  }
+
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+.goodsTitle {
+  margin-top: 16rpx;
+  font-size: 28rpx;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.goodsPriceBox {
+  display: flex;
+  margin-top: 8rpx;
+  justify-content: space-between;
+}
+.goodsPrice {
+  color: #e91f5d;
+  font-size: 24rpx;
+}
+.goodsPriceNumber {
+  font-size: 30rpx;
+}
+.goodsHotBox {
+  display: flex;
+  align-items: center;
+}
+.hotNumber {
+  color: #ff852a;
+  font-size: 20rpx;
+}
+.hotImg {
+  margin-left: 6rpx;
+  width: 40rpx;
+  height: 40rpx;
+}
+.din {
+  font-family: "DINAlternate-Bold";
+}

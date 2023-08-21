@@ -1,0 +1,10 @@
+{
+  "defaultTitle": "购买会员卡",
+  "navigationBarForceEnable": "true",
+  "component": true,
+  "usingComponents": {
+    "membership-card": "./components/membershipCard/index",
+    "prize-coupon": "/components/prizeCoupon/index",
+    "ruleDialog": "./components/ruleDialog/index"
+  }
+}

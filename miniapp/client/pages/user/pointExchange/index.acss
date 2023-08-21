@@ -1,0 +1,73 @@
+page {
+  background-color: #3c3c46;
+}
+.pointExchangeContainer {
+  color: #fff;
+}
+
+.pointHead {
+  position: relative;
+  box-sizing: border-box;
+  padding: 68rpx 28rpx 30rpx;
+  color: #fff;
+  background-color: #18181d;
+}
+.pointHead .title {
+  color: #fff;
+  font-size: 28rpx;
+  text-align: center;
+}
+.pointHead .sumPoint {
+  margin-top: 64rpx;
+  margin-left: 22rpx;
+}
+.pointHead .backLogo {
+  position: absolute;
+  top: 100rpx;
+  left: 0;
+  z-index: 10;
+  width: 80rpx;
+  height: 60rpx;
+}
+.list {
+  padding-bottom: 150rpx;
+  height: 80vh;
+  overflow: scroll;
+}
+.couponItem {
+  border-bottom: 2rpx solid #000;
+  padding: 40rpx 50rpx 30rpx;
+  border-radius: 4rpx;
+  background-color: #3c3c46;
+}
+.prizeCouponBox {
+  display: flex;
+  align-items: center;
+  height: 190rpx;
+}
+.receiveBtnBox {
+  display: flex;
+  justify-content: center;
+  margin-top: 36rpx;
+}
+.receiveBtn {
+  height: 48rpx;
+  padding: 0 30rpx;
+  border-radius: 24rpx;
+  line-height: 48rpx;
+  text-align: center;
+  font-size: 28rpx;
+  color: #69420e;
+  background-color: #fcc985;
+}
+.receiveBtnDisable {
+  color: #3c3c46;
+  background-color: #939393;
+}
+.list .tip {
+  margin-top: 12rpx;
+  font-size: 24rpx;
+}
+.list .exchange {
+  color: #000;
+}

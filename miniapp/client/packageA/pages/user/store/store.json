@@ -1,0 +1,9 @@
+{
+  "defaultTitle": "积分商城",
+  "navigationBarForceEnable": true,
+  "component": true,
+  "usingComponents": {
+    "empty": "/components/empty/index",
+    "notice": "/components/notice/notice"
+  }
+}

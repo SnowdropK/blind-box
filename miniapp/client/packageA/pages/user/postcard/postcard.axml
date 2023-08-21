@@ -1,0 +1,42 @@
+<view class="commonTop">
+  <image class="headImg" src="https://chujiangupload.xingyunyfs.com/user_1/1656941899082125312.png" />
+  <view class="commonInfo">
+    <!-- <image src="/images/icon/user/i5.png" class="commonIcon"></image>
+    <view class="commonWord">
+      <view class="commonLabel">明信片</view>
+      <view class="commonNum">{{count}}</view>
+    </view> -->
+    <view class="cardHead">
+      <view class="cardHeadLeft" catchTap="toBuy">
+        <text>明信片购买</text>
+      </view>
+      <view class="cardHeadRight" catchTap="toPointStore">
+        <text>积分兑换</text>
+      </view>
+    </view>
+  </view>
+</view>
+
+<view class="commonWrapNew">
+  <image class="cardInfoImg" src="https://chujiangupload.xingyunyfs.com/user_1/1656944466222665728.png" />
+  <scroll-view scroll-y='true' class="commonScrollBox" onScrollToLower="requestMoreData">
+    <!-- <view class="noMoreTips" a:if="{{list.length<1}}">客官，没有了</view> -->
+    <empty a:if="{{list.length<1}}"></empty>
+    <block a:else>
+      <block a:for="{{list}}" a:key="*this">
+        <view class="postcard-item">
+          <image class="bg" mode="scaleToFill" src="/images/user/cardItemBg.png" />
+          <!-- <image class="img" mode="widthFix" src="{{item.image}}" /> -->
+          <!-- 通用图 -->
+          <image class="img" mode="widthFix" src="https://chujiangupload.xingyunyfs.com/user_1/1660573911773282304.png" />
+          <view class="info text-hide">
+            {{item.name}}
+          </view>
+          <view class="num">
+            x {{item.total}}
+          </view>
+        </view>
+      </block>
+    </block>
+  </scroll-view>
+</view>

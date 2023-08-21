@@ -1,0 +1,140 @@
+<!--components/pay/pay.wxml-->
+<import-sjs from="/common/utils/filter.sjs" name="filter" />
+<view class="deliverWrap {{showAni}}" touchMove="stopScroll">
+	<view class="shadow"></view>
+	<!-- <view class="backBtn" catchTap="close">
+		<image class="backIcon" src="/static/images/icon/back.png" />
+		赏袋
+	</view> -->
+	<!-- <view class="headBox">
+		<image class="backIcon" src="/static/images/icon/back.png" catchTap="close" />
+		<view class="headBar">申请发货</view>
+	</view> -->
+	<!-- <view class="typeBox" catchTap="changeType"> -->
+	<view class="deliverCloseBox" catchTap="close">
+			<image class="deliverClose" src="/images/icon/common/close.png" />
+	</view>
+	<view class="deliverTypeBox">
+		<view class="deliverTypeLabel">配送方式</view>
+		<view class="deliverType">
+			{{type === 'deliver' ? '物流配送' : '云仓发货'}}
+			<!-- <image class="typeIcon" src="/images/icon/common/ar3.png" /> -->
+		</view>
+	</view>
+	<view class="commonWrapNew">
+  	<view class="commonHeadNew"></view>
+		<view class="addressInfoBox">
+			<view class="choseBox" catchTap="getUserAdd">
+				<view a:if="{{!choseAddress}}" class="record">
+					<view class="recordword">
+						<!-- <image class="recordIcon" src="/static/images/icon/position.png" /> -->
+						{{type === 'deliver' ? '选择收货地址' : '默认地址' }}
+					</view>
+					<!-- <image class="recordar" src="/images/icon/common/ar2.png" /> -->
+				</view>
+				<view class="record" hidden="{{!choseAddress || type === 'recovery'}}">
+					<view class="recordUser">{{address.name + ' ' + address.telNumber}}</view>
+					<view class="recordText">
+						{{address.provinceName + address.cityName + address.countyName + address.detailInfo }}
+					</view>
+				</view>
+				<!-- <view a:if="{{checkAddress && type ==='recovery'}}" class="record">
+					<text class="recordText">{{checkAddress.province + checkAddress.city + checkAddress.district + checkAddress.detail +
+						'，'+checkAddress.tel+'，'+checkAddress.username}}</text>
+				</view> -->
+				<!-- <input hidden="{{type === 'recovery'}}" class="choseInput" value="{{message}}" onInput="changeInput" placeholder="备注"></input> -->
+			</view>
+			<view class="deliverTips">
+				<view class="deliverTips1" hidden="{{type === 'recovery'}}">
+					全场无门槛包邮
+					<!-- 实物商品满<text class="tips2Text">{{inclusionThreshold}}</text>件可享<text class="tips2Text">包邮</text>服务（虚拟商品不计） -->
+				</view>
+				<view class="deliverTips2">共<text class="tips2Text">{{totalNum}}</text>件物品</view>
+			</view>
+		</view>
+
+		<view class="deliverOrderBox">
+      <view class="deliverOrderItem {{type === 'deliver' ? '' : 'sp'}}">
+				<scroll-view class="deliverScrollBox" scroll-y="true">
+						<view a:for="{{goods}}" a:key="*this" class="deliverGoodBox">
+							<view class="deliverGoodItem">
+								<view a:if="{{item.goodsType == 1}}" class="virtualTag">虚拟</view>
+								<image src="{{item.url}}" class="deliverGoodImg"></image>
+								<view class="deliverGoodInfo">
+									<view class="deliverGoodName">{{item.name}}</view>
+									<view style="margin-top: 22rpx;display: flex;justify-content: space-between;align-items: center;">
+										<view class="deliverGoodPrice">建议价格：{{item.retrievePrice}}</view>
+										<view class="deliverGoodNum">x <text class="deliverGoodNumText">{{item.choseNumber}}</text></view>
+									</view>
+								</view>
+							</view>
+						</view>
+				</scroll-view>
+		</view>
+    </view>
+	</view>
+	<view class="deliverBottom">
+		<view class="deliverBtnBox">
+			<view class="postage">
+				{{type === 'deliver' ? '邮费' : '云仓发货价格'}}:
+				<!-- {{type === 'deliver' ? (physicalTotalMoney > 0 && physicalTotalMoney < inclusionThreshold ? postage : 0) : totalMoney}} -->
+				<text class="postageText">
+					包邮
+				</text>
+				<!-- 张明信片 -->
+			</view>
+			<view class="deliverBtn" catchTap="confirmDeliver">确认{{type === 'deliver' ? '发货' : '云仓发货'}}</view>
+		</view>
+	</view>
+	<!-- <view class="deliverContBox">
+		<view class="choseBox">
+			<view class="record" catchTap="getUserAdd">
+				<view class="recordword">
+					<image class="recordIcon" src="/static/images/icon/position.png" />
+					{{type === 'deliver' ? '选择收货地址' : '默认地址' }}
+				</view>
+				<image class="recordar" src="/images/icon/common/ar2.png" />
+			</view>
+			<view class="record" hidden="{{!choseAddress || type === 'recovery'}}">
+				<text class="recordText">{{address.provinceName + address.cityName + address.countyName + address.detailInfo +
+					'，'+address.telNumber+'，'+address.userName}}</text>
+			</view>
+      <view a:if="{{checkAddress && type==='recovery'}}" class="record">
+				<text class="recordText">{{checkAddress.province + checkAddress.city + checkAddress.district + checkAddress.detail +
+					'，'+checkAddress.tel+'，'+checkAddress.username}}</text>
+			</view>
+			<input hidden="{{type === 'recovery'}}" class="choseInput" value="{{message}}" onInput="changeInput" placeholder="备注"></input>
+      <view class="tips">
+				<view class="tips1" hidden="{{type === 'recovery'}}">实物商品满{{inclusionThreshold}}件可享包邮服务（虚拟商品不计）</view>
+				<view class="tips2">物品数 <text class="tips2Text">{{totalNum}}</text></view>
+			</view>
+		</view>
+
+		<view class="order-box">
+      <view class="orderItem {{type === 'deliver' ? '' : 'sp'}}">
+			<scroll-view class="goodsBox" scroll-y="true">
+					<block a:for="{{goods}}" a:key="*this">
+						<view class="goodBox">
+							<view a:if="{{item.goodsType == 1}}" class="virtualTag">虚拟</view>
+							<image src="{{item.url}}" mode="aspectFill" lazy-load="true" class="goodImg"></image>
+							<view class="goodInfo">
+								<view class="goodName">{{filter.formatAwardType(item.type) + ' ' + item.name}}</view>
+								<view style="margin-top: 20rpx;display: flex;justify-content: space-between;align-items: center;">
+									<view class="goodPrice">建议价格：{{item.retrievePrice}}</view>
+									<view class="goodNum">x <text class="goodNumText">{{item.choseNumber}}</text></view>
+								</view>
+							</view>
+						</view>
+					</block>
+			</scroll-view>
+		</view>
+    </view>
+
+		<view class="commonBottom">
+			<view class="btnBox">
+				<view class="postage">{{type === 'deliver' ? '邮费' : '云仓发货价格'}}￥<text class="postageText">{{type === 'deliver' ? (physicalTotalMoney > 0 && physicalTotalMoney < inclusionThreshold ? postage : 0) : totalMoney}}</text></view>
+				<view class="btn" catchTap="confirmDeliver">确认{{type === 'deliver' ? '发货' : '云仓发货'}}</view>
+			</view>
+		</view>
+	</view> -->
+</view>

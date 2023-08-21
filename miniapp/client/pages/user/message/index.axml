@@ -1,0 +1,35 @@
+<view class="messageContainer">
+  <message-bc />
+  <view class="messageContentBox">
+    <!-- 头部 -->
+    <view class="messageHeader">
+      <!-- 消息logo -->
+      <header title="消息列表">
+        <view class="noticeBox">
+          <!-- catchTap="goToNotice" -->
+          <view a:for="{{noticeLogos}}" a:key="id" data-item="{{item}}">
+            <view class="imgBox">
+              <image class="noticeLogo" src="{{item.img}}" />
+              <view a:if="{{!!item.num}}" class="noticeNum">{{item.num}}</view>
+            </view>
+            <view class="noticeTitle">{{item.title}}</view>
+          </view>
+        </view>
+      </header>
+    </view>
+    <!-- 清除未读消息 -->
+    <view class="clearNoticeBox">
+      <image class="clearNotice" src="./images/clear.png" catchTap="clearNotice" />
+    </view>
+    <scroll-view scroll-y='true' class="messageScrollBox" style="height: {{scrollHeight}}px;" onScrollToLower='requestMoreData'>
+      <!-- 消息列表 -->
+      <view class="messageBox">
+        <view a:if="{{noticeList.length}}" class="noticeListBox">
+          <notice-bar a:for="{{noticeList}}" a:key="id" info="{{item}}" />
+        </view>
+        <image a:if="{{!loading && !noticeList.length }}" class="messageEmpty" src="./images/messageEmpty.png" />
+        <!-- <empty a:else /> -->
+      </view>
+    </scroll-view>
+  </view>
+</view>

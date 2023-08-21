@@ -1,0 +1,57 @@
+<import-sjs from="/common/utils/filter.sjs" name="filter" />
+
+<view class="awardres-wrap" hidden="{{!show}}" touchMove="stopScroll">
+  <image class="bgImg" catchtap="noClose" src="https://chujiangupload.xingyunyfs.com/user_1/1657726479917780992.png" />
+  <view class="awardres-box">
+    <image class="congImgBg" catchtap="noClose" src="https://chujiangupload.xingyunyfs.com/user_1/1657726071342239744.png" />
+    <image class="congImg" catchtap="noClose" src="https://chujiangupload.xingyunyfs.com/user_1/1657726190510804992.png" />
+    <image class="congText" src="https://chujiangupload.xingyunyfs.com/user_1/1657725783835283456.png" />
+      
+    <scroll-view class="awardres-contBox" scroll-y="{{true}}">
+      <view class="awardres-scroll {{goods.length<2?'j-around':''}}">
+        <!-- <block a:for="{{goods}}" a:key="*this">
+          <view class="awardres-goodBox">
+            <image class="awardres-goodImg" src="{{item.img}}" />
+            <image class="awardres-goodTips" a:if="{{item.price >= 100}}" src="/images/common/award.png" />
+            <view class="awardres-word">{{item.word}}</view>
+            <view class="awardres-goodNumer">{{item.number}}</view>
+          </view>
+        </block> -->
+        <!-- new -->
+        <block a:for="{{goods}}" a:key="*this">
+          <view class="awardres-goodItem {{index===2||index===5||index===9?'mr0':''}}" data-good="{{item}}">
+            <image class="awardres-goodItemImg" src="{{filter.formatAwardNameBox(item.word).bg}}" />
+            <!-- 中赏特效边框 -->
+            <!-- <image class="awardres-goodItem awardres-goodItemBorder" src="{{filter.formatAwardNameBox(item.word).border}}" /> -->
+
+            <image class="awardres-goodImg" src="{{item.img}}" mode="aspectFill" lazy-load="true" />
+            <view class="goodNameBox">
+              <view class="goodName">{{item.name}}</view>
+            </view>
+            <view class="awardres-goodInfoPrice">￥{{item.price}}</view>
+            <view class="awardres-goodInfoProb">x {{item.number}}</view>
+          </view>
+        </block>
+      </view>
+    </scroll-view>
+  </view>
+  <view class="awardresTry" a:if="{{try}}">
+    <view>“试一发运气”奖品非真实中奖</view>
+    <view>无法下单发货</view>
+  </view>
+  <view class="awardresSkip">
+    <image class="skipImg" catchTap="skipAnimation" src="/images/reward/inf/check.png" />
+    <view class="skipCheck" a:if="{{check}}"></view>
+    <view class="skipText" catchTap="skipAnimation">跳过动画</view>
+  </view>
+  <block a:if="{{try}}">
+    <image class="awardresBtnBg" src="https://chujiangupload.xingyunyfs.com/user_1/1660172810964099072.png" />
+    <view class="awardres-btn3 awardres-btn4" catchTap="close"><text>玩把真的</text></view>
+  </block>
+  <block a:else>
+    <image class="awardresBtnBg" src="https://chujiangupload.xingyunyfs.com/user_1/1657732445547663360.png" />
+    <view class="awardres-btn1" catchTap="toMyBag"><text>赏袋</text></view>
+    <view class="awardres-btn2" catchTap="close"><text>继续抽</text></view>
+    <view class="awardres-btn3" catchTap="againTen"><text>再来{{n_num}}发</text></view>
+  </block>
+</view>

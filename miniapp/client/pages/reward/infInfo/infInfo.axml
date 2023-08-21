@@ -1,0 +1,294 @@
+<!-- pages/reward/infInfo/infInfo.wxml -->
+<import-sjs from="/common/utils/filter.sjs" name="filter" />
+
+<!-- 头-不好使？？？ -->
+<!-- <navbar navTitle="{{navTitle}}" bgBack="{{bgBack}}" pageNum="1"></navbar> -->
+
+<!-- 扭蛋机 头 -->
+<view class="drawBox">
+  <image a:if="{{!showOpen}}" class="drawImgBg" src="https://chujiangupload.xingyunyfs.com/user_1/1654391774627717120.gif" />
+  <image a:else class="drawImgBg" src="{{openImg}}" />
+
+  <view class="drawHead">
+    <view class="leftD">
+      <!-- <text class="price">{{IpInfo.everyDrawPrice}}</text>
+      <text class="every" a:if="{{IpInfo.everyDrawPrice}}">1抽</text> -->
+    </view>
+    <view class="centerD" catchTap="onChooseMode">
+      <view>当前模式</view>
+      <view class="modeText">{{nowMode}}</view>
+      <image class="modeBottomImg" src="/images/reward/inf/modeDown.png" />
+    </view>
+    <view class="rightD">
+      <!-- <text class="every" a:if="{{IpInfo.everyDrawPrice}}">5抽</text>
+      <text class="price" a:if="{{IpInfo.everyDrawPrice}}">{{IpInfo.everyDrawPrice*5 || ''}}</text> -->
+    </view>
+  </view>
+  <!-- 两边按钮 -->
+  <view class="leftBtn">
+    <image class="btnsLeft" catchTap="goBuy" src="https://chujiangupload.xingyunyfs.com/tb-static/special-img/reward/i_gmcs.png" />
+    <image a:if="{{!isCollect}}" class="btnsLeft" catchTap="collectionIp" src="https://chujiangupload.xingyunyfs.com/tb-static/special-img/reward/i_c.png" />
+    <!-- 已收藏 -->
+    <image a:else class="btnsLeft" catchTap="removeCollect" src="https://chujiangupload.xingyunyfs.com/tb-static/special-img/reward/i_coll.png" />
+    <image class="btnsLeft" catchTap="requestAllData" src="https://chujiangupload.xingyunyfs.com/tb-static/special-img/reward/i_re.png" />
+  </view>
+  <view class="rightBtn">
+    <image class="btnsRight" catchTap="showTask" src="https://chujiangupload.xingyunyfs.com/tb-static/special-img/reward/i_rw.png" />
+    <image class="btnsRight" catchTap="toMyBag" src="https://chujiangupload.xingyunyfs.com/tb-static/special-img/reward/i_sd.png" />
+    <image class="btnsRight" catchTap="showDialog" src="https://chujiangupload.xingyunyfs.com/tb-static/special-img/reward/i_rule.png" />
+    <image a:if="{{ IpInfo.isBagDevilType }}" class="btnsRight" catchTap="openDemonModal" src="https://chujiangupload.xingyunyfs.com/tb-static/special-img/reward/i_mwb.png" />
+  </view>
+  <!-- 减免券剩余 -->
+  <view class="couponLeave">
+    <!-- 减免券剩余：<text>{{IpInfo.jianmianquan || 0}} +</text> -->
+    <view class="tryBox" onTap="onTry">
+      <view>试一发运气</view>
+      <view class="smallText">TRYING</view>
+    </view>
+    <view class="couponBox {{nowMode==='金币抽取'?'tryGray':''}}" onTap="chooseCoupon">
+      <view>可用减免券</view>
+      <view class="smallText">ACTIVE x <text class="ml-8">{{couponTotal || 0}}</text></view>
+    </view>
+  </view>
+  <!-- 按钮组 -->
+  <block a:for="{{btnsList}}" a:key="index">
+    <view class="reBtn{{item}}" data-info="{{item}}" data-nums="{{btnsListNum[index]}}" catchTap="onCreateOrder">
+      <image class="reBtnImg {{saleDate==='已开始'?'':'imgGray'}}" src="/images/reward/inf/re_{{item}}.png" />
+      <image class="reModeImg {{nowMode==='金币抽取'?'coin':''}}" src="{{modeImg}}" />
+      <view class="reTextNum">-{{nowMode==='金币抽取'?item*IpInfo.everyDrawPrice:btnsListNum[index]}}</view>
+    </view>
+  </block>
+  <!-- 明信片数据 -->
+  <view class="cardsInfoBox">
+    <view class="infoLeft" catchTap="goBuy">
+      <image class="infoImg" src="/images/reward/inf/cardIcon.png" />
+      <view class="infoText">
+        {{postcardInfo.name || '明信片'}}剩余：{{postcardInfo.postcardTotal || 0}}张 +
+      </view>
+    </view>
+    <view class="infoRight" catchTap="onMemberCard">
+      <image class="infoImg" src="/images/reward/inf/coinIcon.png" />
+      <view class="infoText">
+        金币剩余：{{userAccountInfo.coin || 0}}个 +
+      </view>
+    </view>
+  </view>
+</view>
+<!-- 开始时间/发售时间 -->
+<view a:if="{{saleDate!=='已开始'}}" class="finishTimeBox">开始时间 | {{IpInfo.saleDate}}</view>
+<!-- 距离结束时间 "{{saleDate==='已开始' && offShelfDate!=='已结束'}}"-->
+<view a:if="{{saleDate==='已开始' && offShelfDate!=='已结束'}}" class="finishTimeBox">
+  <text>距离结束 | {{offShelfDate}}</text>
+</view>
+<!-- 大魔王 -->
+<view class="mwBox {{IpInfo.isBagDevilType?'':'no'}}">
+  <view a:if="{{IpInfo.isBagDevilType}}" class="mwAvatorBox">
+    <!-- 左侧头像 -->
+    <view class="leftAvator">
+      <view class="mwName">大魔王</view>
+      <view class="headBox">
+        <image class="DheadImg" src="{{devilInfo.avatarUrl || '/images/icon/common/head.png'}}" />
+        <image class="headKimg" src="/images/reward/inf/mw_box.png" />
+        <image a:if="{{devilInfo.time!=='未占领'}}" class="headKimgBoxBg" src="/images/reward/inf/mwNOW.png" />
+      </view>
+      <view class="nameBox">
+        <view class="userName">{{devilInfo.nickname || '匿名用户'}}</view>
+      </view>
+      <view class="timeLine"></view>
+      <view class="timeBox">{{devilInfo.time}}</view>
+    </view>
+    <!-- 右侧滚动 -->
+    <view class="mwLine"></view>
+    <view class="rightScrollList">
+      <view a:if="{{rewardChallengeList.length>0}}" class="swiper_rise">
+        <view class="charm" style="animation: item_move {{animationTime}}s linear infinite;">
+          <view class="item" a:for="{{rewardChallengeList}}" a:key="index">
+            <text class="notice-line-item text-hide">{{item.name || '匿名用户'}}</text>
+            <text class="item-desc">{{item.goodType === 'UR'?'占领了魔王':'发起了挑战'}}</text>
+          </view>
+        </view>
+      </view>
+      <view a:else class="notice-no-text">暂无挑战记录</view>
+      <!-- 此乃方案二 -->
+      <!-- <view a:if="{{rewardChallengeList.length>0}}" class="notice-container" style="height:{{totalHeight}}rpx" catchTap="onNewProduct">
+        <view class="notice-swiper" style="height:{{rewardChallengeList.length*40}}rpx">
+          <view class="notice-position" style="top:-{{move}}rpx">
+            <view class="notice-for" a:for="{{rewardChallengeList}}" a:key="index" data-index="{{index}}">
+              <view class="notice-item-root-container">
+                <view class="notice-item-container">
+                  <text class="notice-line-item text-hide">{{item.name || '匿名用户'}}</text>
+                  <text class="item-desc">{{item.goodType === 'UR'?'占领了魔王':'发起了挑战'}}</text>
+                </view>
+                <view class="notice-item-divider"></view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view a:else class="notice-no-text">暂无挑战记录</view> -->
+    </view>
+  </view>
+  <!-- 款式概率 -->
+  <view class="probabilityBox">
+    <view class="probInfoBox">
+      <scroll-view class="probInfoScroll" scroll-x>
+        <block a:for="{{probInfo}}" a:key="*this">
+          <view class="probInfoItem">
+            <image class="probInfoItemImg" src="/images/reward/inf/f_{{filter.formatAwardTypeBox(item.type)}}.png" />
+            <view class="probInfoW1 text-hide">{{item.type}}</view>
+            <view class="probInfoW2">{{item.probability}}</view>
+          </view>
+        </block>
+      </scroll-view>
+    </view>
+  </view>
+</view>
+
+<!-- 赏池 -->
+<view class="commonWrap" touchMove="noMove">
+		<!-- <image class="buyRuleBtn moving" catchTap="showRule" src="/images/reward/inf/rule.png" /> -->
+		<!-- <image class="wrapBg" mode="aspectFill" src="/images/reward/inf/bg.jpg" /> -->
+		<view class="filterBox" style="background-color: transparent;">
+				<block a:for="{{filters}}" a:key="*this">
+						<view class="filterItem {{item.act}}" catchTap="switchView" data-val="{{index}}">
+								<text>{{item.label}}</text>
+						</view>
+				</block>
+    </view>
+    <!--  onConfirm="searchAwardList" -->
+    <input type="text" class="searchBox" id="searchInput" onInput="changeSearch" placeholder="请输入完整赏品名"
+     value="{{searchWord}}" confirm-type="search" a:if="{{awardListShow}}"></input>
+    <view a:if="{{awardListShow}}" class="searchText" catchTap="searchAwardList">搜索</view>
+    <view class="switchBox">
+				<scroll-view class="goodsScroll" scroll-y="true" style="width: 100%" a:if="{{goodImgShow}}">
+						<view class="goodsBox">
+                <block a:for="{{goods}}" a:key="id">
+                    <view class="goodItem" data-good="{{item}}" catchTap="openImageModal">
+                      <image class="goodItemImg" src="{{filter.formatAwardNameBox(item.type).bg}}" />
+                      
+                      <image class="goodImg" src="{{item.img}}" mode="aspectFill" lazy-load="true" />
+                      <view class="goodNameBox">
+                        <view class="goodName">{{item.name}}</view>
+                      </view>
+                      <view class="goodInfoPrice">￥{{item.retrievePrice}}</view>
+                      <view class="goodInfoProb">{{item.probability}}</view>
+										</view>
+								</block>
+						</view>
+				</scroll-view>
+				<!-- <view class="typeInfoBox" a:if="{{awardListShow}}">
+          <scroll-view class="typeInfoScroll" scroll-x>
+            <block a:for="{{rewardTypeNames}}" a:key="*this">
+              <view class="typeInfoItem {{index == rewardTypeChoseIndex ? 'act' : ''}}" catchTap="choseTypeIndex" data-val="{{index}}">
+                <text>{{item}}</text>
+              </view>
+            </block>
+          </scroll-view>
+				</view> -->
+				<view class="awardTips" a:if="{{awardList.length == 0 && awardListShow}}">客官，没有了</view>
+				<view class="awardListBox" a:if="{{awardListShow}}">
+          <scroll-view class="scrollBox" id="awardListBox" scroll-y="true"
+           onScrollToLower='requestMoreAwardListData'>
+            <block a:for="{{awardList}}" a:key="no">
+              <view class="awardItem {{index == awardList.length - 1 ? 'mb' : ''}}">
+                <image class="awardItemImgBg"
+                 src="https://chujiangupload.xingyunyfs.com/tb-static/special-img/reward/itembg_{{filter.formatAwardTypeBox(item.goodType)}}.png" />
+                <!-- <image class="awardBg" a:if="{{item.sp}}" src="/images/reward/b.png" /> -->
+                <view class="headImgBox">
+                    <image class="headImg" src="{{item.head || '/images/icon/common/head.png'}}" />
+                    <!-- <image class="headBorderImg" src="{{item.avatarBorderUrl || ''}}" /> -->
+                </view>
+                <!-- <image class="headImg" src="{{item.head || '/images/icon/common/head.png'}}" /> -->
+                <!-- <view class="noBox din">{{item.no}}</view> -->
+                <view class="awardInfo">
+                    <view class="awardInfoblock">
+                        <view class="awardInfoWord">
+                            {{item.name || '匿名用户'}}
+                            <image a:if="{{item.memberCardTag}}" class="levelTag" src="{{item.memberCardTag}}" />
+                            <text class="level">LV{{item.level || 0}}</text>
+                        </view>
+                        <view class="awardInfoWordRight type">
+                          <text class="noBoxInfo">NO.{{item.no}}</text>
+                          <text class="typeInfo">{{item.goodType}}赏</text>
+                        </view>
+                    </view>
+                    <view class="awardInfoblock infoBottom">
+                        <view class="awardInfoWord">{{item.getTime}}</view>
+                        <view class="awardInfoWordRight">{{item.goodName}}</view>
+                    </view>
+                </view>
+              </view>
+            </block>
+          </scroll-view>
+				</view>
+		</view>
+</view>
+<!-- <image class="refreshBtn" catchTap="requestAllData" src="/images/icon/common/refresh.png" touchMove="noMove" /> -->
+<!-- <image a:if="{{ IpInfo.isBagDevilType }}" class="demonBtn moving" catchTap="openDemonModal" src="/images/reward/inf/demonLogo.png" /> -->
+<!-- <movable-area a:if="{{ IpInfo.isBagDevilType }}">
+	<movable-view x="{{demonX}}rpx" y="{{demonY}}rpx" direction="all">
+		<image class="demonBtn moving" catchTap="openDemonModal" src="/images/reward/inf/demonLogo.png" />
+	</movable-view>
+</movable-area> -->
+<!-- 每日任务弹窗 -->
+<daily-task-modal 
+  a:if="{{showDailyTaskDialog}}" 
+  storeOwnerId="{{storeOwnerId}}"
+  followStore="{{followStore}}" 
+  followPoint="{{followPoint}}" 
+  onClose="closeDialog" 
+/>
+<award-res id="awardResDialog" ref="saveAwardResDialogRef" onPostCardPay="postCardPay" onClose="closeAwardRes"></award-res>
+<!-- <goto-auth a:if="{{showAuto}}"></goto-auth> -->
+<view class="AuthMask" catchTap="showAuthBox" a:if="{{showAuthMask}}"></view>
+<notice id="noticeDialog" ref="saveNoticeDialogRef" title="{{noticeTitle}}" isRichText="{{isRichText}}" info="{{noticeWord}}"></notice>
+
+<default-modal ref="defaultDialogRef" isRichText="{{isRichText}}" title="说明" 
+  content="{{noticeWord}}" btnTitle="{{btnTitle}}" closeDialog="closeRuleDialog" />
+<!-- 选择模式弹窗 -->
+<view a:if="{{showChooseMask}}" class="chooseMask">
+  <view class="chooseListBox">
+    <block a:for="{{modeList}}" a:key="*this">
+      <view class="modeItem {{item.name===nowMode?'actMode':''}}" onTap="closeChoose" data-info="{{item}}">{{item.name}}</view>
+    </block>
+  </view>
+</view>
+<!-- 优惠券弹窗 -->
+<pay-coupon-modal 
+  id="payCoupon"
+	ref="payCouponRef" 
+	goodsId="{{ipId}}" 
+  amount="{{IpInfo.buyNum * IpInfo.everyDrawPrice}}"
+  everyDrawPrice="{{IpInfo.everyDrawPrice}}"
+	useCoupon="{{useGoodsCoupon}}" 
+	rewardType="{{IpInfo.rewardType}}"
+	close="closePayCoupon" 
+	ensure="choosePayCoupon" 
+/>
+<!-- 价格弹窗 -->
+<view
+  class="goods-modal-box chooseMask"
+  a:if="{{showImageModal}}"
+>
+<!-- <modal 
+	class="goods-modal" 
+	show="{{showImageModal}}" 
+	onModalClick="imageModalClose" 
+	onModalClose="imageModalClose" 
+	topImage="{{currentGoods.img}}"
+> -->
+  <view class="goods-modal">
+    <image class="goods-modal-close" src="/images/icon/common/close2.png" catchTap="imageModalClose" />
+    <image class="goods-modal-img" src="{{currentGoods.img}}" mode="aspectFill" />
+    <view class="goods-modal-header">{{currentGoods.title}}</view>
+    <view class="content">
+      <view class="modal-content">
+        市场参考价：{{ currentGoods.retrievePrice }}元
+      </view>
+      <view class="modal-content">单个获得概率为：{{ currentGoods.probability }}</view>
+      <view class="modalTip">提示：市场参考价格不代表物品最终价格，一切最终价格以市场波动作为参考。</view>
+    </view>
+    <view class="goods-modal-btn" catchTap="imageModalClose">关 闭</view>
+  </view>
+</view>
+<!-- </modal> -->

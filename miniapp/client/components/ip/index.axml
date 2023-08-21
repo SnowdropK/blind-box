@@ -1,0 +1,81 @@
+<import-sjs from="/common/utils/filter.sjs" name="filter" />
+
+<view class="ipBox {{ info.isBagDevilType ? 'devilIp' : ''}}" catchTap="gotoDetail">
+  <!-- 无限赏 -->
+  <view a:if="{{isInf}}" class="tagBox">
+    <image a:if="{{info.isPoints === 1 && info.mode === 2}}"  src="/images/icon/reward/customize.png" class="pointIcon"></image>
+    <image a:if="{{info.isPoints === 1 && info.mode === 1}}"  src="/images/icon/reward/limited.png" class="pointIcon"></image>
+    <!-- <image a:if="{{info.isPoints}}"  src="/images/icon/reward/point.png" class="pointIcon"></image> -->
+    <!-- <image src="/images/reward/icon/lei.png" class="leiIcon icon-margin"></image> -->
+    <image a:if="{{info.new && info.saleOpen}}" src="/images/icon/reward/new.png" class="newIcon"></image>
+    <image a:if="{{!info.saleOpen}}" src="/images/icon/reward/notSale.png" class="saleOpenIcon"></image>
+    <!-- <image a:if="{{info.isBagDevilType}}"  src="/images/reward/icon/devilKing.png" class="devilIcon" /> -->
+  </view>
+  <!-- 首页抽赏 -->
+  <view a:else class="tagBox">
+    <image a:if="{{info.mode === 2}}"  src="/images/icon/reward/customize.png" class="pointIcon icon-margin"></image>
+    <image a:if="{{info.mode === 1}}"  src="/images/icon/reward/limited.png" class="pointIcon icon-margin"></image>
+    <!-- <image a:if="{{info.isPoints}}"  src="/images/icon/reward/point.png" class="pointIcon icon-margin"></image> -->
+    <image a:if="{{info.hasDeficit}}"  src="/images/icon/reward/lei.png" class="leiIcon icon-margin"></image>
+    <image a:if="{{info.openGift === OPEN_GIFT.ON}}"  src="/images/icon/reward/champion.png" class="leiIcon icon-margin"></image>
+    <image a:if="{{info.new && info.saleOpen}}" src="/images/icon/reward/new.png" class="newIcon"></image>
+    <image a:if="{{!info.saleOpen}}" src="/images/icon/reward/notSale.png" class="saleOpenIcon"></image>
+  </view>
+  <!-- ip边框 -->
+  <view class="ipInfoBorder">
+    <!-- 顶部 -->
+    <view a:if="{{info.isBagDevilType}}" style="position: relative;">
+      <image class="ipInfoBorderTop" src="/images/icon/reward/ipInfoBorder1.png" lazy-load="true" />
+      <view class="ipInfoBorderOccupiedBox">
+        <image class="ipInfoBorderAvator" src="{{info.rewardOrderBagDevilRecordDo.avatarUrl || '/images/avator.png'}}" lazy-load="true" />
+        <view class="ipInfoBorderOccupiedInfo">
+          <block a:if="{{!!info.rewardOrderBagDevilRecordDo.nickname}}">
+            <view style="margin-bottom: 2prx;">已占领{{info.rewardOrderBagDevilRecordDo.currentRewardNum || 0}}抽</view>
+            <view>获得{{info.rewardOrderBagDevilRecordDo.preAmount || 0}}金币</view>
+          </block>
+          <view a:else>无人占领</view>
+        </view>
+      </view>
+    </view>
+    <!-- 中部 -->
+    <image class="ipInfoBorderCenter" style="margin-top:{{info.isBagDevilType ? 0 : 30}}rpx;" src="/images/icon/reward/ipInfoBorder2.png" lazy-load="true" />
+    <!-- 底部 -->
+    <view class="ipInfoBorderBottomBox">
+      <!-- a:if="{{info.isBagDevilType}}" -->
+      <image a:if="{{info.isBagDevilType}}" src="/images/icon/reward/devilKing.png" class="bottomImg devilIcon" />
+      <image a:if="{{info.isPoints}}" src="/images/icon/reward/point.png" class="bottomImg pointIcon"></image>
+    </view>
+  </view>
+  <image class="ipImg" src="{{info.img}}" mode="aspectFill" lazy-load="true" />
+  <view class="ipInfoBox">
+    <view class="ipName text-hide">{{info.name}}</view>
+    <view class="ipDataBox">
+      <!-- <view a:if="{{!isInf}}" style="display: flex;align-items: center;">
+        <view class="ipType ipTypeBg{{info.rewardType}}">
+          {{filter.formatRewardType(info.rewardType)}}
+        </view>
+      </view> -->
+      <view class="ipPriceInfo">
+        {{info.isPoints ? '' : '￥'}}
+        <view class="{{info.isPoints ? 'sp' : 'priceNum'}}">{{info.price}}</view>
+        {{info.isPoints ? '分' : ''}}/抽
+      </view>
+      <view class="ipHot">
+        <view class="ipHotNum">{{info.browseCount}}</view>
+        <image class="fireImg" src="/images/icon/reward/fire.png" />
+      </view>
+    </view>
+    <!-- <view class="ipRealeseBox"> -->
+      <!-- <view class="ipRealeseText">{{info.label}} {{info.date}} 发售</view> -->
+      <!-- a:if="{{isInf}}" -->
+      <!-- <view class="ipHot">
+        {{info.browseCount}}
+        <image class="fireImg"  src="./images/fire.png" />
+      </view> -->
+      <!-- <view a:else class="ipRealeseTime">
+        <image class="calanderLogo" src="/images/icon/common/i10.png" />
+        {{info.num+'/'+info.total}}
+      </view> -->
+    <!-- </view> -->
+  </view>
+</view>

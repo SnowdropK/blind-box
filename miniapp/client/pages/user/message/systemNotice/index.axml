@@ -1,0 +1,29 @@
+<view class="systemNoticeContainer">
+  <message-bc />
+  <view class="systemNoticeContentBox">
+    <view class="systemIconBox">
+      <image class="systemNoticeLogo" src="{{NOTICE_INFO_MAP[NOTICE_TYPE_MAP.SYSTEM].img}}" />
+    </view>
+    <scroll-view class="systemScrollBox" scroll-y='true' style="height: {{scrollHeight}}px;">
+      <!-- 头部 -->
+      <view class="noticeHeader">
+        <!-- 系统消息logo -->
+        <header></header>
+      </view>
+      <view class="systemNoticeBox">
+        <view class="systemNoticeTitle">系统通知</view>
+        <view class="noticeCreateTime">{{createTime}}</view>
+        <!-- 富文本 -->
+        <view class="systemRichTextBox">        
+          <rich-text nodes="{{content}}"></rich-text>
+        </view>
+        <view class="messageSenderBox">
+          <view>
+            <view style="font-size: 36rpx;">小熊助力</view>
+            <view style="margin-top: 10rpx;font-size: 20rpx;">{{updateTime}}</view>
+          </view>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+</view>

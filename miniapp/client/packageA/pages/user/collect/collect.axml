@@ -1,0 +1,39 @@
+<import-sjs from="/common/utils/filter.sjs" name="filter" />
+
+<view class="commonTop">
+  <view class="collectTotal">
+    共收藏 <text>{{total || 0}}</text> 套
+  </view>
+</view>
+<view class="commonWrapNew">
+  <view class="commonHeadNew"></view>
+  <scroll-view scroll-y='true' class="commonScrollBox" onScrollToLower="requestMoreData">
+    <!-- <view class="noMoreTips" a:if="{{records.length == 0}}">客官，没有了</view> -->
+    <empty a:if="{{records.length == 0}}"></empty>
+    <block a:else>
+      <block a:for="{{records}}" a:key="*this">
+        <view class="box" catchTap="gotoIpDetail" data-info="{{item}}">
+          <image class="ipImg" src="{{item.img}}" mode="aspectFill" lazy-load="false" />
+          <view class="ipInfo">
+            <view class="ipName">{{item.name}}</view>
+            <view class="labels">
+              <view class="label label{{item.rewardType}}">{{filter.formatRewardType(item.rewardType)}}</view>
+            </view>
+            <!--  a:if="{{item.rewardType!==3}}" -->
+            <view a:if="{{item.rewardType!==3}}" class="numBox">
+              <view class="num1">第
+                <text>{{item.boxNumber}}</text>套</view>
+              <view class="num1">
+                <text>{{item.num}}</text>/{{item.total}}</view>
+            </view>
+          </view>
+          <view class="sellOutBox" a:if="{{item.sellOut}}">
+            <image class="sellOutImg" src="/images/common/selloutNew.png" mode="aspectFit" lazy-load="false" />
+          </view>
+          <image class="delBtn" src="/images/icon/common/closeNew.png" mode="aspectFit" lazy-load="false" catchTap="delCollect" 
+            data-info="{{item}}" />
+        </view>
+      </block>
+    </block>
+  </scroll-view>
+</view>

@@ -1,0 +1,379 @@
+/* required by usingComponents */
+/* pages/reward/index/index.wxss */
+page {
+  /* padding-top: 125rpx; */
+  /* #2C2C2C */
+  background-color: #000;
+}
+.box-shadow-top-1 {  
+  box-shadow: 0 -1px #fff !important;
+}
+/* 头部 */
+/* .rewardIndexContainer .headBox {
+  position: sticky;
+  top: 0;
+  z-index: 99;
+  width: 750rpx;
+  height: 288rpx;
+  background-color: #fff;
+} */
+/* .rewardIndexContainer .headBg {
+  width: 750rpx;
+  height: 288rpx;
+}
+.rewardIndexContainer .navigationBar {
+  display: flex;
+  position: absolute;
+  bottom: 34rpx;
+  z-index: 2;
+  padding: 0 24rpx;
+  width: 100%;
+}
+.rewardIndexContainer .navigationBar .messageBox {
+  position: relative;
+}
+.rewardIndexContainer .navigationBar .noticePoint {
+  position: absolute;
+  top: -14rpx;
+  left: -10rpx;
+  width: 28rpx;
+  height: 28rpx;
+  border-radius: 14rpx;
+  color: #fff;
+  font-size: 16rpx;
+  text-align: center;
+  line-height: 28rpx;
+  background-color: #F29700;
+}
+.rewardIndexContainer .navigationBar .message {
+  width: 84rpx;
+  height: 56rpx;
+}
+.rewardIndexContainer .navigationBar .search {
+  margin-left: 10rpx;
+  width: 100%;
+  height: 56rpx;
+  box-sizing: border-box;
+  border-radius: 12rpx;
+  font-size: 20rpx;
+  padding: 0 22rpx;
+  background-color: #f2f2f2;
+} */
+.rewardIndexContainer {
+  position: relative;
+  box-sizing: border-box;
+}
+.rewardIndexContainer .homeTopBg {
+  width: 750rpx;
+  height: 500rpx;
+}
+/* 内容区 */
+.rewardIndexContainer .rewardIndexScrollBox {
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin-top: 126rpx;
+  /* height: 73vh; */
+}
+.rewardIndexContainer .mainContent {
+  position: relative;
+  margin-top: 12rpx;
+  /* 20rpx */
+  padding-bottom: 156rpx;
+}
+/* 新用户 */
+.rewardIndexContainer .newUserIcon {
+  position: absolute;
+  z-index: 999;
+  top: 194rpx;
+  right: 0;
+  width: 186rpx;
+  height: 44rpx;
+}
+/* 轮播图 */
+.rewardIndexContainer .bannerBox {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  width: 750rpx;
+  height: 364rpx;
+}
+.rewardIndexContainer .bannerBorder {
+  position: absolute;
+  z-index: 999;
+  top: 0;
+  left: 0;
+  width: 750rpx;
+  height: 364rpx;
+}
+.rewardIndexContainer .bannerSwiper {
+  position: relative;
+  top: 72rpx;
+  width: 678rpx;
+  height: 240rpx;
+  overflow: hidden;
+}
+.rewardIndexContainer .bannerImg {
+  width: 678rpx;
+  height: 240rpx;
+  /* position:relative;
+  top: 20rpx; */
+}
+/* 广告入口 */
+/* .rewardIndexContainer .advertiseBox {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 24rpx;
+  padding: 0 8rpx;
+}
+.rewardIndexContainer .advertiseBox .advertiseEntrance {
+  width: 342rpx;
+  height: 116rpx;
+} */
+/* 分类列表 */
+.rewardIndexContainer .filterBox {
+  /* position: sticky;
+  z-index: 9999;
+  top: 0; */
+  /* margin-top: -6rpx; */
+  /* padding: 0 0 0 8rpx; */
+  /* height: 112rpx; */
+  font-size: 32rpx;
+  color: #F7B52D;
+  font-weight: bold;
+  background-color: #2C2C2C;
+}
+.rewardIndexContainer .filterBox .filterTopBox {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 60rpx;
+  padding-left: 48rpx;
+  padding-right: 28rpx;
+  font-size: 22rpx;
+  color: #F29700;
+}
+.rewardIndexContainer .filterTopBox .filterExpandBox {
+  position: absolute;
+  z-index: 9999;
+  top: 60rpx;
+  left: 0;
+  width: 750rpx;
+  box-sizing: border-box;
+  padding: 16rpx 44rpx 30rpx;
+  color: #9E9F9F;
+  background-color: #2C2C2C;
+}
+.rewardIndexContainer .filterTopBox .filterExpandItem {
+  margin-top: 12rpx;
+  position: relative;
+  line-height: 40rpx;
+  padding-right: 40rpx;
+}
+.rewardIndexContainer .filterTopBox .filterExpandItem.act {
+  color: #F29700;
+}
+.rewardIndexContainer .filterTopBox .filterExpandItem::before {
+  content: "";
+  font-size: 17rpx;
+  position: absolute;
+  top: 22rpx;
+  right: 18rpx;
+  border: 10rpx solid;
+  border-color: #808080 transparent transparent transparent;
+}
+.rewardIndexContainer .filterTopBox .filterExpandItem::after {
+  content: "";
+  font-size: 17rpx;
+  position: absolute;
+  top: -1rpx;
+  right: 18rpx;
+  border: 10rpx solid;
+  border-color: transparent transparent #808080 transparent;
+}
+.rewardIndexContainer .filterTopBox .filterExpandItem.act::before {
+  border-color: #F29700 transparent transparent transparent;
+}
+.rewardIndexContainer .filterTopBox .filterExpandItem.act::after {
+  border-color: transparent transparent #F29700 transparent;
+}
+.rewardIndexContainer .filterTopBox .filterExpandItem.ASC::before {
+  border-color: #808080 transparent transparent transparent;
+}
+.rewardIndexContainer .filterTopBox .filterExpandItem.DESC::after {
+  border-color: transparent transparent #808080 transparent;
+}
+
+
+.rewardIndexContainer .filterBox .filterTopRank {
+  display: flex;
+  align-items: center;
+}
+.rewardIndexContainer .filterBox  .arrowDown {
+  margin-left: 10rpx;
+  width: 26rpx;
+  height: 16rpx;
+}
+.rewardIndexContainer .filterBox .filterTag {
+  width: 142rpx;
+  height: 14rpx;
+}
+.rewardIndexContainer .filterBox .filterCategoryScroll {
+  white-space: nowrap;
+  padding: 12rpx 16rpx 12rpx 0;
+  width: 750rpx;
+  height: 118rpx;
+  box-sizing: border-box;
+  background-color: #202020;
+}
+.rewardIndexContainer .filterBox .filterItemBox {
+  position: relative;
+  display: inline-block;
+  margin-left: 16rpx;
+  width: 150rpx;
+  height: 94rpx;
+}
+.rewardIndexContainer .filterBox .filterItem {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 99;
+  display: flex;
+  /* justify-content: space-between; */
+  justify-content: flex-end;
+  width: 150rpx;
+  height: 94rpx;
+  /* padding-top: 10rpx; */
+  padding-right: 4rpx;
+  box-sizing: border-box;
+}
+.setGray {
+  filter: grayscale(100%);
+}
+.rewardIndexContainer .filterBox .filterItemBg {
+  width: 150rpx;
+  height: 94rpx;
+}
+.rewardIndexContainer .filterBox .filterItem.act {
+  /* color: #fff; */
+}
+.rewardIndexContainer .filterBox .catogoryLabel {
+  position: absolute;
+  z-index: 9999;
+  left: 8rpx;
+  /* bottom: 12rpx; */
+  display: flex;
+  align-items: center;
+  /* writing-mode: tb-rl; */
+  width: 70rpx;
+  height: 94rpx;
+  font-size: 30rpx;
+  text-align: center;
+  /* white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis; */
+  /* word-wrap: break-word; */
+  /* word-break: break-all; */
+   white-space: pre-wrap;
+}
+/* .rewardIndexContainer .filterBox .filterImgBox {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+} */
+.rewardIndexContainer .filterBox .filterImg {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  /* vertical-align: top;
+  opacity: 1; */
+}
+/* 筛选列表 */
+.rewardIndexContainer .filterPropsBox {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 24rpx;
+  height: 24rpx;
+  font-size: 22rpx;
+}
+.rewardIndexContainer .filterPropsBox .filterItemBox {
+  width: 320rpx;
+  display: flex;
+  justify-content: space-between;
+}
+.rewardIndexContainer .filterPropsBox .line {
+  width: 180rpx;
+  height: 2rpx;
+  background-color: #a1a1a1;
+}
+/* .rewardIndexContainer .filterPropsBox .filterItem.act {
+  color: #F29700;
+}
+.rewardIndexContainer .filterPropsBox .filterItem {
+  position: relative;
+  line-height: 40rpx;
+  padding-right: 40rpx;
+}
+.rewardIndexContainer .filterPropsBox .filterItem::before {
+  content: "";
+  font-size: 17rpx;
+  position: absolute;
+  top: 22rpx;
+  right: 18rpx;
+  border: 10rpx solid;
+  border-color: #808080 transparent transparent transparent;
+}
+.rewardIndexContainer .filterPropsBox .filterItem::after {
+  content: "";
+  font-size: 17rpx;
+  position: absolute;
+  top: -1rpx;
+  right: 18rpx;
+  border: 10rpx solid;
+  border-color: transparent transparent #808080 transparent;
+}
+.rewardIndexContainer .filterPropsBox .filterItem.act::before {
+  border-color: #F29700 transparent transparent transparent;
+}
+.rewardIndexContainer .filterPropsBox .filterItem.act::after {
+  border-color: transparent transparent #F29700 transparent;
+}
+.rewardIndexContainer .filterPropsBox .filterItem.ASC::before {
+  border-color: #808080 transparent transparent transparent;
+}
+.rewardIndexContainer .filterPropsBox .filterItem.DESC::after {
+  border-color: transparent transparent #808080 transparent;
+} */
+/* ip列表 */
+.rewardIndexContainer .IpList {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 24rpx 30rpx 0;
+  background-color: #2C2C2C;
+}
+.opBtn {
+  position: fixed;
+  right: 0;
+  width: 122rpx;
+  height: 102rpx;
+  z-index: 99999;
+  pointer-events: auto;
+}
+.task {
+  bottom: 264rpx;
+}
+.warOrder {
+  bottom: 384rpx;
+}
+.spanRotate {
+  transform: rotate(180deg);
+  transition: transform .5s;
+}
+.noMoreTips {
+  margin-top: 30rpx;
+}

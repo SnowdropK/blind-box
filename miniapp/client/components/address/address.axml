@@ -1,0 +1,33 @@
+<!--components/address/address.wxml  a:if="{{isShow}}"-->
+<view hidden="{{!isShow}}" class="wrap showing"  touchMove="stopScroll">
+	<view class="shadow"></view>
+
+	<view class="backBtn" catchTap="close">
+		<image class="backIcon" src="/images/icon/common/back.png" />
+		地址
+	</view>
+
+	<view class="typeBox">
+		<view class="typeLabel" catchTap="close">取消</view>
+		<view class="type" catchTap="onConfirm">确定</view>
+	</view>
+
+	<view class="contBox">
+		<scroll-view class="addresssBox" scroll-y="true">
+			<radio-group onChange="radioChange">
+				<block a:for="{{list}}" a:key="*this">
+					<view class="addressBox">
+						<radio value="{{index+1}}"/>
+						<view class="addressInfo">
+							<view class="address-top">
+								<view class="user-name">联系人:{{item.username}}</view>
+								<view class="">手机号：<text>{{item.tel}}</text></view>
+							</view>
+							<view class="">地址：{{item.province}}{{item.city}}{{item.district}}{{item.detail}}</view>
+						</view>
+					</view>
+				</block>
+			</radio-group>
+		</scroll-view>
+	</view>
+</view>

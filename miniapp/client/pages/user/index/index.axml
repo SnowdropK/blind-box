@@ -1,0 +1,164 @@
+<!-- pages/user/index/user.wxml -->
+<view class="userContainer">
+	<!-- 背景 -->
+	<view class="meBgBox" >
+		<image class="meToBg" src="/images/user/me_top.png " />
+		<image class="meBottomBg" src="/images/user/me_bottom.png " />
+	</view>
+	<view class="meContentBox">
+		<view class="meTitle">我的</view>
+		<!-- 用户信息 -->
+		<view class="userInfoBox">
+			<image class="meHeaderBg" src="/images/user/me_header.png" />
+			<view class="userInfoContentBox">
+				<!-- 用户信息：等级、用户名 -->
+				<view class="userInfoContent">
+					<view class="userImgBox">
+							<!-- <view class="userImg" style="background: url({{userInfo.avatarUrl || '/images/icon/common/head.png'}});background-size: 100% 100%;"></view> -->
+							<image class="userImg" src="{{userInfo.avatarUrl || '/images/icon/common/head.png'}}" />
+							<image a:if="{{userInfo.avatarBorderUrl}}" class="userLevelFrame" src="{{userInfo.avatarBorderUrl}}" />
+					</view>
+					<view class="userInfo">
+						<!-- 用户名 -->
+						<view class="userNameBox">
+								<text a:if="{{userInfo.openId}}" class="userName" catchTap="goToAvator">
+										{{userInfo.nickname || '请修改昵称'}}
+								</text>
+								<text a:else catchTap="goToAvator">点击登录</text>
+								<!-- <image class="edit" src="/static/images/icon/edit.png" catchTap="goToAvator" /> -->
+						</view>
+						<!-- 用户等级 -->
+						<view class="userLevelBox">
+							<!-- <image a:if="{{userInfo.memberCardTag}}" class="memberCardTag" src="{{userInfo.memberCardTag}}" /> -->
+							<view a:if="{{userInfo.memberCardTag}}" class="memberCardTag">{{userInfo.memberCardTag}}</view>
+							<view class="userLevel">LV {{userInfo.level || 0}}</view>
+						</view>
+						<!-- 复制ID -->
+						<view class="uidBox">
+								<view class="uid">UID:{{userInfo.openId || '-'}}</view>
+								<view a:if="{{userInfo.openId}}" class="copyUID" catchTap="copyOpenId" data-no="{{userInfo.openId}}">
+										点击复制ID
+								</view>
+						</view>
+						<!-- 消息 -->
+						<view class="messageBox" catchTap="goToMessage">
+							<view a:if="{{sumCount > 0}}" class="unReadNum">{{sumCount}}</view>
+							<image class="messageImg" src="/images/user/message.png" />
+						</view>
+					</view>
+				</view>
+				<!-- 充值信息：用户积分、明信片、金币入口 -->
+				<view class="rechargeInfoBox">
+					<!-- 积分 -->
+					<view class="rechargeBox" catchTap="gotoPointExchange">
+						<image class="rechargeBg" src="/images/user/rechargeImg1.png" />
+						<view class="rechargeContentBox">
+							<view class="rechargePoint">{{userAccountInfo.point || 0}}</view>
+						</view>
+					</view>
+					<!-- 明信片 -->
+					<view class="rechargeBox" catchTap="gotoPostcard">
+						<image class="rechargeBg" src="/images/user/rechargeImg2.png" />
+						<view class="rechargeContentBox">
+							<view class="rechargePoint">{{userAccountInfo.postcardTotal || 0}}</view>
+						</view>
+					</view>
+					<!-- 金币 -->
+					<view class="rechargeBox" catchTap="gotoCoinRecord">
+						<image class="rechargeBg" src="/images/user/rechargeImg3.png" />
+						<view class="rechargeContentBox">
+							<view class="rechargePoint">{{userAccountInfo.coin}}</view>
+						</view>
+					</view>
+				</view>
+			</view>
+		</view>
+		<!-- 入口 -->
+		<!-- <view class="entranceBox">
+				<view class="operateBox left" catchTap="goToRecharge">
+						<view class="magicLogo">
+								<image style="width: 36rpx;height: 56rpx;" src="/static/images/icon/magic.png" />
+						</view>
+						<view class="magicNum">{{userAccountInfo.canUseAmount || 0}}</view>
+				</view>
+				<view class="operateBox center {{meetConsumThreshold?'':'centerBig'}}" catchTap="goToMemberCentre">个人中心</view>
+				<view a:if="{{meetConsumThreshold}}" class="operateBox right" catchTap="goToMemberCard">会员中心</view>
+		</view> -->
+		<!-- 九宫格 -->
+		<view class="gridContainer">
+			<view class="gridContentBox">
+				<image class="gridBg" src="/images/user/gridBg.png" />
+				<view class="gridContent">
+					<view class="gridItem" catchTap="gotoCollectionPage">
+						<image class="iconItem" src="./images/b1.png" />
+						<text>我的收藏</text>
+					</view>
+					<!-- <view class="gridItem" catchTap="gotoPointExchange">
+							<image class="iconItem" src="./images/b2.png" />
+							<text>积分兑换</text>
+					</view>
+					<view class="gridItem" catchTap="gotoPointReawardList">
+							<image class="iconItem" src="./images/b3.png" />
+							<text>积分赏</text>
+					</view>
+					<view class="gridItem" catchTap="gotoRecoveryRecord">
+							<image class="iconItem" src="./images/b4.png" />
+							<text>魔晶记录</text>
+					</view> -->
+					<view class="gridItem" catchTap="gotoDeliverRecord">
+						<image class="iconItem" src="./images/b2.png" />
+						<text>发货记录</text>
+					</view>
+					<view class="gridItem" catchTap="goToMemberCard">
+						<image class="iconItem" src="./images/b3.png" />
+						<text>会员卡</text>
+					</view>
+				</view>
+			</view>
+			<view class="gridContentBox">
+				<image class="gridBg" src="/images/user/gridBg.png" />
+				<view class="gridContent">
+					<view class="gridItem" catchTap="gotoExchange">
+						<image class="iconItem" src="./images/b4.png" />
+						<text>兑换码</text>
+					</view>
+					<view class="gridItem" catchTap="gotoDiscountCoupons">
+						<image class="iconItem" src="./images/b5.png" />
+						<text>减免券</text>
+					</view>
+					<view class="gridItem" catchTap="goToMemberCentre">
+						<image class="iconItem" src="./images/b6.png" />
+						<text>会员中心</text>
+					</view>
+					<!-- <view class="gridItem" catchTap="showQrCode">
+							<image class="iconItem" src="./images/b9.png" />
+							<text>粉丝群</text>
+					</view> -->
+					<!-- <button class="gridItem" style="margin: 0 !important;color: #fff!important;" plain="true" open-type="contact">
+							<image class="iconItem" style="margin-top: 6rpx;width: 46rpx;height: 46rpx;" src="./images/b10.png" />
+							<text style="margin-top: -8rpx;">客服</text>
+					</button> -->
+					<!-- <view class="gridItem" catchTap="showQrCode">
+									<image class="iconItem" src="./images/service.png" />
+									<text>客服</text>
+							</view> -->
+				</view>
+			</view>
+			<!-- <view class="gridContent">
+				<view class="gridItem" catchTap="viewRule">
+						<image class="iconItem small" src="./images/f_rule.png" />
+						<text>发货须知</text>
+				</view>
+			</view> -->
+		</view>
+		<!-- 广告位 -->
+		<!-- <view class="inviteBannerBox">
+			<image class="inviteBanner" mode="widthFix" src="/static/images/bg/inviteBanner.png" catchTap="gotoRebatePage"></image>
+		</view> -->
+	</view>
+</view>
+<tab selected="{{2}}"></tab>
+<!-- 规则弹窗 -->
+<!-- <rule-modal a:if="{{ showRuleDialog }}" title="发货须知" content="{{noticeWord}}" bindclose="closeRuleDialog" /> -->
+<!-- 手机绑定提示弹窗 -->
+<!-- <phoneBind a:if="{{ showPhoneBindModal }}" bind:getNewUserDetail="getNewUserDetail" userInfo="{{ userInfo }}" bind:close="closePhoneBind" /> -->

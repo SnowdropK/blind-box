@@ -1,0 +1,52 @@
+page {
+  background-color: #040D14;
+}
+.systemNoticeContainer {
+  position: relative;
+}
+.systemNoticeContainer .systemNoticeContentBox {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 99;
+  width: 100%;
+  padding-top: 180rpx;
+}
+.systemNoticeContainer .systemIconBox {
+  margin-top: 20rpx;
+  display: flex;
+  justify-content: center;
+}
+.systemNoticeContainer .systemNoticeLogo {
+  /* position: relative;
+  top: -51rpx; */
+  width: 110rpx;
+  height: 110rpx;
+}
+.systemNoticeContainer .systemNoticeBox {
+  padding: 20rpx 88rpx 100rpx;
+  color: #FFFFFF;
+}
+.systemNoticeContainer .systemNoticeBox .systemNoticeTitle {
+  color: #F1AB04;
+  font-size: 30rpx;
+}
+.systemNoticeContainer .systemNoticeBox .noticeCreateTime {
+  margin-top: 16rpx;
+  color: #C4C4C4;
+  font-size: 24rpx;
+  padding-bottom: 22rpx;
+  border-bottom: 1px solid #FFFFFF;
+}
+.systemNoticeContainer .systemNoticeBox .systemRichTextBox {
+  padding: 0 10rpx;
+}
+.systemNoticeContainer .systemNoticeBox .messageSenderBox {
+  display: flex;
+  flex-direction: row-reverse;
+  border-top: 1px solid #FFFFFF;
+  padding-top: 30rpx;
+  font-size: 24rpx;
+  color: #fff;     
+  text-align: center;
+}

@@ -1,0 +1,6 @@
+.messageHeadBox {
+  position: relative;
+  padding: 152rpx 30rpx 0;
+  color: #fff;
+  /* background: linear-gradient(#2e2e2e 0%, #201613 100%); */
+}

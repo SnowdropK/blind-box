@@ -1,0 +1,154 @@
+page {
+  background-color:#3C3C3C;
+  height: 100vh;
+}
+
+.collectTotal {
+  position: absolute;
+  top: 202rpx;
+  font-size: 24rpx;
+  color: #FFC000;
+  text-align: center;
+  width: 100%;
+}
+.collectTotal text {
+  font-size: 28rpx;
+  color: #ffffff;
+  margin: 0 2rpx;
+}
+
+.commonWrapNew {
+  top: 251rpx;
+  background-color: #3C3C3C;
+}
+
+.titlelabel {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #FFFFFF;
+  line-height: 150rpx;
+  padding-left: 30rpx;
+  letter-spacing: 3rpx;
+  margin-top: 120rpx;
+}
+
+.commonScrollBox {
+  top: 30rpx;
+  padding-bottom: 40rpx;
+}
+
+.box {
+  width: 684rpx;
+  height: 180rpx;
+  border-radius: 4rpx;
+  margin: 30rpx auto 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  /* padding: 10rpx 30rpx 10rpx 10rpx; */
+  position: relative;
+  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAp4AAACsBAMAAAAgdbEvAAAAKlBMVEUAAAAlJSUlJSUmJiYfHx8lJSUvLy8lJSUkJCQlJSUkJCQjIyMlJSUlJSUuzQTbAAAADXRSTlMA8fiVGcYF3z5oSBG7unhoFwAAAcBJREFUeNrt1bFpHGEURtG/BRXgxKDMmRMX4CKWjaYGOVLmaCswTpw7Vh3OvDBspF5UghA82MtwbgmHx/vW04OmOm9rfXrVVF8uPCe7njaek+0XnpNd//Ec7ZHnaP958gzHk2c5njzL8eRZjifPcjx5luPJsxxPnuV48izHk2c5njzL8eRZjifPcjx5luPJsxxPnuV48izHk2c5njzL8eRZjifPcjx5luPJsxxPnuV48izHk2c5njzL8eRZjifPcjx5luPJsxxPnuV48izHk2c5njzL8eRZjifPcjx5luPJsxxPnuV48izHk2c5njzL8eRZjifPcjx5luPJsxxPnuV48izHk2c5njzL8eRZjifPcjx5luPJsxxPnuV48izHk2c5njzL8eRZjifPcjx5luPJsxxPnuV48izHk2c5njzL8eRZjifPcjx5luPJsxxPnuV2nqOdeU62/+U52WnjOdj+c/Ec7LzxHGy/LJ6DnRbP0XHnOTvuPGfHnefouCc8r5+P0eNlJTx/fD1G37aE5+3X92P0shKezy/rWN3X8/Z7HayPeTrPtOftzzpad/V83tbR+pCn83y3p4f7dbzvud4AE0fBUycWmgoAAAAASUVORK5CYII=');
+}
+
+.ipImg {
+  width: 180rpx;
+  height: 180rpx;
+  position: relative;
+}
+
+.ipInfo {
+  width: 450rpx;
+  height: 140rpx;
+  position: relative;
+  margin: 20rpx;
+}
+
+.ipName {
+  width: 100%;
+  font-size: 28rpx;
+  color: #ffffff;
+  padding-bottom: 15rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.labels {
+  width: 100%;
+  overflow: hidden;
+}
+
+.label {
+  float: left;
+  width: 90rpx;
+  height: 34rpx;
+  padding: 2rpx;
+  border-radius: 4rpx;
+  font-size: 20rpx;
+  color: #FFFFFF;
+  line-height: 32rpx;
+  text-align: center;
+  margin-right: 10rpx;
+  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAF0AAAAiBAMAAADPK8jkAAAAMFBMVEVdXV1eXl5dXV0AAABcXFxdXV1eXl5eXl5dXV1dXV1dXV1dXV1dXV1cXFxdXV1dXV3xmdYiAAAAD3RSTlPxNtMAfuegI/rDmULeo3J9wfAfAAAAdElEQVQ4y2N4w0As4NxsbGzA4PqfWPBjNmnq/3duBqsnwQKwelIsAKknxQKQelIs2ECa+g8LSFR/gUT1CaPqR9UPK/VvSFRfxU+aevMVpKk3ruInTb35AtLUG1f1k6QeaAEp5Ykx0AIlYoGmA0i9uSDRoAAAqd2Aly+4oJcAAAAASUVORK5CYII=');
+}
+
+/* .label0 {
+  background-color: #2D2D2C;
+}
+
+.label1 {
+  background-color: #19A66C;
+}
+
+.label2 {
+  background-color: #E78526;
+}
+
+.label3 {
+  background-color: #7A3BDD;
+} */
+
+.numBox {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.num1 {
+  font-size: 24rpx;
+  color: #FFBF00;
+  letter-spacing: 3rpx;
+}
+
+.num1 text {
+  font-size: 38rpx;
+  font-weight: bold;
+}
+
+.sellOutBox {
+  position: absolute;
+  top: -2rpx;
+  left: 0;
+  width: 100%;
+  height: 182rpx;
+  /* background: rgba(0, 0, 0, 0.5); */
+  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAp4AAACsBAMAAAAgdbEvAAAAHlBMVEUkJCQAAAAlJSUlJSUrKyslJSUkJCQlJSUkJCQkJCS5lYD6AAAACnRSTlO9ALK4Em+RMKVNIBedIAAAAatJREFUeNrt1MFJQ1EURdGgIJm+DkRLEDIXbEEsIeNfQ3CQeQq2BAlcyOazdgmLwzlc3jTU+3mtw+tBU502npM9n3mO9rLxnB0oz9FOPEd74skzHE+e5XjyLMeTZzmePMvx5FmOJ89yPHmW48mzHE+e5XjyLMeTZzmePMvx5FmOJ89yPHmW48mzHE+e5XjyLMeTZzmePMvx5FmOJ89yPHmW48mzHE+e5XjyLMeTZzmePMvx5FmOJ89yPHmW48mzHE+e5XjyLMeTZzmePMvx5FmOJ89yPHmW48mzHE+e5XjyLMeTZzmePMvx5FmOJ89yPHmW48mzHE+e5XjyLMeTZzmePMvx5FmOJ89yPHmW48mzHE+e5XjyLMeTZzmePMvx5FmOJ89yPHmW48mzHE+e5XjyLMeTZzmePMvx5FmOJ89yPHmWO/Ic7cxzspeN52TnxXN0njxn58lzdJ48Z+fJc7DTxnN2njxH35Pn7DwTns8f++i0NTx/v/fRz0p4Hm9f++iz4Xn9XLvqwZ7H29pXd3qaZ9pzd/N8sOd17a37PM3zX8/L28N63917rvUHeBNkp15iWk4AAAAASUVORK5CYII=');
+}
+
+.sellOutImg {
+  width: 114rpx;
+  height: 82rpx;
+  margin: 50rpx 0 0 30rpx;
+}
+
+.delBtn {
+  position: absolute;
+  top: -15rpx;
+  right: -10rpx;
+  width: 40rpx;
+  height: 44rpx;
+  z-index: 9;
+}

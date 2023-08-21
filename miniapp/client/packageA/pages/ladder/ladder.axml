@@ -1,0 +1,84 @@
+<view class="ladderContainer">
+    <image class="ladderBg" src="/packageA/static/images/bg/ladderBg.png" />
+    <view class="contentBox">
+        <!-- 头部 -->
+        <view class="consumptionBox">
+            <view class="consumption">
+                <image class="consumptionBg" src="/packageA/static/images/bg/consumptionBg.png" />
+                <view class="consumptionTitleBgBox">
+                    <image class="consumptionTitleBg" src="/packageA/static/images/bg/consumptionTitleBg.png" />
+                    <view class="consumptionTitleBox">
+                        <text class="consumptionText">当前累计消费：</text>
+                        <text class="consumptionPice">{{ currentAmount }}</text>
+                    </view>
+                </view>
+                <view class="activityTimeBox">
+                    <view class="activityTime">活动周期：{{ startTime }}-{{ endTime }}</view>
+                </view>
+                <view class="ladderRuleBox" catchTap="openRuleDialog">
+                    <image class="ladderRuleBg" src="/packageA/static/images/bg/ladderRuleBg.png" />
+                    <view class="ladderRule">规则</view>
+                </view> 
+            </view>
+        </view>
+        <scroll-view class="scrollBox" style="height: {{scrollHeight}}px;" scroll-y="true">
+            <view a:if="{{ showLadder }}" class="ladderBox">
+                <view class="prizeBox">
+                    <view class="prizeItem" a:for="{{ prizeList }}" a:key="id">
+                        <view class="prizeDetail">
+                            <text>{{ item.title }}</text>
+                            <text a:if="{{ item.status === BUTTON_STATUS.NOT_SATISFIED }}" class="notSatisfied">
+                                还差{{ item.consumptionPrice }}
+                            </text>
+                            <view a:if="{{ item.status === BUTTON_STATUS.AVAILABLE_RECEIVE }}" class="prizeButton avaliableReceive" data-item="{{ item }}" catchTap="handleReceive">
+                                <image class="receiveImg" src="/packageA/static/images/bg/receiveImg.png" />
+                                <view class="avaliableReceiveTetx">领取</view>
+                            </view>
+                            <view a:if="{{ item.status === BUTTON_STATUS.RECEIVED }}" class="prizeButton received">
+                                已领取
+                            </view>
+                        </view>
+                        <view class="prizeList">
+                            <view a:for="{{ item.pizes }}" a:key="id" class="prize">
+                                <view class="prizeImg">
+                                    <image class="prizeImgBorder" src="/packageA/static/images/icon/prizeImgBorder.png"></image>
+                                    <view class="iconBox">
+                                        <image class="icon" src="{{ item.img }}"></image>
+                                    </view>
+                                </view>
+                                <view class="prizeInfoBox">
+                                    <view class="prizeTitle">{{ item.name }}</view>
+                                    <view class="prizeNum">x{{ item.num }}</view>
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+            <view style="margin-top: 50rpx">
+                <loading show="{{loading}}" desc="加载中"></loading>
+            </view>
+            <empty a:if="{{!loading && !showLadder}}" />
+        </scroll-view>
+    </view>
+</view>
+<!-- 规则弹窗 -->
+<default-modal ref="defaultDialogRef" title="{{noticeTitle}}" content="{{noticeWord}}" />
+<!-- 领取弹窗 -->
+<view a:if="{{ showReceiveDialog }}" class="dialogMak">
+    <view class="dialog dialogReceiveBc">
+        <view class="dialogTitle">领取成功！</view>
+        <view class="prizeList">
+            <view a:for="{{ receivedPizes }}" a:key="id" class="prize">
+                <view class="prizeBox">
+                    <view class="prizeImg">
+                        <image class="icon" src="{{ item.img }}"></image>
+                    </view>
+                    <view class="prizeTitle2">{{ item.name }}</view>
+                </view>
+                <text class="prizeNum">X {{ item.num }}</text>
+            </view>
+        </view>
+        <view class="button" catchTap="closeReceiveDialog">确定</view>
+    </view>
+</view>

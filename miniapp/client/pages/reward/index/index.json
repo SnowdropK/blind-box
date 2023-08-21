@@ -1,0 +1,17 @@
+{
+  "defaultTitle": "",
+  "navigationBarForceEnable": "true",
+  "navigationStyle": "custom",
+  "component": true,
+  "usingComponents": {
+    "tab": "/components/tab/tab",
+    "default-modal": "/components/defaultModal/index",
+    "sign-in": "/components/signIn/signIn",
+    "follow-modal": "./components/followModal/index",
+    "ip": "/components/ip/index",
+    "empty": "/components/empty/index",
+    "loading": "/components/loading/index",
+    "end-tip": "/components/endTip/index",
+    "daily-task-modal": "/components/dailyTaskModal/index"
+  }
+}

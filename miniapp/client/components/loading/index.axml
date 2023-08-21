@@ -1,0 +1,5 @@
+<view class="loadingBox" style="height: {{showIcon ? '150rpx' : '100rpx'}};" hidden="{{!visible}}">
+  <view wx:if="{{showIcon}}" class="loading-icon__spinner loading-icon__spinner--circle" style="width: 54rpx; height: 54rpx; border-color: #ed1e79 #e9e9eb #e9e9eb; animation-duration: 1200ms; animation-timing-function: ease-in-out;"></view>
+  <!-- 加载文案 -->
+  <view wx:if="{{!!desc}}" class="desc">{{desc}}...</view>
+</view>

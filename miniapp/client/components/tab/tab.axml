@@ -1,0 +1,8 @@
+<view class="tab-bar">
+  <view class="tab-box">
+    <view a:for="{{list}}" a:key="pagePath" class="tab-bar-item" data-path="{{item.pagePath}}" data-index="{{index}}" onTap="switchTab">
+      <image class="tab-item-img small" src="{{selected === index ? item.selectedIconPath : item.iconPath}}"></image>
+      <view class="word {{selected === index ? 'active' : ''}}">{{item.text}}</view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,46 @@
+<!-- <view class="discountCouponsContainer"> -->
+  <!-- 头部 -->
+  <view class="head">
+    <!-- <view class="back">
+      <image class="backLogo" src="/images/icon/user/return.png" catchTap="goBack" />
+      <view class="title">我的优惠券</view>
+    </view> -->
+    <!-- <view class="rule">
+      <text class="ruleText" catchTap="showRuleDialog">详细规则</text>
+    </view> -->
+    <view class="couponsTabs">
+      <view class="couponsTab couponsTabLeft {{currentTab === STATUS_MAP.UN_USED && 'couponsActive'}}" catchTap="handleSelectTab" data-status="{{STATUS_MAP.UN_USED}}">
+        未使用
+      </view>
+      <view class="couponsTab couponsTabCenter {{currentTab === STATUS_MAP.USED && 'couponsActive'}}" catchTap="handleSelectTab" data-status="{{STATUS_MAP.USED}}">
+        已使用
+      </view>
+      <view class="couponsTab couponsTabRight {{currentTab === STATUS_MAP.EXPIRED && 'couponsActive'}}" catchTap="handleSelectTab" data-status="{{STATUS_MAP.EXPIRED}}">
+        已过期
+      </view>
+    </view>
+  </view>
+  <!-- 券列表 -->
+  <view class="commonWrapNew">
+    <view class="commonHeadNew"></view>
+    <scroll-view class="commonScrollBox" scroll-y='true' onScrollToLower='queryMore'>
+      <!-- <scroll-view a:if="{{currentCoupons && currentCoupons.length > 0}}" scroll-y='true' onScrollToLower='queryMore'> -->
+      <block a:if="{{currentCoupons && currentCoupons.length > 0}}">
+        <view class="couponItem" a:for="{{currentCoupons}}" a:key="id" data-rewardType="{{item.rewardType}}" catchTap="goToUse">
+          <pay-coupon disable="{{currentTab === STATUS_MAP.EXPIRED || currentTab === STATUS_MAP.USED}}" status="{{item.couponUserStatus}}"
+            beExpire="{{item.beExpire}}" check="{{check}}" info="{{item}}" />
+          <!-- <view a:if="{{currentTab === STATUS_MAP.UN_USED}}" class="tip use">去使用 ></view>
+          <view a:elif="{{currentTab === STATUS_MAP.USED}}" class="tip used">
+            {{item.useTime}} 已使用
+          </view>
+          <view a:elif="{{currentTab === STATUS_MAP.EXPIRED}}" class="tip expired">
+            {{item.expireTime}} 已过期
+          </view> -->
+        </view>
+      </block>
+      <view class="noMoreTips" a:else>客官，没有了</view>
+    </scroll-view>
+  </view>
+<!-- </view> -->
+<!-- 详细规则 -->
+<!-- <notice title="详细规则" id="ruleDialog" ref="saveRuleDialogRef" info="{{ruleWord}}"></notice> -->

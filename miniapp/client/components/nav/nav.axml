@@ -1,0 +1,29 @@
+<!--components/nav/nav.axml-->
+<view class="nav-box">
+	<view a:if="{{ seat }}" class="seat-box" style="height:{{ 44 + statusBarHeight}}px;"></view>
+	<view class="nav-wrap {{bgBack ? 'bgBack' : ''}}">
+		<view style="height:{{statusBarHeight}}px;"></view>
+		<view class='content'>
+			<view class="title" style="line-height:44px;color:{{titleColor}};">{{navTitle}}</view>
+			<view a:if="{{isShow}}" class="capsule-box {{isWhite? 'isWhite':'isblack'}} {{!isBack?'noBack':''}}"
+				style='height:{{capsule.height}}px;position: absolute; top:{{capsule.top-statusBarHeight+3}}px; left:{{left}}px;'>
+				<block a:if="{{isBack}}">
+					<view class="capsult-item" onTap='back'>
+						<image class='back'
+						src="/images/common/n_back.png"
+						mode="aspectFit" lazy-load="false" data-num="{{pageNum}}" binderror="" bindload="">
+					</image>
+					</view>
+					<!-- <view class="{{isWhite? 'lineWhite':'lineblack'}}" hover-class="none" hover-stop-propagation="false"></view> -->
+				</block>
+				<!-- 返回首页 -->
+				<view a:else class="capsult-item">
+					<image class='home' onTap="toIndex"
+					src="/images/icon/tab/reward.png"
+					mode="aspectFit" lazy-load="false" binderror="" bindload="">
+				</image>
+				</view>
+			</view>
+		</view>
+	</view>
+</view>

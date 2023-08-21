@@ -1,0 +1,136 @@
+<!-- pages/mybag/mybag.wxml -->
+<import-sjs from="/common/utils/filter.sjs" name="filter" />
+<view class="myBagContainer" style="overflow: {{ showDeliverDialog ? 'hidden' : 'visible' }}">
+		<!-- 头部 -->
+		<view class="bagHeadBox">
+				<image class="myBagHeadBg" src="/images/myBag/bagHead.png" />
+				<!-- <view class="typeBox">
+						<view class="typeItem {{isLock ? '' : 'act'}}" catchTap="switchLock" data-val="bag">赏袋</view>
+						<view class="typeItem {{isLock ? 'act' : ''}}" catchTap="switchLock" data-val="lock">
+								保险箱
+						</view>
+				</view> -->
+				<view class="filterBox">
+					<view class="filterContent">
+						<view class="filterLeftBox">
+							<view class="deliverLabel" catchTap="viewRule">
+								{{deliverInfo.label}}
+								<!-- <image class="deliverRuleIcon" src="/static/images/icon/info.png" /> -->
+							</view>
+							<view class="resellLabel" catchTap="goToResell">去转卖</view>
+						</view>
+						<view class="switchBtn {{viewModal ? '' : 'sp'}}" style="color:{{ viewModal ? '#F69000' : '#00BB9A' }};" catchTap="switchModal">
+								<image class="switchImg" src="/images/myBag/switch{{viewModal ? '' : '_a'}}.png" />
+								{{viewModal ? '查看' : '选择'}}
+						</view>
+					</view>
+				</view>
+		</view>
+		<!-- 内容区 -->
+		<view class="myBagBox" style="height:{{scrollHeight+30}}px;">
+			<image class="myBagBg" style="height:{{scrollHeight+30}}px;" src="https://chujiangupload.oss-cn-beijing.aliyuncs.com/tb-static/special-img/bagBg.png" />
+			<view class="myBagContentBox">
+				<image a:if="{{showDeliver}}" class="applyDeliver" src="/images/myBag/applyDeliverBg.png" catchTap="showDeliverBox" />
+				<view class="myBagChoseBox">
+						<view a:for="{{filters}}" a:key="*this" class="bagfilterItem {{item.act}}" catchTap="switchView" data-item="{{item}}">
+								<text>{{item.label}}</text>
+						</view>
+						<view style="display: flex;">
+								<view class="choseAllBox {{choseAllFlag ? 'sp' : ''}}" catchTap="choseAll" hidden="{{viewModal}}">
+										<view class="choseAllIcon {{choseAllFlag ? 'choseAllIcon_a' : ''}}"></view>
+										全选
+								</view>
+								<!-- <image class="lockBtn" hidden="{{viewModal}}" catchTap="lockReward" src="{{isLock ? '/static/images/icon/rewardBag.png' : '/static/images/icon/safeBox.png'}}" /> -->
+						</view>
+						<view class="choseNum {{viewModal ? '' : 'sp'}}">
+								已选
+								<text>{{choseAllNum}}</text>
+								/{{totalNum}}个
+						</view>
+				</view>
+				<scroll-view class="goodsScrollBox" style="height: {{scrollHeight}}px;" scroll-y="true">
+						<view class="noMoreTips" a:if="{{goodList.length == 0}}">客官，没有了</view>
+						<block a:for="{{goodList}}" a:key="*this">
+								<view class="block">
+										<view class="titleBox" catchTap="showGoodList" data-listindex="{{index}}">
+												<image class="bagDivider" src="/images/myBag/bagDivider.png" />
+												<view class="myBagTitle">{{item.ipName}}</view>
+												<image class="ar {{item.open ? 'act' : ''}}" src="/images/icon/common/ar.png" />
+												<!-- <view class="num orange" hidden="{{item.choseNum <= 0}}">已选 <text>{{item.choseNum}}</text> 个</view> -->
+												<view class="myBagNum">
+														共
+														<text>{{item.total}}</text>
+														个赏品
+												</view>
+										</view>
+										<!-- <view class="goodListBox"></view> -->
+										<view class="bagGoodList" hidden="{{!item.open}}">
+												<block a:for="{{item.goods}}" a:key="*this" a:for-item="good" a:for-index="goodIndex">
+														<view class="bagGoodInfo {{good.rare}}" catchTap="choseGood" data-listindex="{{index}}" data-goodindex="{{goodIndex}}">
+																<view a:if="{{good.choseNumber > 0}}" class="goodChoseNum">
+																	<image class="bagCheckedBorder" src="/images/myBag/bagCheckedBorder.png" />
+																	<view class="bagCheckedNum">x{{good.choseNumber}}件</view>
+																</view>
+																<view class="bagGoodImgBox">
+																		<image class="bagGoodImg" mode="aspectFill" lazy-load="true" src="{{good.url}}" />
+																		<!-- <image a:if="{{good.choseNumber > 0}}" class="goodCheck" src="/static/images/icon/check2.png" /> -->
+																</view>
+																<view class="bagGoodInfoContent">
+																		<view a:if="{{good.goodsType == 1}}" class="virtualTag">虚拟</view>
+																		<view class="bagGoodWord">
+																			<!-- filter.formatAwardType(good.type) + ' ' +  -->
+																			{{(good.name || '')}}
+																		</view>
+																		<view class="goodPriceWord">￥{{good.retrievePrice}}</view>
+																		<!-- <view class="goodTimeWord">出货：{{good.deliveryTime}}</view> -->
+																</view>
+																<!-- <view class="goodNumBox">
+																		<view class="goodNum">x{{good.number}}</view>
+																</view> -->
+																<view class="goodNum">x{{good.number}}</view>
+														</view>
+												</block>
+										</view>
+								</view>
+						</block>
+				</scroll-view>
+			</view>
+		</view>
+		<!-- 操作栏 -->
+		<!-- <view class="operateBox">
+				<view a:if="{{meetConsumThreshold}}" hidden="{{viewModal || isLock}}" class="operate" catchTap="showRecoveryDialog">
+						<image class="shelfBtn" src="/static/images/icon/magicCrystal.png" />
+						<view style="padding-left: 80rpx;" class="operateText">委托交易</view>
+				</view>
+				<view class="operate" style="margin-left: -14rpx;" hidden="{{viewModal || isLock}}" catchTap="showDeliverBox">
+						<image class="deliverBtn" src="/static/images/icon/applyShip.png" />
+						<view style="padding-right: 80rpx;" class="operateText">申请发货</view>
+				</view>
+		</view> -->
+</view>
+<!-- 悬浮操作按钮 -->
+<!-- 暂时隐藏 5.11 -->
+<!-- <view class="oddityBtnBox">
+		<image a:if="{{showOddityBtn}}" class="oddityBtn" mode="heightFix" catchTap="showActiveOddityBtn" src="/static/images/icon/oddity.png" />
+		<image a:if="{{!showOddityBtn}}" class="oddityBtn showing" mode="heightFix" src="/static/images/icon/oddity_a.png" />
+		<view a:if="{{!showOddityBtn}}" class="oddityBtnText showing" catchTap="goToQiWu">去奇物转卖</view>
+</view> -->
+<!-- 刷新 -->
+<image class="refreshBtn" catchTap="requestDataAgain" src="https://chujiangupload.xingyunyfs.com/tb-static/special-img/reward/i_re.png" />
+<!-- 数量选择 -->
+<pick-num show="{{pickNumShow}}" ani="{{moveAni}}" info="{{nowChoseData}}" pickNum="{{pickNum}}" pickNumMax="{{pickNumMax}}" onHide="hidePickNumBox" onChange="changeChoseNum" bindreduce="reducePickNum" onPick="pickNumChange" bindadd="addPickNum" />
+<!-- 委托交易 -->
+<recovery a:if="{{showRecoveryDialog}}" id="recoveryDialog" choseList="{{recoveryChoseList}}" totalMoney="{{recoveryTotalMoney}}" totalNum="{{recoveryTotalNum}}" bindsendRecovery="awardRecovery" onClose="closeRecoveryDialog" />
+<!-- 申请发货 -->
+<deliver a:if="{{showDeliverDialog}}" id="deliverDialog" goods="{{deliverChoseList}}" postage="{{deliverPostage}}" preSale="{{deliverFilterType === 'PRE_SALE'}}" inclusionThreshold="{{inclusionThreshold}}" checkAddress="{{checkAddress}}" onSendDeliver="awardDeliver" sendRecovery="awardRecovery" bindshowAddress="showAddress" onClose="closeDeliver"></deliver>
+<!-- 发货须知 -->
+<!-- <notice title="发货须知" id="noticeDialog" info="{{noticeWord}}"></notice> -->
+<default-modal ref="defaultDialogRef" title="发货须知" content="{{noticeWord}}" />
+<!-- 规则弹窗 -->
+<!-- <rule-modal a:if="{{ showRuleDialog }}" title="发货须知" content="{{noticeWord}}" bindclose="closeRuleDialog" /> -->
+<!-- <address id="addressDialog" bindcheckAddress="checkAddress"></address> -->
+<!-- <shelf id="shelfDialog" bindsendShelf="awardShelf"></shelf> -->
+<!-- <gotoAuth a:if="{{showAuth}}"></gotoAuth> -->
+<!-- <view class="AuthMask" catchTap="showAuthBox" a:if="{{showAuthMask}}"></view> -->
+<!-- tab -->
+<tab selected="{{1}}"></tab>

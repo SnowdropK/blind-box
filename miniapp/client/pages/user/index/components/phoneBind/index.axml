@@ -1,0 +1,15 @@
+<view class="phoneBindMask">
+    <view class="dialog">
+        <view class="close" catchTap="close">X</view>
+        <view class="content">
+            <image class="title" src="/images/reward/inf/apply.png" />
+            <view class="tip">为了让您有更好的体验，核玩扭蛋机需要获取您的手机号码用来抽赏、赏袋、个人中心的信息展示</view>
+        </view>
+        <view class="buttons">
+            <view class="button cancel" catchTap="refuse">拒绝</view>
+            <view class="button ensure">
+                <button open-type="getPhoneNumber" class="ensureButton" bindgetphonenumber="updateUserPhone">允许</button>
+            </view>
+        </view>
+    </view>
+</view>

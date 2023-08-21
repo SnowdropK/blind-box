@@ -1,0 +1,16 @@
+<view class="mask" style="uc-perf-stat-ignore:image;">
+  <view style="uc-perf-stat-ignore:image;" class="dialogBox">
+    <view class="dialogCloseIconBox" catchTap="close">
+      <image style="uc-perf-stat-ignore:image;" class="dialogCloseIcon" src="/images/icon/common/close.png" />
+    </view>
+    <image style="uc-perf-stat-ignore:image;" class="dialogBg" src="/images/common/modalBg.png" />
+    <view class="followDialogContent">
+      <view class="followDialogTitle">{{title}}</view>
+      <view class="content">{{content || ''}}</view>
+      <view class="modalBtnBox" catchTap="ensure">
+        <view class="modalBtnText">{{btnText}}</view>
+        <image style="uc-perf-stat-ignore:image;" class="modalBtn" src="/images/common/modalBtnBg.png" />
+      </view>
+    </view>
+  </view>
+</view>

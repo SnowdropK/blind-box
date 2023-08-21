@@ -1,0 +1,69 @@
+<view class="commonTop">
+  <image class="headImg" src="https://chujiangupload.xingyunyfs.com/user_1/1656947792146354176.png" />
+  <view class="pointStoreHead">
+    <image class="imageHead" src="/images/user/imageHead.png" />
+    <view class="storeNum">{{point}}</view>
+    <view class="storeBtn" catchTap="gotoPointRecord">明细</view>
+  </view>
+</view>
+
+<view class="commonWrap">
+  <image class="pointInfoImg" src="https://chujiangupload.xingyunyfs.com/user_1/1656949247632756736.png" />
+  <view class="filterBox" style="background-color: transparent;">
+    <block a:for="{{filters}}" a:key="*this">
+      <view class="filterItem {{item.act}}" catchTap="switchView" data-val="{{index}}">
+        <text>{{item.label}}</text>
+      </view>
+    </block>
+  </view>
+  <scroll-view scroll-y='true' class="commonScrollBox">
+    <!-- <view class="my-store-title" a:if="{{postcardList.length>0}}">兑换明信片</view> -->
+    <!-- <view class="noMoreTips" a:if="{{(postcardList.length<1&&changeType===2) || (couponList.length<1&&changeType===1)}}">
+      客官，没有了
+    </view> -->
+    <empty a:if="{{!isLoading&&(postcardList.length<1&&changeType===2) || (couponList.length<1&&changeType===1)}}"></empty>
+    <block a:else>
+      <view a:if="{{changeType===2}}" class="store-grid-box">
+        <block a:for="{{postcardList}}" a:key="*this">
+          <view a:for="{{item.list}}" a:key="*this" a:for-item="info" class="store-postcard-item">
+            <view class="store-num">
+              <image class="store-num-img" src="/images/user/numBg1.png" />
+              <view class="store-num-text">x{{item.num}}</view>
+            </view>
+            <!-- <image class="info-img" mode="aspectFill" src="{{info.image}}" /> -->
+            <!-- 通用图 -->
+            <image class="info-img" mode="aspectFill" src="https://chujiangupload.xingyunyfs.com/user_1/1660573911773282304.png" />
+            <view class="info-name text-hide">
+              {{info.name}}
+            </view>
+            <view class="point-box" catchTap="exchange" data-id="{{item.id}}">
+              <image class="point-img" src="/images/user/pointImg.png" />
+              <view class="num">{{item.appoint}}</view>
+            </view>
+            <view class="exchangeBtn" catchTap="exchange" data-id="{{item.id}}">点击兑换</view>
+          </view>
+        </block>
+      </view>
+      <view a:else class="store-grid-box coupon">
+        <block a:for="{{couponList}}" a:key="*this">
+          <view a:for="{{item.list}}" a:key="*this" a:for-item="info" class="store-coupon">
+            <view class="store-num">
+              <view class="coupon-text">{{info.singleAmount}}</view>
+            </view>
+            <view class="coupon-info-text">减免券</view>
+            <view class="info-name text-hide">
+              {{info.minThresholdNum}}抽抵{{info.reduceAmountNum}}抽
+            </view>
+            <view class="point-box" catchTap="exchange" data-id="{{item.id}}">
+              <image class="point-img" src="/images/user/couponBg.png" />
+              <view class="num">{{item.appoint}}</view>
+            </view>
+            <view class="exchangeBtn" catchTap="exchange" data-id="{{item.id}}">点击兑换</view>
+          </view>
+        </block>
+      </view>
+    </block>
+  </scroll-view>
+</view>
+
+<notice ref="noticeRef" title="公告" info="{{noticeWord}}"></notice>

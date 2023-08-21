@@ -1,0 +1,17 @@
+<!-- components/exchangeDialog/index.wxml -->
+<view class="exchangeDialog" hidden="{{!show}}" touchMove="stopScroll">
+  <view class="dialogBox">
+    <view class="dialog">
+      <image class="exchangeDialogBg" src="/images/dialog/exchangeDialogBg.png" />
+      <scroll-view class="couponScrollBox" scroll-y='true'>
+        <!-- 券列表 -->
+        <view class="couponItem" a:for="{{list}}" a:key="id">
+          <pay-coupon zoom="{{0.8}}" check="{{false}}" info="{{item}}" />
+        </view>
+      </scroll-view>
+    </view>
+    <view class="buttonBox">
+      <view class="button" catchTap="close">确认</view>
+    </view>
+  </view>
+</view>

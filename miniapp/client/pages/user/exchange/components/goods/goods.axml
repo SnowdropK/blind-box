@@ -1,0 +1,26 @@
+<view class="goodsBox" catchTap="gotoDetail">
+  <view class="goodsImg">
+    <image class="goodsSmallImage" src="{{info.smallImage}}" />
+    <view class="tagBox">
+      <image a:if="{{info.isPoints === 1 && info.mode === 2}}" src="/images/icon/reward/customize.png" alt="" class="pointIcon"></image>
+      <image a:if="{{info.isPoints === 1 && info.mode === 1}}" src="/images/icon/reward/limited.png" alt="" class="pointIcon"></image>
+      <image a:if="{{info.isPoints}}" src="/images/icon/reward/point.png" alt="" class="pointIcon"></image>
+      <!-- <image src="/images/icon/reward/lei.png" alt="" class="leiIcon icon-margin"></image> -->
+      <image a:if="{{info.new}}" src="/images/icon/reward/new.png" alt="" class="newIcon moving"></image>
+    </view>
+  </view>
+  <view class="goodsTitle">{{info.goodsName}}</view>
+  <view class="goodsPriceBox">
+    <view class="goodsPrice">
+      <text a:if="{{ info.isPoints === 1 }}" class="goodsPriceNumber din">
+        {{ info.everyDrawPrice }}分
+      </text>
+      <text a:else class="goodsPriceNumber din">￥{{ info.everyDrawPrice || '待定' }}</text>
+      /抽
+    </view>
+    <view class="goodsHotBox">
+      <view class="hotNumber din">{{info.browseCount}}</view>
+      <image class="hotImg" src="/images/reward/inf/fire.png" />
+    </view>
+  </view>
+</view>

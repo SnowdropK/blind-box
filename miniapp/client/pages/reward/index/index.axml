@@ -1,0 +1,136 @@
+<import-sjs from="/common/utils/filter.sjs" name="filter" />
+
+<view class="rewardIndexContainer">
+  <image style="uc-perf-stat-ignore:image;" src="/images/icon/reward/homeTopBg.png" class="homeTopBg" />
+  <!-- 头部导航 -->
+  <!-- <view class="headBox">
+    <image class="headBg" src="/static/images/common/commonBg.png" />
+    <view class="navigationBar">
+      <view class="messageBox">
+        <view a:if="{{sumCount > 0}}" class="noticePoint">{{sumCount}}</view>
+        <image class="message" src="/static/images/icon/message.png" catchTap="goToMessage" />
+      </view>
+      <input type="search" class="search" style="width: {{level === 0 ? 60 : 100}}%" onInput="changeSearch" placeholder="请输入IP名称" value="{{searchWord}}" onConfirm="searchIp" confirm-type="search"></input>
+    </view>
+  </view> -->
+  <!-- 新用户 -->
+  <!-- <image a:if="{{level === 0}}" src="/static/images/icon/new.png" class="newUserIcon" data-id="{{NEW_USER_KEY}}" catchTap="viewActivityDetail" /> -->
+  <!-- 内容区 -->
+  <scroll-view class="rewardIndexScrollBox" style="height: {{scrollHeight}}px;" scroll-y='true' refresher-enabled="true" data-type="scroll" onScrollToLower='requestMoreData' refresher-triggered="{{scrollLoading}}" bindrefresherrefresh="searchIp">
+    <view class="mainContent">
+      <!-- 轮播图 -->
+      <view class="bannerBox">
+        <image style="uc-perf-stat-ignore:image;" src="/images/home/mainImgFrame.png" alt="" lazy-load="true" class="bannerBorder" />
+        <swiper indicator-dots="true" indicator-color="#F29700" indicator-active-color="#F29700" autoplay="true" class="bannerSwiper" circular="true">
+          <swiper-item a:for="{{banners}}" a:key="id">  
+            <image style="uc-perf-stat-ignore:image;" src="{{item.img}}" mode="aspectFill" lazy-load="true" class="bannerImg" catchTap="gotoDetail" data-info="{{item}}"></image>
+            <!-- <view class="banner" >
+              <image src="{{item.img}}" alt="" mode="aspectFill" lazy-load="true" class="bannerImg"></image>
+            </view> -->
+          </swiper-item>
+        </swiper>
+        <!-- <swiper autoplay="true" class="bannerSwiper" circular="true" onChange="changeSwiper" current="{{newIndex}}">
+          <block a:for="{{banners}}" a:key="*this">
+            <swiper-item>
+              <view class="banner" catchTap="gotoDetail" data-info="{{item}}">
+                <image src="{{item.img}}" alt="" mode="aspectFill" lazy-load="true" class="bannerImg"></image>
+              </view>
+            </swiper-item>
+          </block>
+        </swiper> -->
+      </view>
+      <!-- 广告入口 -->
+      <!-- <view class="advertiseBox">
+        <image class="advertiseEntrance" src="/static/images/reward/advertise1.png" catchTap="goToActivityList" />
+        <image class="advertiseEntrance" src="/static/images/reward/advertise2.png" catchTap="goToDailyRanks" />
+      </view> -->
+      <!-- 综合排序 分类列表 -->
+      <view class="filterBox">
+        <view class="filterTopBox">
+          <view class="filterTopRank" catchTap="handleExpand">
+            <view>综合排序</view>
+            <image class="arrowDown {{showExpand ? 'spanRotate' : ''}}" src="/images/icon/common/ar_down.png" alt="" lazy-load="true" />
+          </view>
+          <view style="display: flex;align-items: center;">
+            <image src="/images/home/filterTag.png" alt="" lazy-load="true" class="filterTag" />
+            <view data-type="scroll" catchTap="searchIp">刷新</view>
+          </view>
+          <view a:if="{{showExpand}}" class="filterExpandBox">
+            <view a:for="{{filters2}}" a:key="param" data-index="{{index}}" data-item="{{item}}" class="filterExpandItem {{filterIndex2 == index ? 'act' : ''}} {{item.value}}" catchTap="switchFilter">
+              {{item.label}}
+            </view>
+          </view>
+        </view>
+        <scroll-view a:if="{{filters.length > 0}}" class="filterCategoryScroll" scroll-x enhanced="{{true}}" show-scrollbar="{{false}}">
+          <view a:for="{{filters}}" a:key="id" class="filterItemBox">
+            <image style="uc-perf-stat-ignore:image;" class="filterItemBg {{item.act ? '' : 'setGray'}}" src="/images/reward/filterItemBg.png" alt="" lazy-load="true" />
+            <view class="filterItem {{item.act}}" catchTap="switchView" data-item="{{item}}">
+              <view class="catogoryLabel">{{item.label}}</view>
+              <image style="uc-perf-stat-ignore:image;" class="filterImg" src="{{index === 0 ? '/images/reward/recommend.png' : item.img}}" />
+            </view>
+          </view>
+        </scroll-view>
+      </view>
+      <!-- 筛选列表 -->
+      <!-- <view class="filterPropsBox">
+        <view class="line"></view>
+        <view class="filterItemBox">
+          <view a:for="{{filters2}}" a:key="param" data-index="{{index}}" data-item="{{item}}" class="filterItem {{filterIndex2 == index ? 'act' : ''}} {{item.value}}" catchTap="switchFilter">
+            {{item.label}}
+          </view>
+        </view>
+        <view class="line"></view>
+      </view> -->
+      <!-- ip列表 -->
+      <view a:if="{{Ips.length > 0}}" class="IpList">
+        <!-- ip详情 -->
+        <ip a:for="{{Ips}}" a:key="id" info="{{item}}" isInf="{{true}}" />
+      </view>
+      <!-- <view style="margin-top: 50rpx">
+        <loading show="{{loading}}" showIcon="{{loading && (!resetParams.pageNo || resetParams.pageNo < 2)}}" desc="加载中"></loading>
+      </view> -->
+      <view a:if="{{loading && (!resetParams.pageNo || resetParams.pageNo < 2)}}" style="margin-top: 50rpx">
+        <loading show="{{loading && (!resetParams.pageNo || resetParams.pageNo < 2)}}" showIcon="{{true}}" desc="加载中"></loading>
+      </view>
+      <end-tip show="{{!loading && showEndTip}}" />
+      <empty a:if="{{!loading && Ips.length === 0}}" />
+    </view>
+  </scroll-view>
+</view>
+<!-- 战令 -->
+<image style="uc-perf-stat-ignore:image;" src="/images/reward/warOrder.png" class="opBtn warOrder" catchTap="goToWarOrder" />
+<!-- 每日任务 -->
+<image style="uc-perf-stat-ignore:image;" src="/images/reward/task.png" class="opBtn task" catchTap="showTask" />
+<!-- <movable-area>
+		<movable-view x="{{taskX}}" y="{{taskY}}" direction="vertical">
+        <image src="/images/reward/task.png" class="opBtn task" />
+		</movable-view>
+</movable-area> -->
+<!-- 关注有礼 -->
+<follow-modal 
+  a:if="{{showFollowDialog}}" 
+  title="关注有礼" 
+  content="{{followModalContent}}" 
+  btnText="去关注" 
+  onClose="closeDialog" 
+  onEnsure="goToFollow" 
+/>
+<!-- 每日任务弹窗 -->
+<daily-task-modal 
+  a:if="{{showDailyTaskDialog}}" 
+  storeOwnerId="{{storeOwnerId}}"
+  followStore="{{followStore}}" 
+  followPoint="{{followPoint}}" 
+  onClose="closeDialog" 
+/>
+<!-- 开屏广告 -->
+<!-- <advertise-dialog a:if="{{showAdvertiseDialog}}" bind:close="closeAdvertiseDialog" info="{{bannerData}}" onClose="closeAdvertiseDialog" /> -->
+<tab selected="{{0}}"></tab>
+<!-- <view class="noticeBox" catchTap="showNoticeDialog" a:if="{{!guideShow}}">
+  <image src="/images/icon/common/i9.png" alt="" class="noticeIcon"></image>
+  <view class="noticeWord">{{noticeWord}}</view>
+</view>
+<image a:if="{{level === 0}}" src="/images/icon/common/new.png" class="newUserIcon" data-id="{{NEW_USER_KEY}}" catchTap="viewActivityDetail" /> -->
+<!-- <tab selected="{{0}}" a:if="{{!guideShow}}"></tab>
+<notice title="公告" id="noticeDialog" info="{{noticeWord}}"></notice>
+<guide bind:closeGuide="closeGuide" a:if="{{guideShow}}"></guide> -->

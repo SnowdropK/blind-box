@@ -1,0 +1,35 @@
+/* components/gotoAuth/gotoAuth.wxss */
+.box{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #fcf6f4;
+  z-index: 99999;
+}
+.btn{
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  width: 200rpx;
+  height: 70rpx;
+  color: #ffffff;
+  text-align: center;
+  line-height: 70rpx;
+  background-color: #d0373e;
+  border-radius: 10rpx;
+  transform: translate(-50%, -50%);
+  letter-spacing: 3px;
+}
+.tips{
+  position: absolute;
+  top: 35%;
+  transform: translate(0, -50%);
+  width: 100%;
+  font-size: 45rpx;
+  color: #333333;
+  text-align: center;
+  font-weight: bold;
+    font-style: italic;
+}

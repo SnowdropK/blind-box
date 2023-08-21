@@ -1,0 +1,320 @@
+/* pages/user/index/user.wxss */
+page {
+  background-color: #020C0D;
+}
+.userContainer {
+  position: relative;
+  height: 100vh;
+  /* padding: 106rpx 0 50rpx; */
+  color: #fff;
+  box-sizing: border-box;
+  /* background-image: linear-gradient(#0f1322, #3f0d36); */
+}
+.userContainer .meBgBox {
+  /* position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0; */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  height: 100vh;
+  box-sizing: border-box;
+}
+.userContainer .meToBg {
+  width: 750rpx;
+  height: 600rpx;
+  box-sizing: border-box;
+}
+.userContainer .meBottomBg {
+  width: 750rpx;
+  height: 600rpx;
+  box-sizing: border-box;
+}
+.userContainer .meContentBox {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 9;
+  width: 100%;
+}
+.userContainer .meContentBox .meTitle {
+  margin-top: 128rpx;
+  font-size: 28rpx;
+  text-align: center;
+}
+/* 头部 */
+/* .userContainer .headLogo {
+  margin-left: 42rpx;
+  width: 280rpx;
+  height: 56rpx;
+} */
+.userContainer .meContentBox .userInfoBox {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  /* align-items: center; */
+  margin-top: 16rpx;
+  width: 100%;
+  /* padding: 0 42rpx; */
+}
+.userContainer .userInfoBox .meHeaderBg {
+  width: 710rpx;
+  height: 424rpx;
+}
+.userContainer .userInfoBox .userInfoContentBox {
+  position: absolute;
+  top: 80rpx;
+  left: 0;
+  z-index: 9;
+  width: 100%;
+  height: 344rpx;
+  padding-left: 76rpx;
+  padding-right: 60rpx;
+  box-sizing: border-box;
+}
+.userContainer .userInfoBox .userInfoContent {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+.userContainer .userInfoBox .userImgBox {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 146rpx;
+  height: 154rpx;
+  box-sizing: border-box;
+}
+.userContainer .userInfoBox .userImg {
+  width: 120rpx;
+  height: 120rpx;
+}
+.userContainer .userInfoBox .userLevelFrame {
+  position: absolute;
+  z-index: 9;
+  width: 152rpx;
+  height: 142rpx;
+}
+/* 用户信息区 */
+.userContainer .userInfoBox .userInfo {
+  position: relative;
+  margin-left: 10rpx;
+  flex: 1;
+  height: 154rpx;
+}
+/* 用户名 */
+.userContainer .userInfoBox .userNameBox {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 26rpx;
+}
+.userContainer .userInfoBox .userName {
+  color: #F1AB04;
+  font-size: 32rpx;
+}
+/* 用户等级 */
+.userContainer .userInfoBox .userLevelBox {
+  display: flex;
+  align-items: center;
+  margin-top: 14rpx;
+  font-size: 18rpx;
+  font-weight: bold;
+  text-align: center;
+  line-height: 24rpx;
+  color: #fceeab;
+  font-style: italic;
+}
+.userContainer .userInfoBox .memberCardTag {
+  margin-right: 12rpx;
+  width: 76rpx;
+  height: 22rpx;
+  font-size: 16rpx;
+  line-height: 22rpx;
+  background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAE4AAAAYCAMAAABjozvFAAAAYFBMVEXwkQTxkATxkgP0kgQAAADykAPxkgPxkgTykQT0jwDxkQTykQTxkQPzkAP/ngDxkATxkQTykQTxkQPxkATykATxkQPxkgTykQPzkQTxjwXyjgDxkQTwkAPzkgPvjQXxkQS5Yg+HAAAAH3RSTlP08KZGAHPcftYK9r2sSwX62LaiRzzhhU8+NBuQVVIvf3u8pAAAAIpJREFUOMvtzkkWgjAQRdEilGClIyEBAZvsf5cejTvIHzjgLeCeR2PoAMXe8ydalwKI7Pb1aLwWRNpmD+SKVi8kVzq1eyBXaN6lcigvI7kyXE7uf7g1YO8GKOcsITlJcQJyLMloIMfiIgE5lpuZYBzQWyrH8jSdpubCj2N5zFY1d3fEtWNzqW8tH28bEbW4gPkFzQAAAABJRU5ErkJggg==") no-repeat center;
+  background-size: 100% auto;
+}
+.userContainer .userInfoBox .userLevel {
+  width: 76rpx;
+  height: 22rpx;
+  background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEwAAAAYCAMAAABnVuv4AAAAWlBMVEW8BPG9BPS8BPC9A/EAAAC8BPK8A/G8BPC8A/G8A/K+APK8BPK8A/G8AvG6APK4AP+8BPK9BfG8BPK8BPG8BPG9BPK8BPK7BPO9BPS8BfG8BfG7BPC4Bu28BPGdRAO4AAAAHXRSTlPwRvSmAPqYu++fEu1bNQkE1Wblzse+rkA52I11KyhUuTAAAACASURBVDjL5dPJEYQwEEPRnsE2GJt93/JPEwEhtA5U8QN4pYskDaJu2XJzJb099NXNrUkKjKLRMGix5GG2izkLQ9B4mO0jC0PimJgnYpn7Cja8FltbIla4wMOqwgsNM9ACDbs0YWHQ5tFyvmlQOY3hr67FskdziTrfiHm0+advPwFMi6ZYSuRoMQAAAABJRU5ErkJggg==") no-repeat center;
+  background-size: 100% auto;
+}
+/* 复制ID */
+.userContainer .userInfoBox .uidBox {
+  margin-top: 20rpx;
+  display: flex;
+  justify-content: space-between;
+  font-weight: bold;
+  color: #fff;
+  font-size: 20rpx;
+}
+.userContainer .userInfoBox .uid {
+  width: 230rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.userContainer .userInfoBox .copyUID {
+  font-size: 22rpx;
+  color: #F1AB04;
+}
+.userContainer .entranceBox {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 30rpx;
+  padding-left: 10rpx;
+  color: #fff;
+}
+/* 消息 */
+.userContainer .userInfoBox .messageBox {
+  position: absolute;
+  top: 20rpx;
+  right: 20rpx;
+  z-index: 99;
+}
+.userContainer .userInfoBox .unReadNum {
+  position: absolute;
+  top: -28rpx;
+  right: -18rpx;
+  width: 26rpx;
+  height: 26rpx;
+  border-radius: 14rpx;
+  font-size: 20rpx;
+  font-weight: bold;
+  color: #000;
+  text-align: center;
+  line-height: 26rpx;
+  background-color: #F1AB04;
+}
+.userContainer .userInfoBox .messageImg {
+  width: 60rpx;
+  height: 52rpx;
+}
+.userContainer .operateBox {
+  border: 1px solid #e91f86;
+  height: 66rpx;
+  box-sizing: border-box;
+  line-height: 66rpx;
+  font-size: 26rpx;
+  background-color: rgba(233, 31, 120, 0.5);
+}
+.userContainer .entranceBox .magicLogo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 66rpx;
+  height: 66rpx;
+  border-radius: 33rpx;
+  background-color: #e91f86;
+}
+.userContainer .magicNum {
+  flex: 1;
+  margin-left: 28rpx;
+  text-align: center;
+  line-height: 66rpx;
+}
+.userContainer .entranceBox .left {
+  display: flex;
+  width: 300rpx;
+  padding-right: 32rpx;
+  border-radius: 200rpx 200rpx 200rpx 200rpx;
+}
+.userContainer .entranceBox .center {
+  width: 230rpx;
+  text-align: center;
+  border-radius: 200rpx;
+}
+.userContainer .entranceBox .centerBig {
+  width: 400rpx;
+}
+.userContainer .entranceBox .right {
+  display: flex;
+  justify-content: center;
+  width: 150rpx;
+  border-radius: 200rpx 0 0 200rpx;
+}
+/* 用户积分、明信片、金币入口 */
+.userContainer .userInfoBox .rechargeInfoBox {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 24rpx;
+  height: 150rpx;
+  color: #808080;
+}
+.userContainer .userInfoBox .rechargeBox {
+  position: relative;
+}
+.userContainer .rechargeBox .rechargeBg {
+  width: 198rpx;
+  height: 150rpx;
+}
+.userContainer .rechargeBox .rechargeContentBox {
+  position: absolute;
+  left: 0;
+  bottom: 48rpx;
+  width: 100%;
+  text-align: center;
+}
+.userContainer .rechargePoint {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #FFB400;
+}
+/* 九宫格 */
+.gridContainer {
+  /* height: 780rpx; */
+  padding: 28rpx 42rpx;
+  /* overflow: scroll; */
+}
+.gridContainer .gridContentBox {
+  position: relative;
+  /* padding: 12rpx 8rpx;
+  border-radius: 4rpx;
+  background-color: rgb(25, 31, 51, 0.7); */
+}
+.gridContainer .gridContentBox .gridBg {
+  width: 674rpx;
+  height: 230rpx;
+}
+.gridContainer .gridContentBox .gridContent {
+  position: absolute;
+  top: 30rpx;
+  left: 0;
+  z-index: 9;
+  display: grid;
+  grid-template-columns: repeat(3, 33.33%);
+  justify-items: center;
+  width: 100%;
+}
+.gridContainer .gridContentBox .gridItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* width: 110rpx; */
+}
+.gridContainer .gridContentBox  .iconItem {
+  margin-bottom: 10rpx;
+  width: 138rpx;
+  height: 138rpx;
+}
+.gridContainer .iconItem.small {
+  width: 50rpx;
+  height: 50rpx;
+}
+.gridContainer text {
+  font-size: 22rpx;
+  color: #C2C2C2;
+}
+.userContainer .inviteBannerBox {
+  padding: 0 42rpx;
+}
+.userContainer .inviteBanner {
+  margin-top: 10rpx;
+  width: 100%;
+}

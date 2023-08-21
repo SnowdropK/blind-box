@@ -1,0 +1,62 @@
+.membershipCard {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 604rpx;
+  height: 342rpx;
+  box-sizing: border-box;
+  padding: 74rpx 78rpx 24rpx 70rpx;
+  border-radius: 48rpx;
+  font-size: 24rpx;
+}
+.infoBox {
+  display: flex;
+  justify-content: space-between;
+}
+.name {
+  font-size: 48rpx;
+  line-height: 66rpx;
+}
+.price {
+  margin-top: 4rpx;
+  font-size: 36rpx;
+  line-height: 50rpx;
+}
+.expireTime {
+  margin-top: 10rpx;
+}
+.tag {
+  text-align: center;
+}
+.title {
+  line-height: 34rpx;
+}
+.tagLogo {
+  margin-top: 6rpx;
+  width: 180rpx;
+  height: 72rpx;
+}
+
+.buyBox {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.buyTip {
+  margin-left: 4rpx;
+  line-height: 34rpx;
+}
+.receiveBtn {
+  position: relative;
+  top: 6rpx;
+  right: -44rpx;
+  width: 148rpx;
+  height: 56rpx;
+  border-radius: 28rpx;
+  line-height: 56rpx;
+  text-align: center;
+  background-color: #fff;
+}
+.levelTip {
+  text-align: center;
+}

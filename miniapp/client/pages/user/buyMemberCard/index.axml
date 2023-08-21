@@ -1,0 +1,64 @@
+<view class="buyMemberCardContainer">
+  <image class="buyMembershipCardBg" src="/images/member/buyMembershipCardBg.png" />
+  <view class="buyMemberCardContent">
+    <!-- 会员卡 -->
+    <view class="membershipCardBox">
+      <!-- <view class="title">
+        <image src="/packageA/static/images/logo/memberTitle.png" class="titleImg" />
+        <view class="viewCardDetail" catchTap="viewCardDetail">会员卡说明</view>
+      </view> -->
+      <swiper indicator-dots="true" autoplay="true" indicator-active-color="#925C00" class="swiper" circular="true" onChange="changeSwiper">
+        <block a:for="{{memberList}}" a:key="id">
+          <swiper-item class="swiperItem">
+            <membership-card info="{{item}}" onReceive="handleReceive" />
+          </swiper-item>
+        </block>
+      </swiper>
+      <!-- 会员说明 -->
+      <view class="memberDescriptionBox">
+        <view class="memberCardPrice">{{currentMemberInfo.amount}}元</view>
+        <!-- <scroll-view scroll-y="{{true}}" class="content">
+          <text>{{currentMemberInfo.memberDesc}}</text>
+        </scroll-view> -->
+      </view>
+    </view>
+    <!-- 开卡权益 -->
+    <view class="cardBenefitBox">
+      <!-- 开通立得 -->
+      <view class="cardBenefit benefitBg1">
+        <view class="benefitTitle">开通立得</view>
+        <scroll-view class="benefitScroll" scroll-x="{{true}}">
+          <view a:for="{{currentMemberInfo.openCouponList}}" a:key="id" style="margin-left: 28rpx;">
+            <prize-coupon info="{{item}}" zoom="{{0.88}}" pointColor="#403151" type="{{item.type || 'coupon'}}" />
+          </view>
+        </scroll-view>
+      </view>
+      <!-- 每日可领 -->
+      <view class="cardBenefit benefitBg2">
+        <view class="benefitTitle">每日可领</view>
+        <scroll-view class="benefitScroll" scroll-x="{{true}}">
+          <view a:for="{{currentMemberInfo.openCouponList}}" a:key="id" style="margin-left: 28rpx;">
+            <prize-coupon info="{{item}}" zoom="{{0.88}}" pointColor="#403151" type="{{item.type || 'coupon'}}" />
+          </view>
+        </scroll-view>
+      </view>
+    </view>
+  </view>
+  <!-- 选择框 class="chooseBox {{currentMemberInfo.status !== 0 ? 'setGray' : ''}}" -->
+  <view class="chooseBox">
+    <view class="chooseCardTextBox">
+      <view class="chooseCardText">您已选择 {{currentMemberInfo.name}}</view>
+    </view>
+    <view class="chooseCardOperateBox">
+      <view class="choosePrice">
+        <text class="chooseDin">￥</text>{{currentMemberInfo.amount}}
+        <text class="chooseDin">/{{currentMemberInfo.validDay}}天</text>
+      </view>
+      <view class="buyBtn" catchTap="goToBuy">
+        {{ currentMemberInfo.status === 0 ? '确定购买' : (currentMemberInfo.status === -1 ? '不可购买' : '已购买') }}
+      </view>
+    </view>
+  </view>
+</view>
+<!-- 规则弹窗 -->
+<!-- <ruleDialog a:if="{{shouwCardDetailDialog}}" title="会员卡说明" rule="{{rule}}" bind:close="closeRuleDialog" /> -->

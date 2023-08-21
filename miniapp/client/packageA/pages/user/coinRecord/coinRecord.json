@@ -1,0 +1,7 @@
+{
+  "defaultTitle": "金币明细",
+  "navigationBarForceEnable": true,
+  "usingComponents": {
+    "empty": "/components/empty/index"
+  }
+}

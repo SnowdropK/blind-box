@@ -1,0 +1,9 @@
+{
+  "navigationStyle": "custom",
+  "component": true,
+  "usingComponents": {
+    "exchange-dialog": "./components/exchangeDialog/index",
+    "prize-coupon": "/components/prizeCoupon/index"
+  },
+  "defaultTitle": "积分兑换"
+}

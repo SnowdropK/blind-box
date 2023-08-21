@@ -1,0 +1,13 @@
+{
+  "defaultTitle": "赏袋",
+  "navigationBarForceEnable": "true",
+  "component": true,
+  "usingComponents": {
+    "tab": "/components/tab/tab",
+    "deliver": "/components/deliver/deliver",
+    "notice": "/components/notice/notice",
+    "default-modal": "/components/defaultModal/index",
+    "recovery": "/components/recovery/recovery",
+    "pick-num": "./components/pickNum/index"
+  }
+}

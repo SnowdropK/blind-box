@@ -1,0 +1,75 @@
+.membershipCard {
+  position: relative;
+  /* display: flex;
+  flex-direction: column;
+  justify-content: space-between; */
+  width: 610rpx;
+  height: 330rpx;
+  box-sizing: border-box;
+  /* padding: 74rpx 78rpx 24rpx 70rpx; */
+  font-size: 24rpx;
+  /* box-shadow: 0 0 50rpx rgb(245, 213, 163, 0.4); */
+}
+/* .infoBox {
+  display: flex;
+  justify-content: space-between;
+} */
+.name {
+  font-size: 48rpx;
+  line-height: 66rpx;
+}
+/* .price {
+  position: absolute;
+  left: 20rpx;
+  bottom: 100rpx;
+  padding: 12rpx 28rpx;
+  font-weight: bold;
+  border-radius: 14rpx;
+  background-color: #998675;
+} */
+.membershipCard .membershipCardInfo {
+  position: absolute;
+  top: 158rpx;
+  left: 46rpx;
+  font-size: 22rpx;
+  color: #9E9E9E;
+}
+.membershipCard .expireTime {
+}
+.membershipCard .levelTip {
+  margin-top: 6rpx;
+  text-align: center;
+}
+/* .tag {
+  margin-top: 110rpx;
+  text-align: center;
+}
+.tagLogo {
+  width: 180rpx;
+  height: 72rpx;
+}
+.title {
+  margin-top: 6rpx;
+  line-height: 34rpx;
+} */
+
+/* .buyBox {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+} */
+.buyTip {
+  margin-left: 4rpx;
+  line-height: 34rpx;
+}
+.receiveBtn {
+  position: relative;
+  top: 6rpx;
+  right: -44rpx;
+  width: 148rpx;
+  height: 56rpx;
+  border-radius: 28rpx;
+  line-height: 56rpx;
+  text-align: center;
+  background-color: #fff;
+}

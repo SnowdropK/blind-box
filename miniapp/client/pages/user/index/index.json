@@ -1,0 +1,9 @@
+{
+  "defaultTitle": "",
+  "navigationBarForceEnable": "true",
+  "component": true,
+  "usingComponents": {
+    "tab": "/components/tab/tab",
+    "previewimage": "/components/previewImage/previewImage"
+  }
+}

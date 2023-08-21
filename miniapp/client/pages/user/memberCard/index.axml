@@ -1,0 +1,69 @@
+<view class="memberCardContainer">
+  <!-- 头部 -->
+  <!-- <view class="head">
+    <image class="backLogo" src="/static/images/icon/back.png" catchTap="goBack" />
+    <view class="headTitle">会员中心</view>
+  </view> -->
+  <image class="memberCardBg" src="/images/member/memberCardBg.png" />
+  <view class="memberCardContent">
+    <!-- 用户等级 -->
+    <view class="levelBox">
+      <image class="memberCardTopBg" src="/images/member/memberCardTop.png" />
+      <!-- 头像 -->
+      <view class="levelContent">
+        <!-- 购买会员卡入口 -->
+        <view class="memberCardEntrance" catchTap="goToMemberCard">{{currentMemberInfo.id ? '升级' : '开通'}}会员</view>
+        <view class="avatorBox">
+          <!-- <view class="avatorImgBox" style="background: url({{avatorInfo.avatarUrl || '/images/icon/common/head.png'}});background-size: 100% 100%;">
+            <image a:if="{{avatorInfo.avatarBorderUrl}}" class="avatorLevelFrame" src="{{avatorInfo.avatarBorderUrl}}" />
+          </view> -->
+          <view class="avatorImgBox">
+            <image class="avatorImg" src="{{avatorInfo.avatarUrl || '/images/icon/common/head.png'}}" />
+            <image a:if="{{avatorInfo.avatarBorderUrl}}" class="avatorLevelFrame" src="{{avatorInfo.avatarBorderUrl}}" />
+          </view>
+          <view class="avatorInfoBox">
+            <view class="avatorName">{{avatorInfo.nickname}}</view>
+            <!-- <view class="levelInfoBox">
+              <image a:if="{{memberInfo.memberCardTag}}" class="levelLogo" src="{{memberInfo.memberCardTag}}" />
+              <view class="levelText">LV {{avatorInfo.level || 0}}</view>
+            </view> -->
+          </view>
+        </view>
+      </view>
+    </view>
+    <!-- 普通会员 -->
+    <view class="memberCardBox">
+      <view class="memberCardFrame">
+        <image class="memberCard" src="{{currentMemberInfo.bgUrl || 'https://chujiangupload.xingyunyfs.com/app_html/wx_resource/member/member_card_bg_tb/common.png'}}" />
+        <!-- <view class="tag">
+          <image class="tagLogo" src="{{currentMemberInfo.tag || ''}}" />
+          <view class="title">会员标识</view>
+        </view> -->
+        <view class="expireTime">
+          {{ currentMemberInfo.shopCard && currentMemberInfo.shopCard.expireTimeStr || ''}}
+        </view>
+      </view>
+    </view>
+    <!-- 会员卡权益 -->
+    <view class="memberCardBenefitBox">
+      <view class="memberCardBenefit" a:if="{{currentMemberInfo.id && currentMemberInfo.goodsIpCoupons && currentMemberInfo.goodsIpCoupons.length > 0}}">
+        <view class="benefitReceiveBox">
+          <view class="title">今日可领取权益</view>
+          <view class="receiveBtn" catchTap="receiveRewards">
+            {{currentMemberInfo.status === 1 ? '一键领取' : '已领取'}}
+          </view>
+        </view>
+        <view class="couponsBox">
+          <view a:for="{{currentMemberInfo.dailyCouponList}}" a:key="id" style="margin-left: 28rpx;">
+            <prize-coupon zoom="{{0.88}}" info="{{item}}" type="{{ item.type || 'coupon'}}" />
+          </view>
+        </view>
+      </view>
+      <view a:if="{{currentMemberInfo.id && currentMemberInfo.goodsIpCoupons && currentMemberInfo.goodsIpCoupons.length === 0}}">
+        暂无可领取权益
+      </view>
+      <view a:if="{{currentMemberInfo.status === 2}}">已领取今日会员奖励</view>
+      <view a:if="{{!currentMemberInfo.id}}">暂无更多奖励，开通会员领取更多权益</view>
+    </view>
+  </view>
+</view>

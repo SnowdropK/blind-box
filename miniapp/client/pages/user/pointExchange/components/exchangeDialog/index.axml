@@ -1,0 +1,14 @@
+<view class="mask">
+  <view class="dialogBox">
+    <view class="head"></view>
+    <view class="content">
+      <view>确定使用{{info.appoint}}积分兑换票券</view>
+      <!-- <view class="coupon">满{{info.minThreshold}}减{{info.appoint}}元券</view> -->
+    </view>
+    <view class="tip">确定后不可撤销</view>
+    <view class="btnBox">
+      <view class="btn cancel" catchTap="cancel">取消</view>
+      <view class="btn ensure" catchTap="ensure">确定</view>
+    </view>
+  </view>
+</view>

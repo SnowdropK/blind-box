@@ -1,0 +1,279 @@
+.awardres-wrap {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999999;
+}
+
+.awardres-box {
+  position: absolute;
+  width: 750rpx;
+  height: 1400rpx;
+  top: 48%;
+  left: 49%;
+  transform: translate(-50%, -50%);
+}
+
+.bgImg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 750rpx;
+  height: 1624rpx;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+}
+.congImg {
+  position: absolute;
+  top: 176rpx;
+  left: 148rpx;
+  width: 454rpx;
+  height: 138rpx;
+}
+.congImgBg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 750rpx;
+  height: 478rpx;
+  z-index: -1;
+}
+.congText {
+  position: absolute;
+  top: 330rpx;
+  left: 248rpx;
+  width: 249.33rpx;
+  height: 20rpx;
+  z-index: 9;
+}
+
+.awardresBtnBg {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 750rpx;
+  height: 220rpx;
+}
+
+.awardres-btn1, .awardres-btn2 {
+  position: absolute;
+  bottom: 64rpx;
+  width: 220rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  color: #ffffff;
+  font-size: 28rpx;
+  text-align: center;
+}
+.awardres-btn1 {
+  left: 30rpx;
+}
+.awardres-btn2 {
+  right: 30rpx;
+}
+.awardres-btn3 {
+  position: absolute;
+  left: 225rpx;
+  bottom: 120rpx;
+  width: 300rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  color: #FFD235;
+  font-size: 32rpx;
+  text-align: center;
+}
+.awardres-btn4 {
+  bottom: 70rpx;
+}
+
+.awardres-contBox {
+  position: absolute;
+  top: 380rpx;
+  left: 10rpx;
+  width: 730rpx;
+  height: 62%;
+}
+
+.awardres-scroll {
+  width: 100%;
+  height: auto;
+  padding-left: 16rpx;
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 80rpx;
+}
+.awardres-scroll.j-around {
+  justify-content: space-around;
+}
+
+.awardres-goodBox {
+  width: 150rpx;
+  height: 190rpx;
+  margin: 0 20rpx 20rpx 0;
+  position: relative;
+}
+
+.awardres-goodBox:nth-child(3n) {
+  margin-right: 0;
+}
+
+.awardres-goodImg,
+.awardres-goodTips {
+  /* position: absolute;
+  top: 0;
+  left: 0;
+  width: 150rpx;
+  height: 150rpx; */
+}
+
+.awardres-goodImg {
+  /* border: 6rpx solid #ffd188;
+  box-sizing: border-box;
+  border-radius: 15rpx; */
+}
+
+.awardres-word {
+  width: 150rpx;
+  color: #fff;
+  font-size: 22rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  padding-top: 160rpx;
+}
+
+.awardres-goodNumer {
+	position: absolute;
+	top: 6rpx;
+  left: 50%;
+  margin-left: -43rpx;
+	width: 85rpx;
+	height: 30rpx;
+	background-color: #E91F83;
+	text-align: center;
+	font-size: 20rpx;
+	color: #fff;
+	line-height: 30rpx;
+  pointer-events: none;
+  border-radius: 0 0 25rpx 25rpx;
+}
+
+.awardres-goodItemBorder {
+  position: absolute!important;
+  top: 0;
+  left: 0;
+}
+.awardres-goodItemImg {
+  position: absolute;
+  width: 168rpx;
+  height: 254rpx;
+  z-index: -1;
+}
+.awardres-goodItem {
+  width: 168rpx;
+  height: 254rpx;
+  margin-bottom: 20rpx;
+  margin-right: 10rpx;
+  border-radius: 20rpx;
+  position: relative;
+  /* overflow: hidden; */
+}
+.awardres-goodItem.mr0 {
+  margin-right: 0!important;
+}
+.awardres-goodItem:nth-child(n):nth-child(-n+6) {
+  width: 184rpx;
+  height: 280rpx;
+  margin: 0 26rpx 20rpx;
+}
+.awardres-goodItem:nth-child(n):nth-child(-n+6) .awardres-goodItemImg {
+  width: 184rpx;
+  height: 280rpx;
+}
+.awardres-goodItem:nth-child(n):nth-child(-n+6) .awardres-goodImg {
+  width: 164rpx;
+  height: 164rpx;
+}
+
+.awardres-goodImg {
+  width: 148rpx;
+  height: 148rpx;
+  margin-left: 10rpx;
+  margin-top: 12rpx;
+  border-radius: 10rpx;
+}
+.awardres-goodItemBottom {
+  border-radius: 0 0 20rpx 20rpx;
+}
+.awardres-goodInfoPrice {
+  position: absolute;
+  right: 10rpx;
+  bottom: 34rpx;
+  width: 70rpx;
+  text-align: center;
+  color: #ACE6FF;
+  font-size: 16rpx;
+  overflow: hidden;
+}
+.awardres-goodInfoProb {
+  position: absolute;
+  left: 24rpx;
+  bottom: 12rpx;
+  width: 120rpx;
+  text-align: center;
+  color: #ACE6FF;
+  font-size: 16rpx;
+}
+.awardresTry {
+  position: absolute;
+  bottom: 340rpx;
+  left: 150rpx;
+  width: 450rpx;
+  height: 114rpx;
+  color: #ffffff;
+  font-size: 27rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAcsAAAB7CAMAAAAsYVu0AAAAdVBMVEUdHR0AAAAkIhzNiQTGhgURFh4XGh39qwDzogD6pQDmmwPsoAHVlwQ/MRhHNxdxUBDflgHpmgDgmQDnmgDpmgBTPRTpmwDSjAP0ogD5qwCrdgm/ggbdlATomQCHXg3NiwTomgDqmwB5VQ+4fQjpnAAzKhnomgAdTa3TAAAAJ3RSTlPMAMzAu8zMzMzMzMzMzMzMwJYEuy3MwLzHxczMzCPMzIaNzMw5zKVCeFxTAAACsklEQVR42u3aa3KqQBRFYcR0Ny0+rgSiiZGriWb+Q4yoBT7If86utabw1dnVhSYjUglLnbDUqd+yXL7dtRrTsHv9w7Io9+uYtcX4PUtSGnTjPyzL5Xuc/m+bfsxcQoMufem3LPfv4buaX6uqKnU+oUHXb1mcKefuJigHX2v5TDlzvgvJ4ddruT1TconG6rEsyt172MyhtFaP5XlgobRXa3k3sBsG1mCPlsWWgbXao+V2D6XVHiy3OwbWbBdLBlahO8vtbs0L1m6dZUMZGVjDXSwZWIU6Syit11qWvGCt11ruVmFTQWm51nL1kS8cfx2w3I3lpILSdHeWLKzpsNSJjdUJS52w1AlLnbDUCUudbixzLG3XWX5zl8brLOv6yLcC07WWL7MUStt1lgk/eBmvs0wTsh2WOmGpE5Y6YakTljphqROWOmGpE5Y6YakTljphqROWOmGpE5Y6YakTljphqROWOmGpE5Y6YakTljphqROWOmGpE5Y6YakTljphqROWOmGpE5Y6YakTljphqROWOmGpE5Y6YakTljphqROWMvkES5G8q1ZYSuT9fPOKpUTuuIlYauTmkwxLjdzsE0uRsNQJS52w1AlLnbDUCUudsNQJS52w1Mkdp1hq5N2RuxTJ+TrPsVTIJfUk5m9Y2s/5E2Vc/2BpPufqLIb18oCl9ZqrDHG9LAssjXcd2P2JEkvbOVfnJ8rldjTC0nYu+Zo0lOUIS+M5f6UssDTeiTKPMWsGFkvT+WZgQ2iuEkvjNZTxQoml7ZqBDSFrnj1Y2u5Eef5EcCiwNJ7zi0kIZ0osbddQXgcWS2P5u1x3lVhay93m/YnyM14osbSVd+nia3Fb/RkvA4ulrbw7fkzyu7IQsp9D0W85TmmoJWk9feqtGdh+y9cxDbd/zzWUvZakEpY6YanTL0FgSzFrCb2iAAAAAElFTkSuQmCC');
+}
+.awardresTry view {
+  line-height: 40rpx;
+}
+.awardresSkip {
+  position: absolute;
+  bottom: 10rpx;
+  left: 0;
+  width: 750rpx;
+  height: 310rpx;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.awardresSkip .skipImg {
+  position: absolute;
+  top: 20rpx;
+  left: 360rpx;
+  width: 30rpx;
+  height: 30rpx;
+}
+.awardresSkip .skipCheck {
+  position: absolute;
+  top: 28rpx;
+  left: 368rpx;
+  width: 14rpx;
+  height: 15rpx;
+  background-color: #F4A100;
+  border-radius: 50%;
+}
+.awardresSkip .skipText {
+  position: absolute;
+  color: #ffffff;
+  width: 3rem;
+  text-align: center;
+  top: 0.6rem;
+  left: 2.25rem;
+  font-size: 0.24rem;
+}

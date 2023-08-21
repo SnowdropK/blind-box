@@ -1,0 +1,3 @@
+<view a:if="{{show && imageUrl}}" class="page-preview-image" catchTap="close">
+  <image class="preview-image" mode="widthFix" src="{{imageUrl}}" />
+</view>

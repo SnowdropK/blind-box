@@ -1,0 +1,10 @@
+{
+  "defaultTitle": "消息中心",
+  "navigationBarForceEnable": "true",
+  "component": true,
+  "usingComponents": {
+    "header": "./components/header/index",
+    "notice-bar": "./components/noticeBar/index",
+    "message-bc": "./components/messageBc/index"
+  }
+}

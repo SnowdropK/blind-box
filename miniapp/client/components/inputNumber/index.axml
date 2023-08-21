@@ -1,0 +1,19 @@
+<view class="fui-input__number">
+  <view class="fui-number__minus {{disabled || min >= inputValue ? 'fui-number__disabled' : ''}}" onTap="minus" style="min-height:{{parse.getMinHeight(height)}}rpx">
+    <view class="fui-minus__sign" style="background:{{signColor}};width:{{signWidth}}rpx" a:if="{{!custom}}"></view>
+    <slot></slot>
+  </view>
+  <input type="{{type}}" value="{{inputValue}}" disabled="{{disabled}}" onBlur="blur" class="fui-number__input" style="color: {{color}};font-size: {{size}}rpx;background-color: {{backgroundColor}};height:{{height}}rpx;min-height:{{height}}rpx;width:{{width}}rpx;border-radius:{{radius}}rpx;margin-left:{{margin}}rpx;margin-right:{{margin}}rpx" onInput="onInput" />
+  <view class="fui-number__plus {{disabled || inputValue >= max ? 'fui-number__disabled' : ''}}" style="min-width:{{signWidth}}rpx;min-height:{{signWidth}}rpx" onTap="plus">
+    <view class="fui-plus__sign-col" style="height:{{signWidth}}rpx;background:{{signColor}};left:50%;" a:if="{{!custom}}"></view>
+    <view class="fui-plus__sign-row" style="width:{{signWidth}}rpx;background:{{signColor}}" a:if="{{!custom}}"></view>
+    <slot name="plus"></slot>
+  </view>
+</view>
+<import-sjs module="parse">
+  module.exports = {
+    getMinHeight: function (height) {
+      return parseInt(height) - 8
+    }
+  }
+</import-sjs>

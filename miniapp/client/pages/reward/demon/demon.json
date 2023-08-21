@@ -1,0 +1,10 @@
+{
+  "navigationStyle": "custom",
+  "defaultTitle": "",
+  "navigationBarForceEnable": true,
+  "component": true,
+  "usingComponents": {
+    "notice": "/components/notice/notice",
+    "modal": "mini-antui/es/modal/index"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "navigationStyle": "custom",
+  "defaultTitle": "",
+  "navigationBarForceEnable": true,
+  "component": true,
+  "usingComponents": {
+    "notice": "/components/notice/notice",
+    "award-res": "/components/awardRes/awardRes",
+    "goto-auth": "/components/gotoAuth/gotoAuth",
+    "modal": "mini-antui/es/modal/index",
+    "navbar": "/components/nav/nav",
+    "default-modal": "/components/defaultModal/index",
+    "pay-coupon-modal": "/components/payCouponModal/payCouponModal",
+    "daily-task-modal": "/components/dailyTaskModal/index"
+  }
+}

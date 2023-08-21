@@ -1,0 +1,50 @@
+<!-- pages/user/deliverRecord/deliverRecord.wxml -->
+<view class="deliverRecordContainer">
+	<view class="commonTop">
+		<view class="deliverFilterBox">
+			<!-- <view a:for="{{deliverFilters}}" a:key="*this" class="deliverFilterItem {{!!item.act && 'deliverAct'}}" catchTap="switchView" data-info="{{item}}">
+				{{item.label}}
+			</view> -->
+			<view class="deliverFilterItem {{currentState === STATE_MAP.APPLIED ? 'deliverAct' : ''}}" catchTap="switchView" data-state="{{STATE_MAP.APPLIED}}">已申请</view>
+			<view class="deliverFilterItem {{currentState === STATE_MAP.PREPARE ? 'deliverAct' : ''}}" catchTap="switchView" data-state="{{STATE_MAP.PREPARE}}">准备中</view>
+			<view class="deliverFilterItem {{currentState === STATE_MAP.DELIVERED ? 'deliverAct' : ''}}" catchTap="switchView" data-state="{{STATE_MAP.DELIVERED}}">已发货</view>
+		</view>
+	</view>
+	<view class="commonWrapNew">
+		<view class="commonHeadNew"></view>
+	<!-- <view class="commonWrap"> /t/images/user/deliverBg1.png -->
+			<scroll-view scroll-y='true' class="deliverScrollBox" onScrollToLower='requestMoreData'>
+				<view class="noMoreTips" a:if="{{deliverRecords.length == 0}}">客官，没有了</view>
+				<block a:if="{{deliverRecords.length > 0}}">
+					<view  a:for="{{deliverRecords}}" a:key="creatTime" class="deliverApplyItem">
+						<view class="itemCard {{ item.expressNo ? 'deliverType3 itemCardBg3' : (params.state === 3 ? 'deliverType2 itemCardBg2' : 'deliverType1 itemCardBg1') }}">
+							<view class="infoTime {{ item.expressNo ? 'deliverType3' : (params.state === 3 ? 'deliverType2' : 'deliverType1') }}">{{item.creatTime}}</view>
+							<view class="recordsHeadBox delivered" a:if="{{item.expressNo}}">
+								<view>已发货{{item.expressNo || ''}}</view>
+								<view class="copyBtn" catchTap="copyExpressNo" data-no="{{item.expressNo}}">复制单号</view>
+							</view>
+							<view a:elif="{{params.state === 3}}" class="recordsHeadBox preparing">包裹打包中，等待揽收，已不能取消！</view>
+							<view class="recordsHeadBox waiting" a:else>已提交等待发货</view>
+							<view class="itemCardContent">
+								<view class="goodsNum">
+									已选赏品{{item.num}}件
+									<view class="viewGoodBtn {{ item.expressNo ? 'deliverType3' : (params.state === 3 ? 'deliverType2' : 'deliverType1') }}" catchTap="showGoodsView" data-info="{{item.goods}}">
+											点击查看
+									</view>
+								</view>
+								<view class="infoTitle">收货地址</view>
+								<view class="infoWord">{{item.add}}</view>
+								<!-- <view a:if="{{item.expressCompany}}" class="infoTitle">公司</view>
+								<view a:if="{{item.expressCompany}}" class="infoWord">
+									{{item.expressCompany || ''}}
+								</view> -->
+								<!-- <view class="infoTitle" a:if="{{item.remarks}}">备注信息</view>
+								<view class="infoWord" a:if="{{item.remarks}}">{{item.remarks}}</view> -->
+							</view>
+						</view>
+					</view>
+				</block>
+			</scroll-view>
+	</view>
+</view>
+<goods-view id="goodsView" ref="saveGoodsViewRef" />

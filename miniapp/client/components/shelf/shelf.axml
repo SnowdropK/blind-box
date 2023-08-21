@@ -1,0 +1,37 @@
+<import-sjs from="/common/utils/filter.sjs" name="filter" />
+
+<view class="wrap" touchMove="stopScroll">
+	<view class="shadow {{showAni}}" catchTap="close"></view>
+	<view class="contBox {{moveAni}}">
+		<view class="title" catchTap="close">
+			<image class="titleIcon" src="/images/icon/common/close.png" catchTap="close"></image>
+		</view>
+
+		<view class="inputBox">
+			<view class="inputLabel">一口价定价 
+				<view class="num">共 {{goods.length}} 件物品</view>
+			</view>
+			<input type="number" value="{{money}}" class="inputCont" id="inputCont" onInput="changeInput" placeholder="输入价格，最低1元"></input>
+			<view class="tips">买家付款后会立即成交，确认发布前请核对金</view>
+		</view>
+
+		<view class="orderItem">
+			<scroll-view class="goodsBox" scroll-y="true">
+					<block a:for="{{goods}}" a:key="*this">
+						<view class="goodBox">
+							<image src="{{item.url}}" mode="aspectFill" lazy-load="true" class="goodImg"></image>
+							<view class="goodInfo">
+								<view class="goodName">{{filter.formatAwardType(item.type) + ' ' + item.name}}</view>
+								<view class="goodPrice">建议价格：{{item.retrievePrice}}</view>
+								<view class="goodNum">x <text>1</text></view>
+							</view>
+						</view>
+					</block>
+			</scroll-view>
+		</view>
+
+		<view class="btnBox">
+			<view class="btn" catchTap="shelfAard">确认发布</view>
+		</view>
+	</view>
+</view>
